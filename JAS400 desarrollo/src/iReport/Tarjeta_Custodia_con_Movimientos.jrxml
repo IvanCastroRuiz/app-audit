@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tarjeta_Custodia_con_Movimientos" language="groovy" pageWidth="1099" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="1059" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f25420e-1585-4101-8d25-9b124e8d0941">
+	<property name="ireport.zoom" value="2.3579476910000063"/>
+	<property name="ireport.x" value="1017"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select TARUBI, TARNTA, TARDOC,TARNOM,TAREST,TARFES,
+MOVTIP, MOVNEG, MOVFEC, MOVVAL
+FROM subsilib.mtarjet as t1, subsilib.MOVREDL1 as t2 where
+SUBSTR (TARNTA,1,15) = t2.movtar AND TAREST ='C'
+AND MOVFEC>=TARFES
+ORDER BY TARDOC , TARNTA]]>
+	</queryString>
+	<field name="TARUBI" class="java.lang.String"/>
+	<field name="TARNTA" class="java.lang.String"/>
+	<field name="TARDOC" class="java.math.BigDecimal"/>
+	<field name="TARNOM" class="java.lang.String"/>
+	<field name="TAREST" class="java.lang.String"/>
+	<field name="TARFES" class="java.lang.String"/>
+	<field name="MOVTIP" class="java.math.BigDecimal"/>
+	<field name="MOVNEG" class="java.lang.String"/>
+	<field name="MOVFEC" class="java.math.BigDecimal"/>
+	<field name="MOVVAL" class="java.math.BigDecimal"/>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="6" width="1057" height="15" uuid="5f4819b9-87a3-4928-aba9-619758fa999d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="24" width="1057" height="13" uuid="686f913a-fd12-476b-8a61-74c65cfc4091"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="39" width="1057" height="20" uuid="db0dd9ad-d9fc-498a-b2ed-a420050bee6c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TARJETAS EN ESTADO DE CUSTODIA CON MOVIMIENTO MAYOR A LA FECHA DEL ESTADO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="305" y="2" width="144" height="20" uuid="3b0e9aa6-53cb-4547-9533-528d96fa5f51"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Trabajador]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="-29" width="100" height="20" uuid="a56005e1-e2ac-42f5-9937-6ec7cf87a520"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="-29" width="101" height="20" uuid="f3ed2309-d61e-4ea5-9c5b-ddabb2359437"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nro Tarjeta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="-29" width="102" height="20" uuid="24a63f41-3e93-493d-859f-61cc0ead3a20"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="-29" width="100" height="20" uuid="dd6032df-04ce-477a-8692-f78fa0874eca"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fec. Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="-29" width="100" height="20" uuid="1de96b06-20bb-4d6e-b5b7-8e4c713b2e42"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="649" y="-29" width="101" height="20" uuid="ead7d7ba-a9ae-4050-8d09-5b65a7e8cc83"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Mov.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="750" y="-29" width="100" height="20" uuid="70d0a75b-5990-43c4-81f8-4f28a2872efd"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Negocio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="850" y="-29" width="100" height="20" uuid="829653c9-c930-4de0-815b-02bc069eb140"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Mov.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="950" y="-29" width="100" height="20" uuid="d9f2ac4e-a018-4043-b4dc-b2aaa044dc64"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Mov.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="1" width="100" height="20" uuid="269957d6-53b9-4992-9d49-93dceffa35de"/>
+				<textFieldExpression><![CDATA[$F{TARUBI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="1" width="101" height="20" uuid="865eb679-112e-4ff6-ad64-3a1c25699df8"/>
+				<textFieldExpression><![CDATA[$F{TARNTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="1" width="102" height="20" uuid="1eb5ff75-5a4a-41fa-8b42-0609c38ce3ca"/>
+				<textFieldExpression><![CDATA[$F{TARDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="1" width="100" height="20" uuid="9ae1c6c6-c358-4fa2-ae45-9fabaafb6af6"/>
+				<textFieldExpression><![CDATA[$F{TARFES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="549" y="1" width="100" height="20" uuid="a61864ed-2737-45f1-a92a-2032c3a99840"/>
+				<textFieldExpression><![CDATA[$F{TAREST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="649" y="1" width="101" height="20" uuid="ffa2c1d6-6ee4-4a14-99fd-fbd019310073"/>
+				<textFieldExpression><![CDATA[$F{MOVTIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="750" y="1" width="100" height="20" uuid="0721d015-0301-4c63-8f6d-131ee603c4ab"/>
+				<textFieldExpression><![CDATA[$F{MOVNEG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="850" y="1" width="100" height="20" uuid="69210bf3-d825-4a7e-a99f-c465b679a3ff"/>
+				<textFieldExpression><![CDATA[$F{MOVFEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="950" y="1" width="100" height="20" uuid="554eab41-d871-4529-bc9d-f7b1ce9d8357"/>
+				<textFieldExpression><![CDATA[$F{MOVVAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="1" width="144" height="20" uuid="12e52cd2-c0cc-4cf5-a69c-57e01438fd46"/>
+				<textFieldExpression><![CDATA[$F{TARNOM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="58">
+			<staticText>
+				<reportElement x="-1" y="3" width="1051" height="50" uuid="4cb4e1cb-3a35-4f4b-bdcf-23b5b3e3fabb"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

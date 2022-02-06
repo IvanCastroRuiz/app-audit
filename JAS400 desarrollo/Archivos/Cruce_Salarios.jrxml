@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cruce_Salarios" language="groovy" pageWidth="1684" pageHeight="2380" whenNoDataType="NoDataSection" columnWidth="1644" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3d55a9d-0ca2-4e06-81c6-52718647545c">
+	<property name="ireport.zoom" value="1.771561000000013"/>
+	<property name="ireport.x" value="2025"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="FechaInicial" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SLMV" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT TX1.TRADOC , TX1.BENE , TX1.PVALIQ , TX1.PFELIQ ,IBCD , SALPLA ,
+        TX1.FECCER   ,TX1.TRAVSB , TX1.CONDOC , TX2.TRAVSB , TX1.IBC_C ,
+        TX1.SALPLA_C  , FECCER_C ,  TX1.PSALIQ , PCOLIQ,
+        (TX1.SALPLA + TX1.SALPLA_C)/$P{SLMV} AS SALARIO , TX1.PPELIQ
+        FROM
+         (  SELECT T1.TRADOC ,T2.PDBLIQ AS BENE , T2.PVALIQ , T2.PFELIQ , T2.PSALIQ, T2.PCOLIQ
+            ,T1.TRAVSB , T3.CONDOC , T2.PDBLIQ , T4.FECCER
+            , T5.IBCD , T5.SALPLA  , T7.IBCD AS IBC_C , T7.SALPLA AS
+            SALPLA_C , T6.FECCER AS FECCER_C, T2.PPELIQ
+            FROM SUBSILIB.MTRABAJ AS T1 , SUBSILIB.LIQUIPAG AS T2
+            , SUBSILIB.MCONYUG AS T3 , SUBSILIB.LIQUIPAG AS T3A ,
+           SUBSILIB.CERPLA AS T4   , SUBSILIB.CERPLAD AS T5
+            , SUBSILIB.CERPLA AS T6  , SUBSILIB.CERPLAD AS T7
+            WHERE T1.TRADOC = T2.PCTLIQ AND T1.TRADOC = T3.TRADOC
+            AND T2.PFELIQ >= $P{FechaInicial} AND T2.PFELIQ <= $P{FechaFinal}
+          AND T3.CONDOC = T3A.PCTLIQ  AND T3A.PPELIQ = T2.PPELIQ
+	AND T3A.PCOLIQ IN (1 , 30) AND T3A.PCOLIQ = T2.PCOLIQ
+          AND T2.PDBLIQ = T3A.PDBLIQ
+            AND T3.CONDOC <> 0  AND T4.NROPLA = T5.PLANIL
+            AND T5.PERDET = T4.PERAPO   AND T6.NROPLA = T7.PLANIL
+            AND T7.PERDET = T6.PERAPO
+            AND T5.CEDPLA = T1.TRADOC AND T2.PPELIQ = T4.PERAPO
+            AND T7.CEDPLA = T3.CONDOC AND T2.PPELIQ = T6.PERAPO
+         ) AS TX1 , SUBSILIB.MTRABAJ AS TX2
+ WHERE TX1.CONDOC = TX2.TRADOC  AND BENE <> 0
+       AND (TX1.SALPLA + TX1.SALPLA_C)/$P{SLMV}>=4
+       AND NOT EXISTS ( SELECT * FROM SUBSILIB.MPADRES AS Y1
+       WHERE TX1.TRADOC = Y1.TRADOC AND TX1.BENE = Y1.PADDOC)
+       ORDER BY SALARIO DESC]]>
+	</queryString>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="BENE" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<field name="IBCD" class="java.math.BigDecimal"/>
+	<field name="SALPLA" class="java.math.BigDecimal"/>
+	<field name="FECCER" class="java.math.BigDecimal"/>
+	<field name="TRAVSB" class="java.math.BigDecimal"/>
+	<field name="CONDOC" class="java.math.BigDecimal"/>
+	<field name="IBC_C" class="java.math.BigDecimal"/>
+	<field name="SALPLA_C" class="java.math.BigDecimal"/>
+	<field name="FECCER_C" class="java.math.BigDecimal"/>
+	<field name="PSALIQ" class="java.math.BigDecimal"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="SALARIO" class="java.math.BigDecimal"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="33" width="1637" height="30" uuid="5230fd7e-3418-4106-80d2-6efdc31bf006"/>
+				<textElement textAlignment="Center">
+					<font size="21" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="65" width="1637" height="30" uuid="ee7757fe-96c9-40f5-93b2-1299eb3eadbd"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="7" y="13" width="1637" height="20" uuid="bce952cb-e1da-4d70-9de9-155761bbbda6"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="0" width="100" height="18" uuid="bf427b5f-057f-41a9-aa89-4e61a5cd732d"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="0" width="100" height="18" uuid="51d63305-7467-4663-85b1-6025a72a8079"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[D. Beneficiario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="0" width="100" height="18" uuid="d1fb9d99-a2de-4954-96a8-39738fd8690d"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="0" width="100" height="18" uuid="403f6562-0577-4dac-b40c-23a94b6cd0ba"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="0" width="100" height="18" uuid="890d27b0-29c3-404d-90fa-9003cf2a5443"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Ibcd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="0" width="100" height="18" uuid="cb2b93e8-f4e5-4d2e-837d-bdbe3d190abd"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario Planilla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="607" y="0" width="100" height="18" uuid="0953444f-ae54-4e39-b976-0e0d21cbb2e2"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Planilla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="707" y="0" width="100" height="18" uuid="fbf7da50-e82f-4a20-8142-e88cc3ab2aa1"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="807" y="0" width="100" height="18" uuid="4c5ecce8-e143-4bba-a484-1f326fe93a8e"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Conyugue]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="907" y="0" width="100" height="18" uuid="166fd6bb-9591-41f7-80bb-cca04b1bc1f9"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Icdb Conyuge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1007" y="0" width="100" height="18" uuid="424957b3-05fa-4a57-9d16-9aa3f5733cac"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salpla Conyuge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1107" y="0" width="100" height="18" uuid="874e449b-ebef-4e78-97f9-e37d3018389d"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Planilla ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1207" y="0" width="100" height="18" uuid="d9ce2eae-8ba0-468b-821f-047db2565d00"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario Planilla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1307" y="0" width="205" height="18" uuid="9742166d-3433-4318-8ed5-94d4e3d79eed"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1512" y="0" width="63" height="18" uuid="d768bdb4-a217-4b8a-aa03-fc3ba17faf9e"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1575" y="-1" width="69" height="19" uuid="e112589b-791c-441a-8331-e7e921fe6e56"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conp. Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="0" width="100" height="18" uuid="1f5291bb-684e-4368-ad4f-735c1bddddf5"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="0" width="100" height="18" uuid="96e3e7ba-4982-44e3-b19f-c53fc1bc8fab"/>
+				<textFieldExpression><![CDATA[$F{BENE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="0" width="100" height="18" uuid="72e8105e-5b84-4b50-848d-0ceb3c506001"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="0" width="100" height="18" uuid="876e41c3-aef2-4ec6-b521-1daec2be132b"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="0" width="100" height="18" uuid="15895ab6-2e01-49c9-ba65-6ca1c3031718"/>
+				<textFieldExpression><![CDATA[$F{IBCD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="507" y="0" width="100" height="18" uuid="111f2e4b-b481-48bc-82b9-49b59323e188"/>
+				<textFieldExpression><![CDATA[$F{SALPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="607" y="0" width="100" height="18" uuid="db6c0741-5780-4783-a021-b5ef8154b472"/>
+				<textFieldExpression><![CDATA[$F{FECCER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="707" y="0" width="100" height="18" uuid="698ce704-6256-41e6-b790-f0fd2e7a4084"/>
+				<textFieldExpression><![CDATA[$F{TRAVSB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="807" y="0" width="100" height="18" uuid="c40c8aba-3b98-4e84-8b5c-34f6192d2955"/>
+				<textFieldExpression><![CDATA[$F{CONDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="907" y="0" width="100" height="18" uuid="8218e7fb-4eda-480d-9736-5574f3fa5bc6"/>
+				<textFieldExpression><![CDATA[$F{IBC_C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1007" y="0" width="100" height="18" uuid="3db2634f-c3e9-46a3-bf7c-3dbf07cebe57"/>
+				<textFieldExpression><![CDATA[$F{SALPLA_C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1107" y="0" width="100" height="18" uuid="1963a2ea-6c5d-4788-9423-b6d7aa302a0e"/>
+				<textFieldExpression><![CDATA[$F{FECCER_C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1207" y="0" width="100" height="18" uuid="148dc78c-f339-4f7a-a32c-8ecdb6e0ac98"/>
+				<textFieldExpression><![CDATA[$F{PSALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1307" y="0" width="205" height="18" uuid="ecdb189f-953d-4cf4-af43-a471a67cd41d"/>
+				<textFieldExpression><![CDATA[$F{SALARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1512" y="0" width="63" height="18" uuid="18e24d57-31b8-47fa-a3c7-47a6d0cf8afc"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1575" y="0" width="69" height="18" uuid="3745fb9c-66a6-4c64-82eb-448949b0bb93"/>
+				<textFieldExpression><![CDATA[$F{PCOLIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="137">
+			<staticText>
+				<reportElement x="7" y="71" width="1637" height="50" uuid="2daa06ce-6e7c-4bcd-97d0-f2f9c12f1672"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="0" width="1637" height="36" uuid="6f0ee569-ffed-4785-b2b3-c25b55cca378"/>
+				<textElement textAlignment="Center">
+					<font size="21" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="36" width="1637" height="35" uuid="ec29b293-3fe3-4ccd-90ac-fe8c8a104d9b"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Padre_Trabajador" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88ea77df-fa54-4428-8b08-9b0af3da60ce">
+	<property name="ireport.zoom" value="2.3579476910000023"/>
+	<property name="ireport.x" value="139"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from subsilib.mtrabaj as t1 , subsilib.mpadres as t2
+ where t1.tradoc =  t2.paddoc]]>
+	</queryString>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRATDC" class="java.math.BigDecimal"/>
+	<field name="TRAFAC" class="java.lang.String"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="TRAFNC" class="java.lang.String"/>
+	<field name="TRADIR" class="java.lang.String"/>
+	<field name="TRATLR" class="java.math.BigDecimal"/>
+	<field name="CIUTRA" class="java.math.BigDecimal"/>
+	<field name="BARTRA" class="java.math.BigDecimal"/>
+	<field name="TRAECV" class="java.math.BigDecimal"/>
+	<field name="EMPCOD" class="java.math.BigDecimal"/>
+	<field name="TRAFIE" class="java.lang.String"/>
+	<field name="TRACCO" class="java.math.BigDecimal"/>
+	<field name="TRACAR" class="java.math.BigDecimal"/>
+	<field name="TRAVSB" class="java.math.BigDecimal"/>
+	<field name="TRAFSB" class="java.lang.String"/>
+	<field name="TRANSB" class="java.math.BigDecimal"/>
+	<field name="TRAHTM" class="java.math.BigDecimal"/>
+	<field name="TRASRT" class="java.math.BigDecimal"/>
+	<field name="TRAFES" class="java.lang.String"/>
+	<field name="TRASEM" class="java.math.BigDecimal"/>
+	<field name="TRASRS" class="java.math.BigDecimal"/>
+	<field name="TRAFCN" class="java.lang.String"/>
+	<field name="TRAFUS" class="java.lang.String"/>
+	<field name="TRANCC" class="java.math.BigDecimal"/>
+	<field name="TRASCN" class="java.math.BigDecimal"/>
+	<field name="TRAVCC" class="java.math.BigDecimal"/>
+	<field name="TRAMCF" class="java.math.BigDecimal"/>
+	<field name="TRASGD" class="java.math.BigDecimal"/>
+	<field name="TRACTA" class="java.math.BigDecimal"/>
+	<field name="BANCOD" class="java.math.BigDecimal"/>
+	<field name="TRASSA" class="java.math.BigDecimal"/>
+	<field name="TRATEM" class="java.math.BigDecimal"/>
+	<field name="TRAAP1" class="java.lang.String"/>
+	<field name="TRAAP2" class="java.lang.String"/>
+	<field name="TRANO1" class="java.lang.String"/>
+	<field name="TRANO2" class="java.lang.String"/>
+	<field name="TRATAF" class="java.math.BigDecimal"/>
+	<field name="TRACEL" class="java.math.BigDecimal"/>
+	<field name="TRANED" class="java.math.BigDecimal"/>
+	<field name="TRAMAI" class="java.lang.String"/>
+	<field name="TRANTA" class="java.lang.String"/>
+	<field name="TRAFTA" class="java.lang.String"/>
+	<field name="PADDOC" class="java.math.BigDecimal"/>
+	<field name="PADTDC" class="java.math.BigDecimal"/>
+	<field name="PADFAC" class="java.lang.String"/>
+	<field name="PADNOM" class="java.lang.String"/>
+	<field name="PADSEX" class="java.math.BigDecimal"/>
+	<field name="PADFNC" class="java.lang.String"/>
+	<field name="PADSDC" class="java.math.BigDecimal"/>
+	<field name="PADTRS" class="java.math.BigDecimal"/>
+	<field name="PADSRS" class="java.math.BigDecimal"/>
+	<field name="PADMRS" class="java.math.BigDecimal"/>
+	<field name="PADSEM" class="java.math.BigDecimal"/>
+	<field name="PADSSV" class="java.math.BigDecimal"/>
+	<field name="PADFSV" class="java.lang.String"/>
+	<field name="PADSCN" class="java.math.BigDecimal"/>
+	<field name="PADFCN" class="java.lang.String"/>
+	<field name="PADAP1" class="java.lang.String"/>
+	<field name="PADAP2" class="java.lang.String"/>
+	<field name="PADNO1" class="java.lang.String"/>
+	<field name="PADNO2" class="java.lang.String"/>
+	<field name="PADNTA" class="java.lang.String"/>
+	<field name="PADFTA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="802" height="20" uuid="9b06ad04-d25b-49e3-8877-69f2145ef339"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="42" width="802" height="20" uuid="a2051ef6-c389-4bd3-929b-b4b2ffb751dd"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="62" width="802" height="20" uuid="fa32e09e-99ba-4b3a-8d2a-3702828f11e6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRE COMO TRABAJADOR AFILIADO]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="0" width="802" height="20" uuid="69a4a597-5bc4-4634-b91e-ece4c3c07eed"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="119" height="20" uuid="b9f7c78a-2650-48c4-81c0-5aaad8eaee76"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Padre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="1" width="174" height="20" uuid="f3696b10-4865-47b3-893d-0055bfd375c2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Padre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="1" width="100" height="20" uuid="23300b3b-d053-412a-b6c7-e82688c74f34"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="1" width="100" height="20" uuid="501f25de-075c-4210-b687-e6927b30a340"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="1" width="157" height="20" uuid="84346b16-ece0-4312-8ce6-8ec18d1f983e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Trab.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="1" width="152" height="20" uuid="f9a5ea04-8db6-41a5-825a-fe7e75c0e0c8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="119" height="20" uuid="bc6e4d53-bddc-42b2-8b96-294286e595d3"/>
+				<textFieldExpression><![CDATA[$F{PADDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="174" height="20" uuid="77096290-5965-4c2a-855b-42f963d996f8"/>
+				<textFieldExpression><![CDATA[$F{PADNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="0" width="100" height="20" uuid="8aaa830f-fe81-4888-b28b-20e7c046e027"/>
+				<textFieldExpression><![CDATA[$F{PADFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="100" height="20" uuid="951b6d28-7fa9-4e05-b3b6-cde677aa4455"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="0" width="157" height="20" uuid="e0b95f4c-aa8c-4a00-89fd-07ffb07de58c"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="0" width="152" height="20" uuid="4d69972b-5d7f-4c57-83b3-f93c75415a47"/>
+				<textFieldExpression><![CDATA[$F{TRAFNC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="129">
+			<staticText>
+				<reportElement x="5" y="76" width="792" height="40" uuid="c84eb66e-6750-4e51-bac4-eb3528561520"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="8" width="786" height="20" uuid="50299725-c09d-40ca-a408-09d7cfe9a3d3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="48" width="786" height="20" uuid="645828fa-114b-4ee9-9946-ded5098e333b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRE COMO TRABAJADOR AFILIADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="28" width="786" height="20" uuid="8b804bdf-ea8a-4461-b02b-c6c4986fc6a4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

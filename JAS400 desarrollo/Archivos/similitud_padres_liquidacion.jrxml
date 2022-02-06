@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="similitud_padres_liquidacion" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff2a2d0-2955-4eca-b8b0-fd94e56215f7">
+	<property name="ireport.zoom" value="3.452271214393105"/>
+	<property name="ireport.x" value="1978"/>
+	<property name="ireport.y" value="251"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pctliq , pdbliq ,tx3.padnom, pvaliq , ppeliq, pfeliq
+     from subsilib.liquipag as tx1 ,
+    ( select
+ t1.padap1 , t1.padap2 ,t1.padno1 ,t1.padno2 , t1.padfnc  , count(*)
+        from subsilib.mpadres as t1
+          ,    subsilib.mpadres as t2
+          where t1.paddoc <> t2.paddoc and t1.padap1 =t2.padap2
+          and t1.padap2 = t2.padap2 and t1.padno1 =t2.padno1
+          and t1.padno2 = t2.padno2  and t1.padfnc = t2.padfnc
+           group by t1.padap1 , t1.padap2 ,
+                    t1.padno1 , t1.padno2  , t1.padfnc ,
+                    t2.padap1 , t2.padap2 ,
+                    t2.padno1 , t2.padno2  , t2.padfnc
+           having count(*)>1
+        ) as tx2 , subsilib.mpadres tx3
+where tx1.pdbliq = tx3.paddoc and tx1.pctliq = tx3.tradoc
+and tx3.padno1 = tx2.padno1 and tx3.padno2 =tx2.padno2              and tx3.padap1 = tx2.padap1 and tx3.padap2=tx2.padap2
+and tx3.padfnc = tx2.padfnc
+and tx1.pfeliq >= $P{FechaInicial} and tx1.pfeliq<=$P{FechaFinal} order by tx2.padno1 , tx2.padno2 , tx2.padap1, tx2.padap2]]>
+	</queryString>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="PADNOM" class="java.lang.String"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="23" width="802" height="20" uuid="49630523-cc4e-42d5-a261-012d0fd8856f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="802" height="20" uuid="09af44f5-ce0a-4ade-8832-d0edcd9db7f8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="802" height="20" uuid="1bd56ccd-7c3d-4908-a56a-28426ab692e1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIMILITUD DE PADRE CON LIQUIDACION DE CUOTA MONETARIA]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="0" y="0" width="802" height="20" uuid="72bc0330-869f-4a4c-8c30-f251c41a6bbc"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="102" height="20" uuid="da64fe9a-d733-4f41-a900-82ee250ffba0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="1" width="100" height="20" uuid="093125bb-b129-468b-a7de-e7b6fd18cb09"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Padre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="1" width="239" height="20" uuid="5c8b9ffd-a048-4ee8-bb00-0b7ffcca8a43"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Padre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="541" y="1" width="100" height="20" uuid="e201365f-147e-4264-834d-b6148483bcf9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="641" y="1" width="161" height="20" uuid="d9a1fed0-eccf-447b-92bb-2de741ec289d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="1" width="100" height="20" uuid="ef4b90d4-9c69-45c5-bfa6-5211cc02160d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="102" height="20" uuid="f88eea81-2108-4f69-b20c-1c43da067867"/>
+				<textFieldExpression><![CDATA[$F{PCTLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="100" height="20" uuid="6ca209bb-785a-4f64-bbba-270156c594e7"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="239" height="20" uuid="1f547f80-688f-4adc-aa70-bc5e96f113cf"/>
+				<textFieldExpression><![CDATA[$F{PADNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="541" y="0" width="100" height="20" uuid="94cd4127-8744-49ed-b065-efc54959a7e1"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="641" y="0" width="161" height="20" uuid="97f344a3-461e-411a-b59f-9fff996b2bc2"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="100" height="20" uuid="03f3bd55-1411-476f-8e2b-3ed954efcfaf"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="5" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="144">
+			<staticText>
+				<reportElement x="8" y="43" width="778" height="20" uuid="d9951321-79c5-4986-ba53-aa0ccd9bc1f7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIMILITUD DE PADRE CON LIQUIDACION DE CUOTA MONETARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="23" width="778" height="20" uuid="99092e58-f24a-4126-bf07-b59ebc1456ea"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="0" width="778" height="20" uuid="2c6032f6-1831-4cc2-8fcd-77d9ea432411"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="77" width="778" height="40" uuid="372458b4-22ec-4aae-a28d-f8ac74962ba8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

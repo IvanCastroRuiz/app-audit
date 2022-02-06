@@ -1,0 +1,6 @@
+Z:\\S01 Software Auditoria\\AudiSys\\build\\classes\\Base.mdb
+Z:\\DB\\bd_talleresriesgos.mdb
+Z:\\S01 Software Auditoria\\AudiSys\\build\\classes\\Logo.jpg
+Z:\\S01 Software Auditoria\\AudiSys\\build\\classes\\AudiSys.jpg
+Z:\\S01 Software Auditoria\\JReport\\Encabezado.jpg
+Z:\\S01 Software Auditoria\\JReport\\

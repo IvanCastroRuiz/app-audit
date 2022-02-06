@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://asocajas.hp.com/bdo_cuota_monetaria" xmlns:tns1="http://asocajas.hp.com/bdo_cuota_monetaria"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://asocajas.hp.com/bdo_cuota_monetaria">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::platform:/resource/bdo_Cuota_Monetaria/Business%20Objects/bdo_Cuota_Monetaria.bom#_MNXm0MQGEeSZ7emLCBqp6Q</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="CCF" id="_wCMS0MwOEeSis7_Untmeqg" name="CCF">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="CCF02" value="CCF02"/>
+      <xsd:enumeration ecore:name="CCF03" value="CCF03"/>
+      <xsd:enumeration ecore:name="CCF04" value="CCF04"/>
+      <xsd:enumeration ecore:name="CCF05" value="CCF05"/>
+      <xsd:enumeration ecore:name="CCF06" value="CCF06"/>
+      <xsd:enumeration ecore:name="CCF07" value="CCF07"/>
+      <xsd:enumeration ecore:name="CCF08" value="CCF08"/>
+      <xsd:enumeration ecore:name="CCF09" value="CCF09"/>
+      <xsd:enumeration ecore:name="CCF10" value="CCF10"/>
+      <xsd:enumeration ecore:name="CCF11" value="CCF11"/>
+      <xsd:enumeration ecore:name="CCF13" value="CCF13"/>
+      <xsd:enumeration ecore:name="CCF14" value="CCF14"/>
+      <xsd:enumeration ecore:name="CCF15" value="CCF15"/>
+      <xsd:enumeration ecore:name="CCF16" value="CCF16"/>
+      <xsd:enumeration ecore:name="CCF21" value="CCF21"/>
+      <xsd:enumeration ecore:name="CCF22" value="CCF22"/>
+      <xsd:enumeration ecore:name="CCF24" value="CCF24"/>
+      <xsd:enumeration ecore:name="CCF26" value="CCF26"/>
+      <xsd:enumeration ecore:name="CCF29" value="CCF29"/>
+      <xsd:enumeration ecore:name="CCF30" value="CCF30"/>
+      <xsd:enumeration ecore:name="CCF32" value="CCF32"/>
+      <xsd:enumeration ecore:name="CCF33" value="CCF33"/>
+      <xsd:enumeration ecore:name="CCF34" value="CCF34"/>
+      <xsd:enumeration ecore:name="CCF35" value="CCF35"/>
+      <xsd:enumeration ecore:name="CCF36" value="CCF36"/>
+      <xsd:enumeration ecore:name="CCF37" value="CCF37"/>
+      <xsd:enumeration ecore:name="CCF38" value="CCF38"/>
+      <xsd:enumeration ecore:name="CCF39" value="CCF39"/>
+      <xsd:enumeration ecore:name="CCF40" value="CCF40"/>
+      <xsd:enumeration ecore:name="CCF41" value="CCF41"/>
+      <xsd:enumeration ecore:name="CCF43" value="CCF43"/>
+      <xsd:enumeration ecore:name="CCF44" value="CCF44"/>
+      <xsd:enumeration ecore:name="CCF46" value="CCF46"/>
+      <xsd:enumeration ecore:name="CCF48" value="CCF48"/>
+      <xsd:enumeration ecore:name="CCF50" value="CCF50"/>
+      <xsd:enumeration ecore:name="CCF56" value="CCF56"/>
+      <xsd:enumeration ecore:name="CCF57" value="CCF57"/>
+      <xsd:enumeration ecore:name="CCF63" value="CCF63"/>
+      <xsd:enumeration ecore:name="CCF64" value="CCF64"/>
+      <xsd:enumeration ecore:name="CCF65" value="CCF65"/>
+      <xsd:enumeration ecore:name="CCF67" value="CCF67"/>
+      <xsd:enumeration ecore:name="CCF68" value="CCF68"/>
+      <xsd:enumeration ecore:name="CCF69" value="CCF69"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TipodeGrupo" id="_51weoMwOEeSis7_Untmeqg" name="TipodeGrupo">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="T" value="T"/>
+      <xsd:enumeration ecore:name="C" value="C"/>
+      <xsd:enumeration ecore:name="R" value="R"/>
+      <xsd:enumeration ecore:name="D" value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="tipoIdentificacinTrabajadorConyugePadre" id="_MNHIIMQGEeSZ7emLCBqp6Q"
+      name="tipoIdentificacinTrabajadorConyugePadre">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="CD" value="CD"/>
+      <xsd:enumeration ecore:name="CC" value="CC"/>
+      <xsd:enumeration ecore:name="CE" value="CE"/>
+      <xsd:enumeration ecore:name="NU" value="NU"/>
+      <xsd:enumeration ecore:name="PA" value="PA"/>
+      <xsd:enumeration ecore:name="TI" value="TI"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="tipoIdentificacinBeneficiario" id="_MNIWQMQGEeSZ7emLCBqp6Q"
+      name="tipoIdentificacinBeneficiario">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="CD" value="CD"/>
+      <xsd:enumeration ecore:name="CC" value="CC"/>
+      <xsd:enumeration ecore:name="CE" value="CE"/>
+      <xsd:enumeration ecore:name="NU" value="NU"/>
+      <xsd:enumeration ecore:name="PA" value="PA"/>
+      <xsd:enumeration ecore:name="TI" value="TI"/>
+      <xsd:enumeration ecore:name="RC" value="RC"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DPTO" id="_EdqRgswPEeSis7_Untmeqg" name="DPTO">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="D05" value="D05"/>
+      <xsd:enumeration ecore:name="D08" value="D08"/>
+      <xsd:enumeration ecore:name="D11" value="D11"/>
+      <xsd:enumeration ecore:name="D13" value="D13"/>
+      <xsd:enumeration ecore:name="D15" value="D15"/>
+      <xsd:enumeration ecore:name="D17" value="D17"/>
+      <xsd:enumeration ecore:name="D18" value="D18"/>
+      <xsd:enumeration ecore:name="D19" value="D19"/>
+      <xsd:enumeration ecore:name="D20" value="D20"/>
+      <xsd:enumeration ecore:name="D23" value="D23"/>
+      <xsd:enumeration ecore:name="D25" value="D25"/>
+      <xsd:enumeration ecore:name="D27" value="D27"/>
+      <xsd:enumeration ecore:name="D41" value="D41"/>
+      <xsd:enumeration ecore:name="D44" value="D44"/>
+      <xsd:enumeration ecore:name="D47" value="D47"/>
+      <xsd:enumeration ecore:name="D50" value="D50"/>
+      <xsd:enumeration ecore:name="D52" value="D52"/>
+      <xsd:enumeration ecore:name="D54" value="D54"/>
+      <xsd:enumeration ecore:name="D63" value="D63"/>
+      <xsd:enumeration ecore:name="D66" value="D66"/>
+      <xsd:enumeration ecore:name="D68" value="D68"/>
+      <xsd:enumeration ecore:name="D70" value="D70"/>
+      <xsd:enumeration ecore:name="D73" value="D73"/>
+      <xsd:enumeration ecore:name="D76" value="D76"/>
+      <xsd:enumeration ecore:name="D81" value="D81"/>
+      <xsd:enumeration ecore:name="D85" value="D85"/>
+      <xsd:enumeration ecore:name="D86" value="D86"/>
+      <xsd:enumeration ecore:name="D88" value="D88"/>
+      <xsd:enumeration ecore:name="D91" value="D91"/>
+      <xsd:enumeration ecore:name="D94" value="D94"/>
+      <xsd:enumeration ecore:name="D95" value="D95"/>
+      <xsd:enumeration ecore:name="D97" value="D97"/>
+      <xsd:enumeration ecore:name="D99" value="D99"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="RegistrosCuotaMonetaria" id="_MNXm0MQGEeSZ7emLCBqp6Q"
+      name="RegistrosCuotaMonetaria">
+    <xsd:sequence>
+      <xsd:element id="_MNXm0cQGEeSZ7emLCBqp6Q" maxOccurs="unbounded" minOccurs="0"
+          name="registro54" type="Registro54"/>
+      <xsd:element ecore:name="C501" id="_Vwmbd9O7EeSpttEBXtjlXQ" maxOccurs="1" minOccurs="1"
+          name="C501">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Registro54" id="_MNSHQMQGEeSZ7emLCBqp6Q" name="Registro54">
+    <xsd:sequence>
+      <xsd:element id="_MNSHU8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0" name="registro77"
+          type="Registro77"/>
+      <xsd:element ecore:name="C501" id="_TdH10NMfEeSf3rWOqDEeww" maxOccurs="1" minOccurs="0"
+          name="C501">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C1" id="_MNSHQcQGEeSZ7emLCBqp6Q" default="54" maxOccurs="1"
+          minOccurs="0" name="C1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:maxInclusive value="999"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C581" id="_MNSHR8QGEeSZ7emLCBqp6Q" default="14" maxOccurs="1"
+          minOccurs="0" name="C581">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:maxInclusive value="99"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C169" id="_MNSHSsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C169" type="tns1:CCF"/>
+      <xsd:element ecore:name="C502" id="_MNSHTcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C502" type="xsd:date"/>
+      <xsd:element ecore:name="C503" id="_MNSHUMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C503" type="xsd:time"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Registro77" id="_MNTVYMQGEeSZ7emLCBqp6Q" name="Registro77">
+    <xsd:sequence>
+      <xsd:element ecore:name="C501" id="_Qf3lENMgEeSf3rWOqDEeww" maxOccurs="1" minOccurs="0"
+          name="C501">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C1" id="_MNTVYcQGEeSZ7emLCBqp6Q" default="77" maxOccurs="1"
+          minOccurs="0" name="C1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:maxInclusive value="999"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C780" id="_MNTVZ8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C780" type="tns1:TipodeGrupo"/>
+      <xsd:element ecore:name="C781" id="_MNTVasQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C781">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="6"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C542" id="_MNTVbcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C542">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="6"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C47" id="_MNTVcMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C47" type="tns1:tipoIdentificacinTrabajadorConyugePadre"/>
+      <xsd:element ecore:name="C48" id="_MNTVc8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C48">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="17"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C49" id="_MNTVdsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C49">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C50" id="_MNTVecQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C50">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C51" id="_MNTVfMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C51">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C52" id="_MNTVf8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C52">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C601" id="_MNTVgsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C601" type="tns1:tipoIdentificacinTrabajadorConyugePadre"/>
+      <xsd:element ecore:name="C602" id="_MNTVhcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C602">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="17"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C623" id="_MNTViMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C623">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C624" id="_MNTVi8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C624">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C625" id="_MNTVjsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C625">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C626" id="_MNTVkcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C626">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C611" id="_MNTVlMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C611" type="tns1:tipoIdentificacinBeneficiario"/>
+      <xsd:element ecore:name="C612" id="_MNTVl8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C612">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="17"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C96" id="_MNTVmsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C96">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C97" id="_MNTVncQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C97">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C98" id="_MNTVoMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="1"
+          name="C98">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C99" id="_MNTVo8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C99">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C745" id="_MNTVpsQGEeSZ7emLCBqp6Q" default="0" maxOccurs="1"
+          minOccurs="1" name="C745">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:maxInclusive value="9"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C101" id="_MNTVqcQGEeSZ7emLCBqp6Q" default="1900-01-01"
+          maxOccurs="1" minOccurs="1" name="C101" type="xsd:date"/>
+      <xsd:element ecore:name="C798" id="_MNTVrMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C798">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="6"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C26" id="_MNTVr8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C26" type="tns1:DPTO"/>
+      <xsd:element ecore:name="C27" id="_MNTVssQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C27">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C837" id="_MNTVtcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C837" type="tns1:tipoIdentificacinTrabajadorConyugePadre"/>
+      <xsd:element ecore:name="C838" id="_MNTVuMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C838">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="17"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C839" id="_MNTVu8QGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C839">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C840" id="_MNTVvsQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C840">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C841" id="_MNTVwcQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C841">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="C842" id="_MNTVxMQGEeSZ7emLCBqp6Q" maxOccurs="1" minOccurs="0"
+          name="C842">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cruce_Salario_4" language="groovy" pageWidth="1080" pageHeight="2520" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1040" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc2b1127-bc04-4799-9ebf-0f205ff619a9">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="17"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SLMV" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select salpla , PSALIQ, ibcd, Dias ,salpla/$P{SLMV} as Salario,t1.*
+      from subsilib.liquipag as t1 , subsilib.cerpla as t4 ,
+ subsilib.cerplad as t5
+where pfeliq >=$P{FechaInicial} and pfeliq <= $P{FechaFinal}
+and pcoliq in (1 , 30)
+and not exists ( select * from subsilib.mconyug as t2
+where t1.pctliq = t2.tradoc)
+and NROPLA = PLANIL and PERDET = PERAPO
+and cedpla = pctliq and perapo = ppeliq
+and (salpla/$P{SLMV})>4]]>
+	</queryString>
+	<field name="SALPLA" class="java.math.BigDecimal"/>
+	<field name="PSALIQ" class="java.math.BigDecimal"/>
+	<field name="IBCD" class="java.math.BigDecimal"/>
+	<field name="DIAS" class="java.math.BigDecimal"/>
+	<field name="SALARIO" class="java.math.BigDecimal"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PCELIQ" class="java.math.BigDecimal"/>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PCCLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="PCRLIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PDELIQ" class="java.lang.String"/>
+	<field name="PULLIQ" class="java.lang.String"/>
+	<field name="PUCLIQ" class="java.lang.String"/>
+	<field name="PFCLIQ" class="java.lang.String"/>
+	<field name="PCHLIQ" class="java.math.BigDecimal"/>
+	<field name="PTCHLI" class="java.math.BigDecimal"/>
+	<field name="PSELIQ" class="java.math.BigDecimal"/>
+	<field name="PNBLIQ" class="java.lang.String"/>
+	<field name="PESEMP" class="java.math.BigDecimal"/>
+	<field name="PDILIQ" class="java.math.BigDecimal"/>
+	<field name="PAGLIQ" class="java.math.BigDecimal"/>
+	<field name="PCALIQ" class="java.lang.String"/>
+	<field name="PRELIQ" class="java.math.BigDecimal"/>
+	<field name="PMPLIQ" class="java.math.BigDecimal"/>
+	<field name="PBCLIQ" class="java.math.BigDecimal"/>
+	<field name="PCNLIQ" class="java.math.BigDecimal"/>
+	<field name="IDLIQ" class="java.math.BigDecimal"/>
+	<field name="ESTLIQ" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="21" width="1040" height="20" uuid="bbffb1fe-86ea-4c44-b097-1579b5aaa542"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="41" width="1040" height="20" uuid="543e4ab6-0c9f-425b-b9f3-3938ef618b7a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="61" width="1040" height="20" uuid="98ba3090-0ac7-4084-ba1f-b135f9bb2b47"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPLEADO CON MAS DE 4 SLMV SIN DERECHO]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="-1" y="1" width="1040" height="20" uuid="6c41398c-d800-43b8-9c7f-2bebaa87b144"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="8" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="3d513b01-6b82-4db1-a554-8a88488b5bab"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20" uuid="ecbeeefd-4640-46a1-a83a-f9f42ea20a4a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario Plan.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20" uuid="e508af9f-856c-4295-917d-ce651ea2d57b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Beneficiario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="2" width="100" height="20" uuid="df67416a-eccb-49b4-98ef-173e5df22e8d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Ibcd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="2" width="100" height="20" uuid="c469be21-e46d-4afd-9481-2343c74a8da3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo de Liqu.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="2" width="100" height="20" uuid="4ecfc61d-d1bf-4465-8b5d-abdf656b2277"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="2" width="100" height="20" uuid="a1a6bc0d-4fae-47c4-8a2d-ed270609a381"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="800" y="2" width="239" height="20" uuid="aca3a4f6-83f1-4d68-8bca-da8539133c5c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="2" width="100" height="20" uuid="4e1c823a-83e8-47da-8b23-e95a460f21e4"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dias]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="8520c065-5cfa-4e2c-a560-f7a189090c76"/>
+				<textFieldExpression><![CDATA[$F{PCTLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="ddc83f51-7011-4d5d-be9e-571730572b96"/>
+				<textFieldExpression><![CDATA[$F{SALPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="a8e18585-6f3f-4443-9920-e2e0b81aeab0"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="acaf1708-2a08-48dc-b0c6-2a792c8b6952"/>
+				<textFieldExpression><![CDATA[$F{IBCD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20" uuid="21d9df84-a753-4bca-91e2-8048f7a72c58"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="100" height="20" uuid="49623707-f096-4562-81f6-9c2950002a3c"/>
+				<textFieldExpression><![CDATA[$F{PSALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="20" uuid="6047a0d9-6c3e-4da2-900f-8a0ac1d82e90"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="800" y="0" width="239" height="20" uuid="ada12242-1da7-45c8-9b73-e0282e97d9de"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="03ba0cc7-c241-4c09-a675-30fe6141ffcc"/>
+				<textFieldExpression><![CDATA[$F{DIAS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="3" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="11" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="121">
+			<staticText>
+				<reportElement x="0" y="81" width="1040" height="40" uuid="37bfd742-51df-4dc6-87e0-734095a39c05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="30" width="1040" height="20" uuid="6bf921ec-fff2-4174-9374-7a1dd761e9be"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="1040" height="20" uuid="12ddfad2-a544-4be5-852e-137c4983c526"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="50" width="1040" height="20" uuid="84b68eb3-3cf5-483e-a8f0-5af8e1fc3cb9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPLEADO CON MAS DE 4 SLMV SIN DERECHO]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

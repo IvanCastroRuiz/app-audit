@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Similitud_Hijos_Liquidacion" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba0aea42-0d5c-4d44-aea2-23c454f655e9">
+	<property name="ireport.zoom" value="3.4522712143931047"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="55"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pctliq , pdbliq ,tx3.hijnom, pvaliq , ppeliq, pfeliq
+     from subsilib.liquipag as tx1 ,
+    ( select
+ t1.hijap1 , t1.hijap2 ,t1.hijno1 ,t1.hijno2 , t1.hijfnc  , count(*)
+        from subsilib.mhijos as t1
+          ,    subsilib.mhijos as t2
+          where t1.hijdoc <> t2.hijdoc and t1.hijap1 =t2.hijap2
+          and t1.hijap2 = t2.hijap2 and t1.hijno1 =t2.hijno1
+          and t1.hijno2 = t2.hijno2  and t1.hijfnc = t2.hijfnc
+           group by t1.hijap1 , t1.hijap2 ,
+                    t1.hijno1 , t1.hijno2  , t1.hijfnc ,
+                    t2.hijap1 , t2.hijap2 ,
+                    t2.hijno1 , t2.hijno2  , t2.hijfnc
+           having count(*)>1
+        ) as tx2 , subsilib.mhijos tx3
+where tx1.pdbliq = tx3.hijdoc and tx1.pctliq = tx3.tradoc
+and tx3.hijno1 = tx2.hijno1 and tx3.hijno2 =tx2.hijno2              and tx3.hijap1 = tx2.hijap1 and tx3.hijap2=tx2.hijap2
+and tx3.hijfnc = tx2.hijfnc
+and tx1.pfeliq >=$P{FechaInicial}  and tx1.pfeliq<=$P{FechaFinal}
+order by tx3.hijnom]]>
+	</queryString>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="HIJNOM" class="java.lang.String"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="25" width="802" height="20" uuid="e8a8323a-0a89-4f76-9ffd-0de478e06a40"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="802" height="20" uuid="8ef08f4f-b840-4f9c-bac6-7c04bb5a2dfd"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="802" height="20" uuid="c59cd88e-4cd8-4d76-b508-631162161734"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIMILITUD DE HIJOS EN PROCESO DE LIQUIDACIÒN]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="5" width="802" height="20" uuid="9aaa4283-766f-4658-baed-f9fc8fe7a566"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="102" height="20" uuid="76f0303a-8855-444f-9032-cc45388383ae"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="0" width="100" height="20" uuid="f61c0a72-8612-474b-8d36-6be6702f371a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Hijos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="0" width="207" height="20" uuid="eacf55ed-b0ad-4e98-8c04-2ab21e614b77"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="0" width="100" height="20" uuid="a465df92-2b3f-490b-87a3-c2cc94d299eb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="0" width="100" height="20" uuid="04007533-5466-4d51-aeec-e1a598dfa894"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="609" y="0" width="193" height="20" uuid="d7ad4055-1260-4977-a557-295d5b359be6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="102" height="20" uuid="54b0e7bc-d43c-4039-88dc-53a6186b82e9"/>
+				<textFieldExpression><![CDATA[$F{PCTLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="100" height="20" uuid="eeb0adcc-7f88-4aba-b5fc-1a8e4ade52e9"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="207" height="20" uuid="83fd3178-b7e6-495b-809d-4806c0b033d8"/>
+				<textFieldExpression><![CDATA[$F{HIJNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="100" height="20" uuid="851ad066-f668-44ff-86b6-5c4ab651e37b"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="0" width="100" height="20" uuid="95a4237d-6db0-45b9-9979-e027759e10eb"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="609" y="0" width="193" height="20" uuid="0573ac79-bdd0-4972-8cb4-803ba2723463"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="156">
+			<staticText>
+				<reportElement x="0" y="50" width="802" height="20" uuid="61a4fb2e-0b12-4660-bb31-ca6b62c9a72f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIMILITUD DE HIJOS EN PROCESO DE LIQUIDACIÒN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="27" width="802" height="20" uuid="6e4ca7a6-0162-40cc-ab68-51c5a28ba974"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="7" width="802" height="20" uuid="a658581a-fd90-41d9-9fe2-6a367b4bfe7e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="81" width="802" height="40" uuid="de53265c-90f5-421c-82b1-756f56e6df7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

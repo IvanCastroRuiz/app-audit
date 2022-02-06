@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RDistribucion" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="685f1302-66a9-4181-b683-faf2ffd47a13">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PPeriodo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from selinlib.JFDISTRCAB
+where Periodo = $P{PPeriodo}
+order by ctacon]]>
+	</queryString>
+	<field name="CTACON" class="java.lang.String"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="CRESIS" class="java.math.BigDecimal"/>
+	<field name="DEBSIS" class="java.math.BigDecimal"/>
+	<field name="NTOSIS" class="java.math.BigDecimal"/>
+	<field name="PORCEN" class="java.math.BigDecimal"/>
+	<field name="NTOCAL" class="java.math.BigDecimal"/>
+	<field name="DIFERE" class="java.math.BigDecimal"/>
+	<field name="PERIODO" class="java.math.BigDecimal"/>
+	<field name="USUARI" class="java.lang.String"/>
+	<field name="FECHA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="21" uuid="6a3f39f4-316e-4d8e-8a6d-1f6ea4481209"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="802" height="20" uuid="fba9d029-d00e-474b-bbf9-174515ac0dcd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="802" height="20" uuid="827fbe3a-e84a-4b6a-a576-22aec399d623"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE DISTRIBUCION DE APORTES (CONTABLE-ESTIMADO POR AUDITORIA)]]></text>
+			</staticText>
+			<image>
+				<reportElement x="43" y="-4" width="70" height="65" uuid="ee7238f6-d706-4b6f-8b03-ebb7083561f3"/>
+				<imageExpression><![CDATA["Z:\\S01 Software Auditoria\\JAS400\\src\\logo_comfamiliar.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="4" width="139" height="20" uuid="be34c5bd-4427-4d73-823a-5120b268285e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo de generacion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="4" width="100" height="20" uuid="2cb2955a-04cc-46db-a986-d4e1c3cf33d0"/>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="4" width="100" height="20" uuid="18db1a37-6072-4201-86fd-91b26f67e52f"/>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="6" width="100" height="20" uuid="8fc6634c-4c94-49fa-9a05-df6cbc82c96e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta Contable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="6" width="100" height="20" uuid="b37c1869-ef84-4e8a-bc35-3ce86b864390"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="6" width="63" height="20" uuid="7e808aa2-347b-493f-a049-04b428d392b8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Porcentaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="6" width="100" height="20" uuid="31617caa-d041-4031-a1f7-fd9150931848"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Neto Contable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="588" y="6" width="100" height="20" uuid="e246308b-e861-43f7-b471-3945c2f7ddcd"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Neto Auditoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="706" y="6" width="100" height="20" uuid="247ddb60-1e45-4176-8266-57a008a833e5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Diferencias]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="27" y="0" width="100" height="20" uuid="2ce7f2b7-64ca-4950-a8a1-0445875fd2cd"/>
+				<textFieldExpression><![CDATA[$F{CTACON}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="235" height="20" uuid="96684e01-fe92-43e9-b11b-d8d089bde0bb"/>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="469" y="0" width="100" height="20" uuid="45a40750-79e4-414e-b19b-bbe42b5395a1"/>
+				<textFieldExpression><![CDATA[$F{NTOSIS}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="588" y="0" width="100" height="20" uuid="9c1765fa-b7bb-42eb-91b6-a50e05c70825"/>
+				<textFieldExpression><![CDATA[$F{NTOCAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="706" y="0" width="100" height="20" uuid="529d49b7-8477-40d2-9fae-24d911f5349b"/>
+				<textFieldExpression><![CDATA[$F{DIFERE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="379" y="0" width="80" height="20" uuid="fa8322a7-69ac-415b-91b2-363c1c8ce5dd"/>
+				<textFieldExpression><![CDATA[$F{PORCEN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="676" y="12" width="80" height="20" uuid="b80a7f6e-c022-4eec-8393-e83de7962c83"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="756" y="12" width="40" height="20" uuid="006bcb3f-4981-4407-85dc-1e32cbf9f01e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="22" width="251" height="20" uuid="74a619d9-ee92-4abe-9d4c-2d88b2a0878e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Auxiliar de Auditoria]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="12" width="251" height="1" uuid="26ed58b4-bbe0-4cf2-8e10-7cb0d2126106"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

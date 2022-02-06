@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZNovedad_Pos_Neg_Fecha" language="groovy" pageWidth="1449" pageHeight="2160000" orientation="Landscape" columnWidth="1449" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="aa3f4e5c-44b9-48dd-8c6e-1200b3e16ade">
+	<property name="ireport.zoom" value="2.853116706110003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="4"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select *
+from subsilib.TARJE005 as t1
+where FEGDES>=$P{FechaInicial}  and FEGDES<=$P{FechaFinal}]]>
+	</queryString>
+	<field name="CEDDES" class="java.math.BigDecimal"/>
+	<field name="FEGDES" class="java.math.BigDecimal"/>
+	<field name="HORDES" class="java.math.BigDecimal"/>
+	<field name="CTADES" class="java.lang.String"/>
+	<field name="VALDES" class="java.math.BigDecimal"/>
+	<field name="USUDES" class="java.lang.String"/>
+	<field name="FEEDES" class="java.math.BigDecimal"/>
+	<field name="TIPDES" class="java.math.BigDecimal"/>
+	<field name="USUENV" class="java.lang.String"/>
+	<field name="BOLSIL" class="java.math.BigDecimal"/>
+	<field name="PREDES" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="131" height="20" uuid="980a3383-2c60-4859-988b-872dce9709a0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CEDDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="0" width="131" height="20" uuid="fe417074-f80b-48de-acc3-f3dabb940544"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FEGDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="0" width="131" height="20" uuid="3afcb3af-3778-48b6-9171-ba43d7a4ff15"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HORDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="0" width="131" height="20" uuid="7f985a19-21dd-448f-aec5-3bab4239a9c7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CTADES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="524" y="0" width="131" height="20" uuid="7b3cb383-f807-4533-8935-2e6e4708c2dc"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VALDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="655" y="0" width="131" height="20" uuid="cb27c206-8ed5-451b-8ba9-793bdaff66e3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[USUDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="786" y="0" width="131" height="20" uuid="f3980511-b413-440e-8405-20daebcf619a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FEEDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="917" y="0" width="131" height="20" uuid="7b1e712b-0fc6-495f-b813-78a3fcb053b9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tipo (1=Pos 2=Neg)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1048" y="0" width="131" height="20" uuid="14358163-4b77-4334-b1b1-b6c32074477c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[USUENV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1179" y="0" width="131" height="20" uuid="4d504c2c-bbe8-48a6-aed2-92b0fc1ef878"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[BOLSIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1310" y="0" width="131" height="20" uuid="9a96f6de-2cdb-4f64-bcb0-a28b31bddc2d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PREDES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="131" height="20" uuid="be0305fd-e015-4041-a5ae-45bdcbc213d6"/>
+				<textFieldExpression><![CDATA[$F{CEDDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="131" height="20" uuid="b6972bb5-53ad-408b-a952-8492668609fb"/>
+				<textFieldExpression><![CDATA[$F{FEGDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="0" width="131" height="20" uuid="5ad7f1bd-893a-47f3-96de-15f6f3808217"/>
+				<textFieldExpression><![CDATA[$F{HORDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="131" height="20" uuid="ab6a6015-d0b5-4bad-bfca-4301fd756432"/>
+				<textFieldExpression><![CDATA[$F{CTADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="0" width="131" height="20" uuid="d6ab4bac-c0b9-47dc-91f9-27fea383abb5"/>
+				<textFieldExpression><![CDATA[$F{VALDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="655" y="0" width="131" height="20" uuid="ff8b59bc-d425-4d68-aad8-80966759df7e"/>
+				<textFieldExpression><![CDATA[$F{USUDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="786" y="0" width="131" height="20" uuid="5c1ddd7f-cd57-45a8-89d1-43229d4ea35d"/>
+				<textFieldExpression><![CDATA[$F{FEEDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="917" y="0" width="131" height="20" uuid="96f60977-afaa-4861-9e2d-b6f9fa4ff49c"/>
+				<textFieldExpression><![CDATA[$F{TIPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1048" y="0" width="131" height="20" uuid="4afed21e-d8ed-4f34-bc01-862c38d1ffd0"/>
+				<textFieldExpression><![CDATA[$F{USUENV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1179" y="0" width="131" height="20" uuid="f11d11a1-eb8f-48bf-a706-2c831b4f0392"/>
+				<textFieldExpression><![CDATA[$F{BOLSIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1310" y="0" width="131" height="20" uuid="10e134f5-246c-4055-b368-64036fd72450"/>
+				<textFieldExpression><![CDATA[$F{PREDES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="10" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="5" width="1439" height="40" uuid="53cf2b6c-e915-40c8-a66d-d10f2dd984e9"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATO PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

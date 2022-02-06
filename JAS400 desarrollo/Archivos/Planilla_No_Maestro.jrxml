@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Planilla_No_Maestro" language="groovy" pageWidth="1743" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="1703" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6043c27c-c7ca-4651-a459-b52487f21240">
+	<property name="ireport.zoom" value="2.853116706110009"/>
+	<property name="ireport.x" value="4251"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="776c89c9-efbc-4c4c-829e-1cc8c376e9ab"/>
+	<parameter name="PPeriodo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PCodigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  * from   subsilib.cerpla as t2
+ , subsilib.mtrabaj as t4 ,subsilib.cerplad as t3
+where nropla = planil and perdet = perapo and
+not exists (
+SELECT TI.tradoc, tranom ,
+       trafac , trafie , empcod  , perdet , valora
+       , ibcd , dias, itc , vaca , ingres , retiro
+FROM subsilib.mtrabaj as TI
+       WHERE TI.tradoc =cedpla AND codigo = empcod )
+ and   perapo = $P{PPeriodo} and codigo = $P{PCodigo}
+ and t4.tradoc = cedpla]]>
+	</queryString>
+	<field name="CONSEC" class="java.math.BigDecimal"/>
+	<field name="NOMAPO" class="java.lang.String"/>
+	<field name="VALORA" class="java.math.BigDecimal"/>
+	<field name="FECCER" class="java.math.BigDecimal"/>
+	<field name="HORMIN" class="java.math.BigDecimal"/>
+	<field name="NROAFI" class="java.math.BigDecimal"/>
+	<field name="PERAPO" class="java.math.BigDecimal"/>
+	<field name="NROPLA" class="java.lang.String"/>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="EMAIL" class="java.lang.String"/>
+	<field name="OPERAD" class="java.math.BigDecimal"/>
+	<field name="TIPOPL" class="java.lang.String"/>
+	<field name="CERSEC" class="java.math.BigDecimal"/>
+	<field name="NITEMP" class="java.math.BigDecimal"/>
+	<field name="APOEXS" class="java.lang.String"/>
+	<field name="APOLEY" class="java.lang.String"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRATDC" class="java.math.BigDecimal"/>
+	<field name="TRAFAC" class="java.lang.String"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="TRAFNC" class="java.lang.String"/>
+	<field name="TRADIR" class="java.lang.String"/>
+	<field name="TRATLR" class="java.math.BigDecimal"/>
+	<field name="CIUTRA" class="java.math.BigDecimal"/>
+	<field name="BARTRA" class="java.math.BigDecimal"/>
+	<field name="TRAECV" class="java.math.BigDecimal"/>
+	<field name="EMPCOD" class="java.math.BigDecimal"/>
+	<field name="TRAFIE" class="java.lang.String"/>
+	<field name="TRACCO" class="java.math.BigDecimal"/>
+	<field name="TRACAR" class="java.math.BigDecimal"/>
+	<field name="TRAVSB" class="java.math.BigDecimal"/>
+	<field name="TRAFSB" class="java.lang.String"/>
+	<field name="TRANSB" class="java.math.BigDecimal"/>
+	<field name="TRAHTM" class="java.math.BigDecimal"/>
+	<field name="TRASRT" class="java.math.BigDecimal"/>
+	<field name="TRAFES" class="java.lang.String"/>
+	<field name="TRASEM" class="java.math.BigDecimal"/>
+	<field name="TRASRS" class="java.math.BigDecimal"/>
+	<field name="TRAFCN" class="java.lang.String"/>
+	<field name="TRAFUS" class="java.lang.String"/>
+	<field name="TRANCC" class="java.math.BigDecimal"/>
+	<field name="TRASCN" class="java.math.BigDecimal"/>
+	<field name="TRAVCC" class="java.math.BigDecimal"/>
+	<field name="TRAMCF" class="java.math.BigDecimal"/>
+	<field name="TRASGD" class="java.math.BigDecimal"/>
+	<field name="TRACTA" class="java.math.BigDecimal"/>
+	<field name="BANCOD" class="java.math.BigDecimal"/>
+	<field name="TRASSA" class="java.math.BigDecimal"/>
+	<field name="TRATEM" class="java.math.BigDecimal"/>
+	<field name="TRAAP1" class="java.lang.String"/>
+	<field name="TRAAP2" class="java.lang.String"/>
+	<field name="TRANO1" class="java.lang.String"/>
+	<field name="TRANO2" class="java.lang.String"/>
+	<field name="TRATAF" class="java.math.BigDecimal"/>
+	<field name="TRACEL" class="java.math.BigDecimal"/>
+	<field name="TRANED" class="java.math.BigDecimal"/>
+	<field name="TRAMAI" class="java.lang.String"/>
+	<field name="TRANTA" class="java.lang.String"/>
+	<field name="TRAFTA" class="java.lang.String"/>
+	<field name="PLANIL" class="java.lang.String"/>
+	<field name="CODPLA" class="java.math.BigDecimal"/>
+	<field name="CEDPLA" class="java.math.BigDecimal"/>
+	<field name="NOMPLA" class="java.lang.String"/>
+	<field name="APEPLA" class="java.lang.String"/>
+	<field name="SALPLA" class="java.math.BigDecimal"/>
+	<field name="DIAS" class="java.math.BigDecimal"/>
+	<field name="INGRES" class="java.lang.String"/>
+	<field name="RETIRO" class="java.lang.String"/>
+	<field name="VPS" class="java.lang.String"/>
+	<field name="VTS" class="java.lang.String"/>
+	<field name="STC" class="java.lang.String"/>
+	<field name="ITC" class="java.lang.String"/>
+	<field name="LMT" class="java.lang.String"/>
+	<field name="VACA" class="java.lang.String"/>
+	<field name="ITA" class="java.lang.String"/>
+	<field name="PERDET" class="java.math.BigDecimal"/>
+	<field name="IBCD" class="java.math.BigDecimal"/>
+	<field name="PORCA" class="java.lang.String"/>
+	<field name="VALRA" class="java.math.BigDecimal"/>
+	<field name="TIPOPT" class="java.lang.String"/>
+	<field name="DIAARP" class="java.math.BigDecimal"/>
+	<field name="NITPLA" class="java.math.BigDecimal"/>
+	<field name="FECING" class="java.lang.String"/>
+	<field name="FECRET" class="java.lang.String"/>
+	<field name="FEIVSP" class="java.lang.String"/>
+	<field name="FEISLN" class="java.lang.String"/>
+	<field name="FEFSLN" class="java.lang.String"/>
+	<field name="FEIIGE" class="java.lang.String"/>
+	<field name="FEFIGE" class="java.lang.String"/>
+	<field name="FEILMA" class="java.lang.String"/>
+	<field name="FEFLMA" class="java.lang.String"/>
+	<field name="FEIVAC" class="java.lang.String"/>
+	<field name="FEFVAC" class="java.lang.String"/>
+	<field name="FEIVCT" class="java.lang.String"/>
+	<field name="FEFVCT" class="java.lang.String"/>
+	<field name="FEIIRL" class="java.lang.String"/>
+	<field name="FEFIRL" class="java.lang.String"/>
+	<field name="HORLAB" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="23" width="1703" height="20" uuid="59e31add-f79f-4471-a003-d154618866d4"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="45" width="1702" height="20" uuid="be7826a6-3d8c-4263-8547-31e9643d9268"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="1703" height="20" uuid="c331f560-f6f8-4fc7-9710-784945ce7d4f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE APORTE DE TRABAJADORES QUE NO PRESENTAN AFILIACION A LA CAJA]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="1" width="1703" height="20" uuid="a3ed5553-a9ac-480d-83c9-bf8911721653"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="2" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="489" y="0" width="100" height="19" uuid="08aa8a06-90c2-4ca4-a69a-fc5504e1d08d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="0" width="100" height="19" uuid="0ce66ff3-e983-4bca-8db5-32931ed73fda"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="106" height="19" uuid="8c3ccdad-4809-4461-ab55-c5c1f947e3aa"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="689" y="0" width="100" height="19" uuid="fbce192e-3fd7-4d3a-939f-6e74202a0165"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TIPOPL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="789" y="0" width="100" height="19" uuid="64a3955d-5d96-439d-bef5-45c79698c232"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VALORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="889" y="0" width="100" height="19" uuid="d61dbc96-a792-4b17-ba43-1d0b6d22a101"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DIAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="989" y="0" width="100" height="19" uuid="1958a3fd-e24c-4adf-9635-4710e1a3462c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[IBCD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1089" y="0" width="100" height="19" uuid="5c5f2967-d5ca-45e6-947b-664a6e77b1fe"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PORCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="0" width="100" height="19" uuid="7ae2daab-66ce-45c6-a900-7eceab8a7b9c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PERDET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1189" y="0" width="100" height="19" uuid="5cb1fccd-8383-411e-bf29-f45b8112bb48"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VPS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1289" y="0" width="100" height="19" uuid="4fbe56e8-0385-4289-ad76-e4d37a09eb6f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1389" y="0" width="100" height="19" uuid="6f2d14c7-0cdc-4ee7-89cc-dc44dc674fa0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[INGRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1489" y="0" width="101" height="19" uuid="b4152721-d461-4d43-b10e-98e132e6d667"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RETIRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="0" width="283" height="19" uuid="062baf8b-2fcc-4a23-93db-12b83defa566"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1590" y="0" width="113" height="19" uuid="f0a44b59-9c16-457d-830a-bec8273f6fff"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Ingreso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="1389" y="-1" width="100" height="19" uuid="3f777f77-3422-4207-a18a-a5a71449a2da"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INGRES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1489" y="-1" width="101" height="19" uuid="b5cc6798-17e2-4671-a531-429ed21cbc94"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RETIRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="-1" width="283" height="19" uuid="1a0d6370-fb10-40ff-8d29-c188f988ceb6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1590" y="-1" width="113" height="19" uuid="788384bf-ef4e-4667-8451-5045f91d06ed"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAFIE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="-1" width="100" height="19" uuid="9cd08dfc-04c3-43a2-87e8-828cc9974536"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="-1" width="106" height="19" uuid="eff48501-499e-4850-9334-efa70e4af5cb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEDPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="-1" width="100" height="19" uuid="01f4e65f-5bf2-4f21-869c-6f5aaf8566ff"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERAPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1289" y="-1" width="100" height="19" uuid="8f011ac9-8dc6-41a0-abaa-ef8ae15799e5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VTS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1189" y="-1" width="100" height="19" uuid="45b8cfb5-d851-4e53-be6d-c720fe52ca73"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VPS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1089" y="-1" width="100" height="19" uuid="26e57d7e-f0c9-4ba5-9f8d-268f599f64ae"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PORCA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="589" y="-1" width="100" height="19" uuid="8b29738b-ee6c-4734-8413-e566fe8a7768"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERDET}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="989" y="-1" width="100" height="19" uuid="97b20cbe-5e7f-4705-8c32-216e26a69e09"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBCD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="889" y="-1" width="100" height="19" uuid="fbd386ca-3224-479a-8717-770b381b9cc7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIAS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="789" y="-1" width="100" height="19" uuid="7ad50a53-6627-420e-aea4-531ded9882fd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VALORA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="689" y="-1" width="100" height="19" uuid="5258001e-0bf0-448f-9abd-6234db336cd8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TIPOPL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="10" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="17" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="150">
+			<staticText>
+				<reportElement x="7" y="92" width="1969" height="40" uuid="05c2dbc3-1a45-43e0-b593-eaa9d18cd526"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="10" width="1948" height="20" uuid="3969efd4-49ff-4908-a104-6dd268520c15"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="60" width="1948" height="20" uuid="b5dd36c5-f915-4e70-aa47-fcc1a86348f1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE APORTE DE TRABAJADORES QUE NO PRESENTAN AFILIACION A LA CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="34" width="1948" height="20" uuid="4007c741-4a7e-43e6-bddd-8b97fc379aba"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

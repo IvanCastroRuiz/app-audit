@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="zsaldo_CAC" language="groovy" pageWidth="842" pageHeight="7200" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb85ba7c-6e39-49a9-b6cc-af46901af33b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select fecha,codigocac,descrip, de, para, valor, t2.* from selinlib.jsaldos as t1, selinlib.JCCENTROS as t2
+where fecha >= $P{FechaInicial} and fecha<= $P{FechaFinal}
+and t2.codigo=t1.codigocac
+and De= 99999999
+order by Codigo]]>
+	</queryString>
+	<field name="FECHA" class="java.math.BigDecimal"/>
+	<field name="CODIGOCAC" class="java.math.BigDecimal"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="DE" class="java.math.BigDecimal"/>
+	<field name="PARA" class="java.math.BigDecimal"/>
+	<field name="VALOR" class="java.math.BigDecimal"/>
+	<field name="CAC" class="java.math.BigDecimal"/>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="CODCONT" class="java.math.BigDecimal"/>
+	<field name="CODTARJ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="20" uuid="8798447a-6ced-476e-a392-059eefd9a167"/>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="80" height="20" uuid="9a06b1f0-fbed-4352-882c-2f543eecfcc6"/>
+				<text><![CDATA[CODIGOCAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="80" height="20" uuid="0db3c321-ee1a-48a5-a9c2-e7cfa8439dc4"/>
+				<text><![CDATA[DESCRIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="80" height="20" uuid="5751ed68-b868-4290-9584-1cae52abcdde"/>
+				<text><![CDATA[DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="80" height="20" uuid="c1f6d3ab-d1a7-4c58-8f30-de79bcc7ebaa"/>
+				<text><![CDATA[PARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="80" height="20" uuid="7acbe0f1-e131-48dc-bb1c-05e776064369"/>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="80" height="20" uuid="b0b70930-8251-4b90-aa92-7362a1b335bd"/>
+				<text><![CDATA[CAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="0" width="80" height="20" uuid="b68d84be-e459-4027-8241-f4c8a159a24b"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="0" width="80" height="20" uuid="bb87172e-8743-4a49-b376-150d0cb2430b"/>
+				<text><![CDATA[CODCONT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="0" width="80" height="20" uuid="0881ed21-360a-4d41-9aa4-fbd32a6af8c5"/>
+				<text><![CDATA[CODTARJ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="e8e55240-670c-4ff4-aea1-31a9266a4861"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="20" uuid="765bbc2f-dd23-4caf-b83c-5004568bf761"/>
+				<textFieldExpression><![CDATA[$F{CODIGOCAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="80" height="20" uuid="76ba5a03-fc26-46de-a380-c62a9a5a1f15"/>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="80" height="20" uuid="523c478c-138d-48d5-9f50-be092fc1cb20"/>
+				<textFieldExpression><![CDATA[$F{DE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="80" height="20" uuid="70d22ef4-d3e0-427d-b201-e1bd1223f3b5"/>
+				<textFieldExpression><![CDATA[$F{PARA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="80" height="20" uuid="f6333510-86c9-4b94-b83d-e0ddde5b6d42"/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="80" height="20" uuid="b2efeced-33ea-4a3a-b37a-bf0a43ed68be"/>
+				<textFieldExpression><![CDATA[$F{CAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="0" width="80" height="20" uuid="2c53228e-e2af-4365-8fe0-abfdf0573e6f"/>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="0" width="80" height="20" uuid="44f3a445-b295-4075-8c31-e7d986f198d8"/>
+				<textFieldExpression><![CDATA[$F{CODCONT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="720" y="0" width="80" height="20" uuid="cfcc22b8-da33-4920-b690-604619542fa7"/>
+				<textFieldExpression><![CDATA[$F{CODTARJ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

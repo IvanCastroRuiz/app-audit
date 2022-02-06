@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZComprobante" language="groovy" pageWidth="1656" pageHeight="720000" orientation="Landscape" columnWidth="1616" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d552cddb-2dd8-4b95-96ae-da34aec14d2a">
+	<property name="ireport.zoom" value="0.8264462809917363"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Comprobante" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT CTAMOV,CENMOV, NOMCTA,TERMOV,NOMTER,FECMOV,NUMMOV, DEBMOV DEBITO, CREMOV CREDITO FROM
+CONDATNIC.MOVIMI , CONDATNIC.CUENTA , CONDAT2006.TERCER
+WHERE
+CTAMOV=CODCTA AND
+FECMOV >=$P{FechaInicial}    AND FECMOV <=$P{FechaFinal}
+and DOCMOV =$P{Comprobante} and TERMOV=CODTER
+
+ORDER BY 1]]>
+	</queryString>
+	<field name="CTAMOV" class="java.lang.String"/>
+	<field name="CENMOV" class="java.lang.String"/>
+	<field name="NOMCTA" class="java.lang.String"/>
+	<field name="TERMOV" class="java.math.BigDecimal"/>
+	<field name="NOMTER" class="java.lang.String"/>
+	<field name="FECMOV" class="java.math.BigDecimal"/>
+	<field name="NUMMOV" class="java.math.BigDecimal"/>
+	<field name="DEBITO" class="java.math.BigDecimal"/>
+	<field name="CREDITO" class="java.math.BigDecimal"/>
+	<variable name="DEBITO_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEBITO}]]></variableExpression>
+	</variable>
+	<variable name="CREDITO_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CREDITO}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="21" width="1129" height="20" uuid="072e9c92-a720-4731-afa5-0c5e07136297"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="42" width="1129" height="20" uuid="b66ff919-8e38-46a6-945c-fec88698eb1a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="1129" height="20" uuid="d7a0f213-a195-4ce6-ad3a-b0cd12a6659c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE COMPROBANTES REGISTRADO EN LA CONTABILIDAD ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="88" width="200" height="20" uuid="d5e696e2-aeb4-4528-bfeb-21cf19bcdff5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="108" width="200" height="20" uuid="4f008fb2-a623-4496-8e44-48d97c90bd5d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="88" width="161" height="20" uuid="9426fa4d-1991-4361-885a-8d830831f40e"/>
+				<text><![CDATA[Comprobante:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="88" width="199" height="20" uuid="34306af9-d9eb-4468-ad60-1d5a8394864e"/>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="108" width="199" height="20" uuid="e1bcddde-8b2c-4c2b-884d-8edccc6d577d"/>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="88" width="166" height="20" uuid="b721d65d-8242-4796-aa1b-61aaea55b50d"/>
+				<textFieldExpression><![CDATA[$P{Comprobante}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="726" y="1" width="403" height="20" uuid="a2416120-1298-484d-bf98-f73b9fa7c824"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="20" uuid="c5a4d2b9-1f54-424c-b52e-c2407b614cde"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CTAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="199" height="20" uuid="68f417ad-451d-4241-986f-374e27407555"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMCTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1185" y="0" width="201" height="20" uuid="49f95b35-2550-478b-b010-6fc9bb5f23d5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DEBITO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1386" y="0" width="202" height="20" uuid="1b4e460c-59ea-47d8-8c18-d78592ab6ab2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CREDITO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="591" y="0" width="84" height="20" uuid="399b446a-1f27-4b1a-983e-104315ce18d2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1019" y="0" width="166" height="20" uuid="84d5fd1f-8779-4c99-92c2-30a9b13b133e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NUMERO DEL DOCUMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="676" y="1" width="100" height="20" uuid="b27c2f73-1e54-48c0-afa4-ffb7edd7d0b1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TERCER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="776" y="1" width="243" height="20" uuid="8fa3dad5-6d3c-4cc9-977a-e53aecf3a822"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL TERCERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="1" width="100" height="20" uuid="67faba34-c7a3-4748-9ef5-209798d541bb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CENMOV]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="200" height="20" uuid="1f6ae313-e8aa-4e7b-b544-226b1d4c4190"/>
+				<textFieldExpression><![CDATA[$F{CTAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="199" height="20" uuid="ba2f95ce-234a-47f0-b5c8-37706ef4bd1b"/>
+				<textFieldExpression><![CDATA[$F{NOMCTA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="1185" y="0" width="201" height="20" uuid="f0726f9c-ec10-4dcc-a99e-6b849230e18a"/>
+				<textFieldExpression><![CDATA[$F{DEBITO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="1386" y="0" width="202" height="20" uuid="65f2a27a-56d9-46f1-8756-933806faf52b"/>
+				<textFieldExpression><![CDATA[$F{CREDITO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="591" y="0" width="84" height="20" uuid="869babcb-22de-4417-8a20-1c6dc9f50cc5"/>
+				<textFieldExpression><![CDATA[$F{FECMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1019" y="0" width="166" height="20" uuid="fe7379e2-ae94-4a51-bbae-a82fdcf3b060"/>
+				<textFieldExpression><![CDATA[$F{NUMMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="0" width="100" height="20" uuid="76c77ab0-ebb3-4c0b-a085-eadcaadf6917"/>
+				<textFieldExpression><![CDATA[$F{TERMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="776" y="0" width="243" height="20" uuid="b13e5179-583e-46f4-aae7-5fc6f061b278"/>
+				<textFieldExpression><![CDATA[$F{NOMTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="100" height="20" uuid="d91092c5-5b19-4225-95d2-b37eee0fbe79"/>
+				<textFieldExpression><![CDATA[$F{CENMOV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="24" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="1185" y="1" width="201" height="20" uuid="7702501f-ffd1-48dd-bdcc-8df67edba30f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{DEBITO_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="1386" y="1" width="202" height="20" uuid="64c32206-245b-4a3b-9c90-36cc03e9e350"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CREDITO_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

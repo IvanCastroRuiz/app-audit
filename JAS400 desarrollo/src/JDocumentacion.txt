@@ -1,0 +1,95 @@
+/**
+ *
+ * @author     : GARYN JAIRO CARRILLO CABALLERO GACA1186
+ * Derecho     : COMFAMILIAR ATLÁNTICO
+ * Version 1.0 : Version Original 2012-02-24
+ */
+
+2011-12-01 - 2012-01-31
+1   Diseño de Base de Datos a Implementar en la aplicacion
+
+2   Diseño de Gui de presentacion de aplicacion e incio de desarrollo de
+    coneccion con Base de Datos acces y desarrollo de clase Basicas para el 
+    inicio del Desarrollo.
+
+3   Mediante las rutinas setTaller y  la rutina setRiesgos se migra la informacion
+    realizadas de mediante el servidor adrecc.
+
+2012-02-01 - 2012-02-15
+1   No se trabajo en el proyecto ya que se realizaron actividades del plan
+    trabajo y actividades requeridas de direccion.
+
+2012-02-16
+1   Inicio de rutina para cargar causa del servidor adrecc
+
+2012-02-22
+
+1   Se corrigio error producido por modificacion de codigo el dia 2012-02-16
+    y la excepcion de que el resultset no se podia generar.
+
+2   Se creo la rutina que se encarga de traer por interfaz la informacion correspondiente
+    causa-riesgo-taller.
+
+
+2012-02-23 - 2012-02-24
+
+1   Se creo la rutina que se encarga de traer por interfaz la informacion correspondiente
+    acciones-accionescasusa.
+
+Nota: Se finalizó la version original diseñada para la clase JTaller.
+
+2 Se incia el proceso para que los usuarios puedan priorizar los riesgos segun el area y
+  proceso que deseen evaluar.
+
+2012-02-28 - 2012-03-06
+
+1 Asignacion de trabajo por recursos y por tiempo estimado.
+
+2012-03-07
+
+1 Inicio del proceso de planeacion de auditoria mediante la asignacion de recursos. 
+
+2012-03-08 hasta 2012-06-22
+Levantamiento y construccion de los Mapas de Riesgo de Comfamiliar Atlantico.
+
+2012-03-23
+Se decidio unificar el aplicativo para el proceso de Auditoria con el Aplicativo
+de Control de Ingreso con el fin de Unificar criterios  y darle valor agregado
+al proceso de desarrollo del aplicativo.
+
+2012-04-01 hasta 2012-11-02
+Se implemento la generación de resporte en un archivo pdf de los ingresos
+recibidos por centros de atencion y de las salidas generadas por
+entrega de subsidio mediante tarjeta multiservicio.
+
+Se implemento un sismtema de control de ingreso en base a los mivimiento
+manejado por el centro de atencion calle 48.
+
+Se implemento la administracion de los saldos por centros de atencion
+mediante obtencion de saldos en el sistema de gestion  de recaudo y 
+mediante el ingreso de los otros movimiento generado entre los diferentes
+centros de atencion y los dineros recibidos mediante los bancos.
+
+Se generaron los diferentes reporte solicitados por los usuarios del aplictivo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

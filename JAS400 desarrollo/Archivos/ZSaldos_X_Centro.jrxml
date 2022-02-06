@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZSaldos_X_Centro" language="groovy" pageWidth="842" pageHeight="72000" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bafc0853-d9ae-4d58-9631-d269bab1a6c9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select codigocac, t2.DESCRIP,fecha, valor, de, para
+from selinlib.jsaldos as t1, selinlib.JCCENTROS as t2
+where t1.CODIGOCAC=t2.CODIGO
+and De= 99999999 and FECHA>=$P{FechaInicial} and FECHA<=$P{FechaFinal}
+order by codigocac, fecha]]>
+	</queryString>
+	<field name="CODIGOCAC" class="java.math.BigDecimal"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="FECHA" class="java.math.BigDecimal"/>
+	<field name="VALOR" class="java.math.BigDecimal"/>
+	<field name="DE" class="java.math.BigDecimal"/>
+	<field name="PARA" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="802" height="20" uuid="e00a1e6c-9d69-4693-89fb-00404f12095a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="802" height="20" uuid="0a233b80-8cc2-48e3-91ce-fa142c4902a1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="802" height="20" uuid="23220e1f-18e3-4624-a8cb-aee859c5ca69"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE CONTROL DE SALDOS POR CENTROS DE ATENCION (DETALLADO)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="133" height="20" uuid="6e36d2e9-951c-44b3-9d55-59c2916f568f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CODIGOCAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="0" width="133" height="20" uuid="6a401aae-1272-4a2d-9454-e51bcd3059b0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="133" height="20" uuid="926c50ea-ff02-48ce-82a7-8819222eff51"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="0" width="133" height="20" uuid="9bf5ba96-a6f6-45cc-b68f-6ed3b9df1bd3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="532" y="0" width="133" height="20" uuid="fa421151-ec3f-4ceb-bfc1-2f461d892c39"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="0" width="133" height="20" uuid="0bc1897e-cdf0-4077-b03b-9fc777b50cdb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="133" height="20" uuid="6d082840-596e-452d-abc2-fa21ed6a4a4f"/>
+				<textFieldExpression><![CDATA[$F{CODIGOCAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="0" width="133" height="20" uuid="504f78c1-b6c9-4473-bf25-6e81eaa75e05"/>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="133" height="20" uuid="719b14ad-8a31-47b5-929e-6d53b2b4d43e"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="399" y="0" width="133" height="20" uuid="914eac2e-3990-4c2b-bcfb-92b09a10f1d0"/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="0" width="133" height="20" uuid="9d945bdd-bc02-49be-a66b-998b6908e606"/>
+				<textFieldExpression><![CDATA[$F{DE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="665" y="0" width="133" height="20" uuid="46881ef0-848c-4153-bc69-415e8f1af524"/>
+				<textFieldExpression><![CDATA[$F{PARA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="14" width="802" height="36" uuid="1079db21-b45d-4486-a4b0-b328b41d6e10"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY INFORMACION PARA PRESENTAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

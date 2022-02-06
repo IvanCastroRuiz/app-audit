@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hijo_Trabajador_Afiliado" language="groovy" pageWidth="1072" pageHeight="576" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1032" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f686ea1-ac10-4084-97b8-5546c9dcfb25">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="950"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select t2.tradoc as padre , t1.*,t2.* from subsilib.mtrabaj as t1 , subsilib.mhijos as t2
+ where t1.tradoc =  t2.hijdoc]]>
+	</queryString>
+	<field name="PADRE" class="java.math.BigDecimal"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRATDC" class="java.math.BigDecimal"/>
+	<field name="TRAFAC" class="java.lang.String"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="TRAFNC" class="java.lang.String"/>
+	<field name="TRADIR" class="java.lang.String"/>
+	<field name="TRATLR" class="java.math.BigDecimal"/>
+	<field name="CIUTRA" class="java.math.BigDecimal"/>
+	<field name="BARTRA" class="java.math.BigDecimal"/>
+	<field name="TRAECV" class="java.math.BigDecimal"/>
+	<field name="EMPCOD" class="java.math.BigDecimal"/>
+	<field name="TRAFIE" class="java.lang.String"/>
+	<field name="TRACCO" class="java.math.BigDecimal"/>
+	<field name="TRACAR" class="java.math.BigDecimal"/>
+	<field name="TRAVSB" class="java.math.BigDecimal"/>
+	<field name="TRAFSB" class="java.lang.String"/>
+	<field name="TRANSB" class="java.math.BigDecimal"/>
+	<field name="TRAHTM" class="java.math.BigDecimal"/>
+	<field name="TRASRT" class="java.math.BigDecimal"/>
+	<field name="TRAFES" class="java.lang.String"/>
+	<field name="TRASEM" class="java.math.BigDecimal"/>
+	<field name="TRASRS" class="java.math.BigDecimal"/>
+	<field name="TRAFCN" class="java.lang.String"/>
+	<field name="TRAFUS" class="java.lang.String"/>
+	<field name="TRANCC" class="java.math.BigDecimal"/>
+	<field name="TRASCN" class="java.math.BigDecimal"/>
+	<field name="TRAVCC" class="java.math.BigDecimal"/>
+	<field name="TRAMCF" class="java.math.BigDecimal"/>
+	<field name="TRASGD" class="java.math.BigDecimal"/>
+	<field name="TRACTA" class="java.math.BigDecimal"/>
+	<field name="BANCOD" class="java.math.BigDecimal"/>
+	<field name="TRASSA" class="java.math.BigDecimal"/>
+	<field name="TRATEM" class="java.math.BigDecimal"/>
+	<field name="TRAAP1" class="java.lang.String"/>
+	<field name="TRAAP2" class="java.lang.String"/>
+	<field name="TRANO1" class="java.lang.String"/>
+	<field name="TRANO2" class="java.lang.String"/>
+	<field name="TRATAF" class="java.math.BigDecimal"/>
+	<field name="TRACEL" class="java.math.BigDecimal"/>
+	<field name="TRANED" class="java.math.BigDecimal"/>
+	<field name="TRAMAI" class="java.lang.String"/>
+	<field name="TRANTA" class="java.lang.String"/>
+	<field name="TRAFTA" class="java.lang.String"/>
+	<field name="CONDOC" class="java.math.BigDecimal"/>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="HIJTDC" class="java.math.BigDecimal"/>
+	<field name="HIJFAC" class="java.lang.String"/>
+	<field name="HIJNOM" class="java.lang.String"/>
+	<field name="HIJSEX" class="java.math.BigDecimal"/>
+	<field name="HIJFNC" class="java.lang.String"/>
+	<field name="HIJTHJ" class="java.math.BigDecimal"/>
+	<field name="HIJSDC" class="java.math.BigDecimal"/>
+	<field name="HIJTRS" class="java.math.BigDecimal"/>
+	<field name="HIJSRS" class="java.math.BigDecimal"/>
+	<field name="HIJMRS" class="java.math.BigDecimal"/>
+	<field name="HIJSEM" class="java.math.BigDecimal"/>
+	<field name="HIJSED" class="java.math.BigDecimal"/>
+	<field name="HIJSTR" class="java.math.BigDecimal"/>
+	<field name="CEDCOD" class="java.math.BigDecimal"/>
+	<field name="HIJCTG" class="java.math.BigDecimal"/>
+	<field name="HIJNED" class="java.math.BigDecimal"/>
+	<field name="HIJSES" class="java.math.BigDecimal"/>
+	<field name="HIJFES" class="java.lang.String"/>
+	<field name="HIJSCN" class="java.math.BigDecimal"/>
+	<field name="HIJFCN" class="java.lang.String"/>
+	<field name="HIJAP1" class="java.lang.String"/>
+	<field name="HIJAP2" class="java.lang.String"/>
+	<field name="HIJNO1" class="java.lang.String"/>
+	<field name="HIJNO2" class="java.lang.String"/>
+	<field name="HIJNTA" class="java.lang.String"/>
+	<field name="HIJFTA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="23" width="1033" height="20" uuid="7dbcca3d-5cf6-4b0e-898c-805bbb44fcab"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="43" width="1033" height="20" uuid="d9d3af7f-ebf8-48df-9978-9dc169f888fa"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="63" width="1033" height="20" uuid="14d75b98-727d-46a0-b85c-16cb8c39ac7e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS AFILIADOS COMO TRABAJADORES]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="0" width="1032" height="20" uuid="57345d95-1c5d-49ad-9e4b-971677b9f790"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="26" width="1032" height="1" uuid="0ff143fe-89c7-4b1f-874c-e103c39a32f9"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="119" y="1" width="100" height="20" uuid="6058bceb-e358-46dd-a71e-3605f28b6ab8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="1" width="100" height="20" uuid="8379c3b6-e9f4-48a2-9ca1-c74f0516aba0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="1" width="100" height="20" uuid="6dad4195-45db-4120-b07c-c087d6410391"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="1" width="100" height="20" uuid="0e849f5b-3046-4485-a3d2-26a7b515f529"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Recibe Subsidio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="564" y="1" width="100" height="20" uuid="637bfe0c-d413-4efd-be4e-1a43c4933754"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="831" y="1" width="100" height="20" uuid="93d3f8d6-5f91-4557-b60e-abaf62f8fa38"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="119" height="20" uuid="22e9c7e5-dd0f-4490-839f-76c16ef7f3b2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Padre Hij.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="931" y="1" width="101" height="20" uuid="a9896982-9b3e-48da-baf0-3cc38dc253bb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Afiliacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="1" width="165" height="20" uuid="4b587298-f7d0-4a5a-8c52-25db3b5734e7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Trabajador]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="119" y="1" width="100" height="20" uuid="04852dca-12ea-45a5-8c41-e69dcfe8622f"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="1" width="100" height="20" uuid="aab4578b-f448-4914-b966-98cd517b41a7"/>
+				<textFieldExpression><![CDATA[$F{HIJNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="1" width="100" height="20" uuid="76640796-8d02-4bc1-8808-2d47e63ffdbf"/>
+				<textFieldExpression><![CDATA[$F{HIJFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="1" width="100" height="20" uuid="283319df-fc9c-44b5-b6a5-8fd5d7c0a65f"/>
+				<textFieldExpression><![CDATA[$F{TRASRS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="564" y="1" width="100" height="20" uuid="b9c557ae-34de-4243-ad62-e4490e325bf6"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="830" y="1" width="100" height="20" uuid="cfe8848a-f9e3-4b52-a061-dc7df9923b17"/>
+				<textFieldExpression><![CDATA[$F{TRAFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="119" height="20" uuid="94ee98c2-514e-4ac7-b04c-2407492f3a85"/>
+				<textFieldExpression><![CDATA[$F{PADRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="930" y="1" width="102" height="20" uuid="8b40e8ef-f0ab-4f09-ae8e-4a161e32a0a1"/>
+				<textFieldExpression><![CDATA[$F{TRAFAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="665" y="1" width="165" height="20" uuid="85cc2377-0134-42d6-a035-a1e220d65b69"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="122">
+			<staticText>
+				<reportElement x="27" y="48" width="1023" height="20" uuid="be624467-1f0d-450a-be69-12663ac2e75c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS AFILIADOS COMO TRABAJADORES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="8" width="1040" height="20" uuid="75dbebbb-2287-43a5-b4b2-995dd9b888cb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="28" width="1040" height="20" uuid="654ecf65-fb08-4839-a148-43f4457e97b1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="71" width="1040" height="50" uuid="c57575a4-8016-448c-8308-2b82d4e3a65a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Padre_Menor60" language="groovy" pageWidth="1224" pageHeight="2160" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5bbb121c-8e05-4a6d-a402-224b86296102">
+	<property name="ireport.zoom" value="1.6105100000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+ ( ppeliq  - int(substring(padfnc, 1 , 6)) )/100   as edad
+,  substring(padfnc, 1 , 6) ,  ppeliq  , pctliq , pdbliq, padnom
+, pcoliq , pvaliq,padsdc, padfnc,pfeliq,paddoc
+from subsilib.liquipag as t1 , subsilib.mpadres as t2
+where pfeliq >= $P{FechaInicial}   and pfeliq <= $P{FechaFinal}  and pdbliq = paddoc  and padsdc = 0 and (( ppeliq  - int(substring(padfnc, 1 , 6)) )/100)<60
+order by 1 asc]]>
+	</queryString>
+	<field name="EDAD" class="java.math.BigDecimal"/>
+	<field name="00002" class="java.lang.String"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="PADNOM" class="java.lang.String"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PADSDC" class="java.math.BigDecimal"/>
+	<field name="PADFNC" class="java.lang.String"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<field name="PADDOC" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="28" width="1181" height="20" uuid="8d53683c-51b2-48b9-aecf-a669d4419c15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="48" width="1181" height="20" uuid="0dcc30bc-c738-41d5-a6b9-87c8660da7af"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="68" width="1181" height="20" uuid="b1e7c681-7c19-4a28-bad2-2e19a5966f9d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRE MENOR DE 60 QUE SE LES PAGO CUOTA MONETARIA]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="8" width="1181" height="20" uuid="3dbee850-e074-431a-b38f-3f6040bdfe68"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="103" height="20" uuid="1c7637e7-9b86-4f33-8e67-6e5401988ad6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="2" width="100" height="20" uuid="8b17fff6-a5a4-4242-bcb6-ab1dda91bfae"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[00002]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="2" width="100" height="20" uuid="316d8b9b-6cae-469d-aad0-40fb5cfcaf6c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo Liq]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="2" width="100" height="20" uuid="a244fd83-d93f-4c5f-85a9-6aca95000aa9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="2" width="100" height="20" uuid="128cbaa7-bc67-43c0-9ba6-acc909c69f93"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Padre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="2" width="100" height="20" uuid="1257fd01-5b07-4e41-adc6-36a648aa68cf"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Padre.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="603" y="2" width="100" height="20" uuid="7452122a-7d36-4da6-80be-5995c83f2d80"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concepto Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="703" y="2" width="100" height="20" uuid="3b14db98-fcc2-4559-9ca3-ff1c738ea74c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="803" y="0" width="100" height="20" uuid="9906f209-b572-4f3f-9377-a2c90813a8b0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Señal Discap.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="903" y="0" width="100" height="20" uuid="927845d0-c72a-42fd-9550-70ffec9f5021"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1003" y="0" width="178" height="20" uuid="936e51b9-2eee-43db-8eae-5dfd354315ae"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="103" height="20" uuid="0a2025e3-9c7a-458d-bc0f-007c56a3009d"/>
+				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="2" width="100" height="20" uuid="dc7cb5d0-cb2a-48f3-b568-848bd8bc00ab"/>
+				<textFieldExpression><![CDATA[$F{00002}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="2" width="100" height="20" uuid="4d7f5605-45d5-4cb4-a1b8-89bda7c35451"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="2" width="100" height="20" uuid="2c717f81-b1c6-4a46-9098-4fa50d1bb5c4"/>
+				<textFieldExpression><![CDATA[$F{PCTLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="2" width="100" height="20" uuid="44d52001-1eae-49c8-8835-06770312b48c"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="2" width="100" height="20" uuid="d376aba1-b33a-4f8b-84fe-c0cc67488de5"/>
+				<textFieldExpression><![CDATA[$F{PADNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="603" y="2" width="100" height="20" uuid="6c065924-7eba-4d4e-a6f1-5d8d76079dde"/>
+				<textFieldExpression><![CDATA[$F{PCOLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="703" y="2" width="100" height="20" uuid="80d3ba4f-5c2a-408e-928a-9727729aa9bf"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="803" y="2" width="100" height="20" uuid="5ab96fcf-27f3-489f-9e50-e9bfa90bb0f3"/>
+				<textFieldExpression><![CDATA[$F{PADSDC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="903" y="2" width="100" height="20" uuid="6a2ae5f9-ec2b-4907-8d25-3a50f19de1fc"/>
+				<textFieldExpression><![CDATA[$F{PADFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1003" y="2" width="178" height="20" uuid="2f9c6941-d6c2-486d-83db-45c69e3d62f1"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="168">
+			<staticText>
+				<reportElement x="3" y="99" width="1181" height="40" uuid="4176db1f-6425-4fb7-bcb8-fc85eda185c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="1181" height="20" uuid="eff1fab7-2d60-4baa-a07c-36875991f9ac"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="20" width="1181" height="20" uuid="66fd5712-8e02-4a75-b509-405309033eba"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="53" width="1184" height="20" uuid="2d4e8b65-9d30-42cb-bb62-fefd346e5a80"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRE MENOR DE 60 QUE SE LES PAGO CUOTA MONETARIA]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

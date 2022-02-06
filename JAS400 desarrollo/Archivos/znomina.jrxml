@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="znomina" language="groovy" pageWidth="2929" pageHeight="720000" orientation="Landscape" columnWidth="2889" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="186764f8-3fff-4d9f-b77f-0545a2983f03">
+	<property name="ireport.zoom" value="4.177248169415656"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="664"/>
+	<parameter name="TipoNomina" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PeriodoInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PeriodoFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Ano" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT Tranom, t1.*, t2.condes FROM adamco.TACNO as t1 , adamco.TCONO as t2, adamco.ttrab as t3
+where t1.CONCOD=t2.CONCOD and t1.TRACVE=t3.TRACVE
+and TNOCVE =$P{TipoNomina} and cprper>=$P{PeriodoInicial} and cprper<=$P{PeriodoFinal} and CPRAÑO=$P{Ano}
+Order by 1, cprper]]>
+	</queryString>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRACVE" class="java.lang.String"/>
+	<field name="TNOCVE" class="java.lang.String"/>
+	<field name="CONCOD" class="java.math.BigDecimal"/>
+	<field name="CPRAÑO" class="java.math.BigDecimal"/>
+	<field name="CPRMAC" class="java.math.BigDecimal"/>
+	<field name="CPRPER" class="java.math.BigDecimal"/>
+	<field name="TRNFEC" class="java.math.BigDecimal"/>
+	<field name="TRNREF" class="java.lang.String"/>
+	<field name="TRNTIE" class="java.math.BigDecimal"/>
+	<field name="TRNIMP" class="java.math.BigDecimal"/>
+	<field name="CONDES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="240" height="20" uuid="87ce4f8b-ec85-446b-ba04-ebfe915e125d"/>
+				<text><![CDATA[TRANOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="240" height="20" uuid="bd79b417-79cd-49db-8785-5b2e1c8712b3"/>
+				<text><![CDATA[CPRPER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="240" height="20" uuid="939eb1fb-7d8f-4c9e-b0a4-c2ec2e095ce4"/>
+				<text><![CDATA[TNOCVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="0" width="240" height="20" uuid="d266ea83-eaa7-4219-bf2a-21b1ee400613"/>
+				<text><![CDATA[CPRAÑO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="960" y="0" width="240" height="20" uuid="d407ede8-fa8e-46e4-baa8-36ea5c68462e"/>
+				<text><![CDATA[CPRMAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1200" y="0" width="240" height="20" uuid="470feb02-422e-43ca-9bf3-7ddf985ecb41"/>
+				<text><![CDATA[CONCOD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1440" y="0" width="240" height="20" uuid="096fd633-3882-4f3f-b835-7524c657f0aa"/>
+				<text><![CDATA[TRACVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1680" y="0" width="240" height="20" uuid="7387456f-477b-49dd-b32a-fa0af950a22e"/>
+				<text><![CDATA[TRNFEC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1920" y="0" width="240" height="20" uuid="aef611dd-5040-41f5-90bc-054d629a6e24"/>
+				<text><![CDATA[TRNREF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2160" y="0" width="240" height="20" uuid="d987f0b0-4ae2-419d-afa4-13f3390253d7"/>
+				<text><![CDATA[TRNTIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2400" y="0" width="240" height="20" uuid="1eb7ac08-0c13-4051-ac15-b2a86e478726"/>
+				<text><![CDATA[TRNIMP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2640" y="0" width="240" height="20" uuid="29f2414d-5998-4549-816e-124d27466e7c"/>
+				<text><![CDATA[CONDES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="240" height="20" uuid="feb07718-d4d8-4b86-b20b-4a207a1f9a9a"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="240" height="20" uuid="22f5a72f-8099-4d2a-b4be-3241e7285f07"/>
+				<textFieldExpression><![CDATA[$F{CPRPER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="240" height="20" uuid="c4125b6e-5657-46d5-81cc-7c50dcf40bf8"/>
+				<textFieldExpression><![CDATA[$F{TNOCVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="720" y="0" width="240" height="20" uuid="3b136bbd-0a96-4563-a5b8-e930eebd1c7e"/>
+				<textFieldExpression><![CDATA[$F{CPRAÑO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="960" y="0" width="240" height="20" uuid="d2515442-cde0-41d9-8291-a6fedf4a3c3d"/>
+				<textFieldExpression><![CDATA[$F{CPRMAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1200" y="0" width="240" height="20" uuid="9c54d217-2819-49e6-8ef1-aa2f5b7f4186"/>
+				<textFieldExpression><![CDATA[$F{CONCOD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1440" y="0" width="240" height="20" uuid="e9efadb5-f0cf-4600-aed8-3671165b671f"/>
+				<textFieldExpression><![CDATA[$F{TRACVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1680" y="0" width="240" height="20" uuid="e13e54fb-8d09-4a80-b241-c741639fff5f"/>
+				<textFieldExpression><![CDATA[$F{TRNFEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1920" y="0" width="240" height="20" uuid="fae73288-9092-4217-acc9-f161d42f77f9"/>
+				<textFieldExpression><![CDATA[$F{TRNREF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2160" y="0" width="240" height="20" uuid="ebe52eea-7670-4927-9ac3-9f1c28f81d18"/>
+				<textFieldExpression><![CDATA[$F{TRNTIE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2400" y="0" width="240" height="20" uuid="cbd785b0-9f63-442a-9fe8-b99ddcc2af03"/>
+				<textFieldExpression><![CDATA[$F{TRNIMP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2640" y="0" width="240" height="20" uuid="ded61acf-722f-4d93-961f-236fe4a1b1a2"/>
+				<textFieldExpression><![CDATA[$F{CONDES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

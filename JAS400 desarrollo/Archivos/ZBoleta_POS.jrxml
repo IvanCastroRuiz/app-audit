@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZBoleta_POS" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9def92c6-7777-4856-a02f-57ab24777bd4">
+	<property name="ireport.zoom" value="2.1435888100000047"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT T02.USUARI, SUM(T01.VLRNET)TOTAL
+FROM POSLIB.POSV02  T01, POSLIB.POSCAJE AS T02
+WHERE T01.CODCJ2= T02.CODCJE
+AND CODART in( 461, 455, 454, 464)
+AND  FECTR2 >=$P{FechaInicial} AND FECTR2<= $P{FechaFinal}
+AND ESTAD2='P'
+GROUP BY T02.USUARI]]>
+	</queryString>
+	<field name="USUARI" class="java.lang.String"/>
+	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<title>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="802" height="20" uuid="6d4aecc5-db18-4f15-ae56-514159392f13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE BOLETAS VENDIDAS POR CENTRO Y FECHA EN EL SISTEMA POS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="802" height="20" uuid="4e8f6075-aae9-4bf9-a4fa-d2b75eb381c0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="802" height="20" uuid="40b21f26-104e-4a50-96bf-e8a0868b43e6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="401" height="20" uuid="d048aaa8-811b-4025-b5c1-32b932621c51"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[USUARI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="0" width="401" height="20" uuid="bc3bd04c-184d-4178-9716-009dad46ec3a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="401" height="20" uuid="5a7d816c-2e28-4b03-a106-586511355c40"/>
+				<textFieldExpression><![CDATA[$F{USUARI}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="401" y="0" width="401" height="20" uuid="bc7cef1a-5c6a-4e38-9271-22f13f74f736"/>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="18" width="802" height="20" uuid="c9185a9a-7fe0-4b81-8628-3facfdd8191f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY INFORMACION PARA MOSTRAR EN EL SISTEMA POS]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

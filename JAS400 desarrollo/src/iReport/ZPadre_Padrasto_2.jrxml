@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZPadre_Padrasto_2" language="groovy" pageWidth="842" pageHeight="72000" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="933f6937-6401-4064-88cb-e231942b3c25">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from
+ ( select t1.*,t2.hijnom, t2.tradoc, t3.tranom from
+(select  hijdoc , trasex , count(*) as Cuenta
+   from subsilib.mhijos as t1 , subsilib.mtrabaj as t2
+   where t1.tradoc  = t2.tradoc
+   group by hijdoc , trasex
+   having count(*)>1) as t1 , subsilib.mhijos as t2 ,
+   subsilib.mtrabaj as t3
+where t1.hijdoc = t2.hijdoc and t2.tradoc = t3.tradoc
+order by t1.hijdoc) as t1
+order by hijdoc]]>
+	</queryString>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="CUENTA" class="java.lang.Integer"/>
+	<field name="HIJNOM" class="java.lang.String"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="133" height="20" uuid="1acde524-0781-46b0-ba86-271515650728"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="0" width="133" height="20" uuid="68d74d1d-f03b-4809-b3da-8226f5fc991d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="133" height="20" uuid="a4e2f96b-cf48-40da-8dcf-f6d53e4fbf10"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="0" width="133" height="20" uuid="6ecb987a-3ee3-4d72-a494-e5e0552aafe4"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="532" y="0" width="133" height="20" uuid="0bbd1d02-249a-41eb-8f0c-e7e032e9ced2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="0" width="133" height="20" uuid="9e13bfb9-0483-43bf-afd0-d3eee30b7b01"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="133" height="20" uuid="7177d91a-70fc-4fb7-a0e1-c2de7d42a9e3"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="0" width="133" height="20" uuid="3bc489bc-955e-4887-9f93-041552be3327"/>
+				<textFieldExpression><![CDATA[$F{TRASEX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="133" height="20" uuid="1ef7d1c3-f53f-450b-9c41-0ae1e4a61c45"/>
+				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="133" height="20" uuid="7bdeb41f-bd6d-41d4-bf0b-60865911c898"/>
+				<textFieldExpression><![CDATA[$F{HIJNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="0" width="133" height="20" uuid="01696168-a1c3-4582-81ad-edbf38a31e0a"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="665" y="0" width="133" height="20" uuid="70eedb0a-40cc-4c81-b76a-8a79adda405e"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZPasadias_POS" language="groovy" pageWidth="842" pageHeight="72000" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0806c0ce-cc0a-4866-b045-da1f638aaa77">
+	<property name="ireport.zoom" value="2.357947691000003"/>
+	<property name="ireport.x" value="790"/>
+	<property name="ireport.y" value="275"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT T02.USUARI, DESART, SUM(T01.VLRNET)TOTAL
+FROM POSLIB.POSV02  T01, POSLIB.POSCAJE AS T02  , POSLIB.POSMART T03
+WHERE T01.CODCJ2= T02.CODCJE
+AND T01.CODART in( 461, 462, 463, 464 , 465 ,466)
+AND  FECTR2 BETWEEN $P{FechaInicial} AND $P{FechaFinal}
+AND ESTAD2='P'  AND T01.CODART = T03.CODART
+GROUP BY T02.USUARI , DESART
+ORDER BY 1 ]]>
+	</queryString>
+	<field name="USUARI" class="java.lang.String"/>
+	<field name="DESART" class="java.lang.String"/>
+	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<variable name="TOTAL_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_3" class="java.math.BigDecimal" resetType="Group" resetGroup="GROUP NY USUARI" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
+	<group name="GROUP NY USUARI">
+		<groupExpression><![CDATA[$F{USUARI}]]></groupExpression>
+		<groupFooter>
+			<band height="21">
+				<textField pattern="#,##0">
+					<reportElement x="534" y="1" width="267" height="20" uuid="7625dfe6-cd68-41a8-ad02-569cd16fb7ee"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{TOTAL_3}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="26" width="801" height="20" uuid="7dd568b3-3c3a-46fe-a50e-ec1595e127be"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="47" width="801" height="20" uuid="0c7a447e-8647-4266-84e5-87dd7cb8794f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPOTE DE PASADIAS DEL SISTEMA POS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="534" y="6" width="267" height="20" uuid="d663b67e-6fc9-403b-a3ea-d129a01f8379"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="99" height="20" uuid="6d1a41d4-ba1c-48bd-a6ba-ee48061944e2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="648de931-cbb6-477d-8a39-d6f1b2184ee3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="167" height="20" uuid="95c38ede-559a-489e-bb5f-1b338558692e"/>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="20" width="167" height="20" uuid="ed4f22ee-fda1-4cca-8dc8-f31f196ac5da"/>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="566f1d50-b787-446f-b5ea-ccea3cabee8c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cajera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="434" height="20" uuid="8bd9be92-bddd-45ac-a1d0-5458aa07a5a6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion de Articulos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="0" width="267" height="20" uuid="3293170a-e9cb-4e87-9f6c-7ae6baa46772"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e1bf0e28-c8c0-471a-bea1-db288ead11d0"/>
+				<textFieldExpression><![CDATA[$F{USUARI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="434" height="20" uuid="5d416fb3-7d3f-4956-af52-91db971ff172"/>
+				<textFieldExpression><![CDATA[$F{DESART}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="534" y="0" width="267" height="20" uuid="6ea28b1b-cc02-4d5b-8319-6a170270fa67"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement x="534" y="0" width="267" height="20" uuid="ed92fc25-3321-4c44-929b-d19b7e434f84"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="13" width="801" height="37" uuid="4a5ac9a0-a4d2-41bb-97e5-421a5a81bc10"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

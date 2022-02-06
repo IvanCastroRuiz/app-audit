@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Similitud_Hijos" language="groovy" pageWidth="1584" pageHeight="2160" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1544" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65766a05-b324-42b1-b3e5-b61ab27b1a31">
+	<property name="ireport.zoom" value="2.1435888100000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select  distinct tx2.tradoc,tx3.tranom , tx3.trasex , tx2.hijdoc, tx1.*
+from (
+   select  t1.hijap1 , t1.hijap2 ,t1.hijno1 ,t1.hijno2 , t1.hijfnc
+      , sum(trasex)
+from (select t1.hijap1 , t1.hijap2 ,t1.hijno1 ,t1.hijno2 , t1.hijfnc
+, count(*)        cantidad from subsilib.mhijos as t1 ,
+subsilib.mhijos as t2
+      where t1.hijdoc <> t2.hijdoc and t1.hijap1 =t2.hijap1
+      and t1.hijap2 = t2.hijap2 and t1.hijno1 =t2.hijno1
+      and t1.hijno2 = t2.hijno2  and t1.hijfnc = t2.hijfnc
+      group by t1.hijap1 , t1.hijap2 , t1.hijno1 , t1.hijno2  ,
+      t1.hijfnc ,t2.hijap1 , t2.hijap2 , t2.hijno1 , t2.hijno2  , t2.hijfnc             having count(*)>1
+     ) as t1 , subsilib.mhijos as t2 , subsilib.mtrabaj as t3
+where t1.hijap1 =t2.hijap1 and t1.hijap2 = t2.hijap2 and t1.hijno1=t2.hijno1 and t1.hijfnc = t2.hijfnc and t2.tradoc = t3.tradoc
+group by t1.hijap1 , t1.hijap2 ,t1.hijno1 ,t1.hijno2 , t1.hijfnc
+having sum(trasex) <> 3
+order by t1.hijap1 , t1.hijap2 ,t1.hijno1 ,t1.hijno2
+) as tx1  ,  subsilib.mhijos as tx2 , subsilib.mtrabaj as tx3
+where
+tx1.hijap1 =tx2.hijap1 and tx1.hijap2 = tx2.hijap2 and tx1.hijno1=tx2.hijno1 and tx1.hijfnc = tx2.hijfnc and tx2.tradoc = tx3.tradoc
+order by tx1.hijap1 , tx1.hijap2 ,tx1.hijno1 ,tx1.hijno2]]>
+	</queryString>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="HIJAP1" class="java.lang.String"/>
+	<field name="HIJAP2" class="java.lang.String"/>
+	<field name="HIJNO1" class="java.lang.String"/>
+	<field name="HIJNO2" class="java.lang.String"/>
+	<field name="HIJFNC" class="java.lang.String"/>
+	<field name="00010" class="java.math.BigDecimal"/>
+	<variable name="TRASEX_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TRASEX}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="34" width="1544" height="20" uuid="62e54afe-b4cb-43d5-ab18-2c02762d6ed1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="55" width="1544" height="20" uuid="a801b09a-e5e0-4e3e-ac62-83764244a17e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="1543" height="20" uuid="5ab4273b-0fd1-4d44-8965-3cb64b79c9b3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS DOBLES POR SIMILITUD CON MISMA FECHA DE NACIMIENTO]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="13" width="1543" height="20" uuid="aafdcfa4-07f2-4cce-89c1-01d36a5854c0"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="105" height="20" uuid="a225323c-5344-4821-a673-9e6f390527c9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="1" width="240" height="20" uuid="9130dad4-0061-421b-8266-97dbbfe69a65"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="1" width="148" height="20" uuid="83b75069-de67-4d6b-bbd3-ecfa1775cde7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sexo Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="1" width="174" height="20" uuid="7da8d349-8d6c-4502-9996-bc547db39f85"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[1er Apellido Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="769" y="1" width="100" height="20" uuid="1b1330a7-fcc1-4b65-94e4-03bcf9670ccc"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[2 do Apellido Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="869" y="1" width="100" height="20" uuid="0d2b9ed4-248f-4bef-8e37-cc9a2b0dfcce"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[1er Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="969" y="1" width="101" height="20" uuid="3276308a-3eae-4890-842b-8ea096977179"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[2do Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1070" y="1" width="101" height="20" uuid="833b6816-bbe8-4864-a550-ba4ede95d726"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="1" width="102" height="20" uuid="eb28bfc1-bdcc-4a1e-8e33-48d30daa624a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1171" y="1" width="373" height="20" uuid="7014d87b-3c03-47b9-80b2-6f359b4cfeaf"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[00010]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="3" width="105" height="20" uuid="bd6c841d-7dad-4182-b3c0-8695e13dea2b"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="3" width="240" height="20" uuid="6e21637e-dd1f-4f32-9694-b97c4a07b24d"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="3" width="148" height="20" uuid="154cd941-dfb0-44c8-a2dd-b39bf467873f"/>
+				<textFieldExpression><![CDATA[$F{TRASEX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="595" y="3" width="174" height="20" uuid="fef855b4-ea99-4ccd-be5b-1c199cefc991"/>
+				<textFieldExpression><![CDATA[$F{HIJAP1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="769" y="3" width="100" height="20" uuid="1a511d73-a61a-429c-8038-3fa1131a5494"/>
+				<textFieldExpression><![CDATA[$F{HIJAP2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="869" y="3" width="100" height="20" uuid="8d2cc589-5092-4a34-808c-acdd91032860"/>
+				<textFieldExpression><![CDATA[$F{HIJNO1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="969" y="3" width="101" height="20" uuid="922b3c2e-558e-4b5c-bf5e-bc4077a31896"/>
+				<textFieldExpression><![CDATA[$F{HIJNO2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1070" y="3" width="101" height="20" uuid="3e137607-a010-4a7c-b725-b7d0ea81bac8"/>
+				<textFieldExpression><![CDATA[$F{HIJFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="3" width="102" height="20" uuid="0d4f29c3-5092-4bda-bdce-a4099ec35a08"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1171" y="3" width="373" height="20" uuid="8880acee-91a8-4786-a025-615aa2e7ee27"/>
+				<textFieldExpression><![CDATA[$F{00010}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="12" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="145">
+			<staticText>
+				<reportElement x="14" y="55" width="1529" height="20" uuid="5338b87b-275c-4f3a-acda-ebc99e5950a5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS DOBLES POR SIMILITUD CON MISMA FECHA DE NACIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="9" width="1530" height="20" uuid="a25327d4-f379-452a-87b8-3334d4114846"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="33" width="1529" height="20" uuid="e457a2b2-cf2b-411d-8377-310eeb344527"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="87" width="1533" height="40" uuid="7f8e34c0-9228-47ea-adb8-3dd2abea03c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

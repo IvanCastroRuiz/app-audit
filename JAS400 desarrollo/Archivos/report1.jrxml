@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="00117105-97b0-4360-ac06-e7835fd43d39">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PPeriodo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct t1.ctacon, t1.ctafin, ctaaho, entban, descri, ntocon,ntoban, ntocal
+ from selinlib.JDISTRINIF AS T1 , SELINLIB.JDISDIFNIF AS T2
+where Period = $P{PPeriodo} and t1.ctacon = t2.ctacon and porcen<>0
+order by t1.ctacon]]>
+	</queryString>
+	<field name="CTACON" class="java.lang.String"/>
+	<field name="CTAFIN" class="java.lang.String"/>
+	<field name="CTAAHO" class="java.lang.String"/>
+	<field name="ENTBAN" class="java.lang.String"/>
+	<field name="DESCRI" class="java.lang.String"/>
+	<field name="NTOCON" class="java.math.BigDecimal"/>
+	<field name="NTOBAN" class="java.math.BigDecimal"/>
+	<field name="NTOCAL" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="40" width="961" height="20" uuid="f8ce863d-40d1-4e33-a78b-2e600744a31d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Auditoria Interna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="968" height="38" uuid="45c9a883-4276-4611-af33-67fa1979ff9b"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="968" height="20" uuid="bc3c6d55-8dc5-450f-bc9b-30914d4deadf"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Revisión de los Fondos de Distribucion]]></text>
+			</staticText>
+			<image>
+				<reportElement x="76" y="0" width="59" height="37" uuid="fe84d85a-afdf-46af-9268-51e7a5a17f5d"/>
+				<imageExpression><![CDATA["Z:\\S01 Software Auditoria\\JAS400\\src\\logo_comfamiliar.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="15" width="100" height="20" uuid="2a41fa23-4552-4640-ae65-f3096602cb11"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="15" width="100" height="20" uuid="ea173886-e65d-42ed-94ed-4fc1d7a2ab18"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="135" height="20" uuid="3f2c8e7b-8ca9-4354-b1ac-fc7132f0878b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rango de Fecha Revision:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="89" height="20" uuid="6754ef0c-5038-42b5-a7b5-39922e8e597d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Imp. Gastos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="41" width="151" height="20" uuid="26c4cd67-8de4-47f5-be60-c82b04e7da2f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Imp. Banco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="41" width="313" height="20" uuid="ddf475da-1195-4891-a8af-1cc9fb3fb1e9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion de Fondo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="553" y="41" width="100" height="20" uuid="eca7aca8-bab3-43dc-96a5-f3d93043e73a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Neto Contable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="653" y="41" width="100" height="20" uuid="d35666c0-34a0-432c-814b-c7e67c907a9a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Neto Financiero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="753" y="41" width="86" height="20" uuid="38a9d1a4-ad95-4bfd-b06b-539862814537"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Neto Calculado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="853" y="41" width="100" height="20" uuid="70697a5f-c974-413d-9052-e1913d87bb18"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Diferencias]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="89" height="20" uuid="6b4c3327-7bff-4979-862d-3963ad7de368"/>
+				<textFieldExpression><![CDATA[$F{CTACON}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="0" width="151" height="20" uuid="f4681d5d-4a47-43c6-8c42-541f64ad0980"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CTAFIN}.substring( 0, 6 )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="313" height="20" uuid="4d1d6ede-f8f3-4330-af74-919b3d4e51b8"/>
+				<textFieldExpression><![CDATA[$F{DESCRI}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="653" y="0" width="100" height="20" uuid="3de776c0-1341-40af-acee-60cc6e627518"/>
+				<textFieldExpression><![CDATA[$F{NTOBAN}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="553" y="0" width="100" height="20" uuid="68495ebb-0e98-4f15-b75d-62380a1fb24a"/>
+				<textFieldExpression><![CDATA[$F{NTOCON}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="753" y="0" width="100" height="20" uuid="0a90d4fd-05a4-4df6-baa9-fe87b5c2d784"/>
+				<textFieldExpression><![CDATA[$F{NTOCAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" ¤ #,##0.00;-#,##0.00">
+				<reportElement x="853" y="0" width="139" height="20" uuid="36566d72-3371-4006-a154-eefd31a6e1a4"/>
+				<textFieldExpression><![CDATA[$F{NTOBAN} - $F{NTOCAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="7" y="17" width="419" height="1" uuid="48d1fa17-0365-4d42-953c-988c15a15bc4"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="34" width="311" height="20" uuid="736ea82a-5703-4f8a-b426-e5769f60fd6e"/>
+				<text><![CDATA[Auxiliar de Auditoria Responsable]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="853" y="18" width="100" height="20" uuid="59e9d84a-2670-4af1-820c-b808579005a6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

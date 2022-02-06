@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ztarjeta_Tarjeta_Custodia" language="groovy" pageWidth="1296" pageHeight="7200" orientation="Landscape" columnWidth="1256" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcbe1480-85d2-4020-8305-932e45cc2199">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="334"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select TRAFAC,t1.*
+from subsilib.mtarjet as t1, subsilib.mtrabaj as t2
+where tardoc = tradoc and tarest='C']]>
+	</queryString>
+	<field name="TRAFAC" class="java.lang.String"/>
+	<field name="TARNTA" class="java.lang.String"/>
+	<field name="TARTAF" class="java.lang.String"/>
+	<field name="TARDOC" class="java.math.BigDecimal"/>
+	<field name="TARNOM" class="java.lang.String"/>
+	<field name="TAREMP" class="java.math.BigDecimal"/>
+	<field name="TAREST" class="java.lang.String"/>
+	<field name="TARFES" class="java.lang.String"/>
+	<field name="TARDES" class="java.lang.String"/>
+	<field name="TARUBI" class="java.lang.String"/>
+	<field name="TARNLO" class="java.math.BigDecimal"/>
+	<field name="TARFLO" class="java.lang.String"/>
+	<field name="TARTSU" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="1256" height="20" uuid="44a8f23b-08e6-43f3-a933-c4bd9d9672d7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="1256" height="20" uuid="fd8b3ed7-6f8c-4072-a6b6-a26836866dc3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="55" width="1256" height="20" uuid="ecf734a6-a501-4e43-9790-cdcf9c1945e0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE TRABAJADORES ACTIVOS CON TARJETA EN CUSTODIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="96" height="20" uuid="bba1bd94-f36d-472a-8ae0-2bb79e47b6ad"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARFLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="0" width="96" height="20" uuid="ae6e7cbd-ee1a-41ee-831c-c74dac2ac321"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARTSU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="0" width="96" height="20" uuid="b30f30ac-8946-4b87-9831-b25b12af1834"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TRAFAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="96" height="20" uuid="16e4214e-f937-4299-bbcc-4676a58082ac"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARNTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="0" width="96" height="20" uuid="d1cc0d2d-327d-4ad1-bb2a-a381cb138e67"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARTAF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="96" height="20" uuid="6de266a9-8cb2-4a7b-b1da-06e7f6e999bc"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARDOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="576" y="0" width="96" height="20" uuid="bbcda665-066a-439c-8ba6-1ac8953d0d39"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARNOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="672" y="0" width="96" height="20" uuid="fec56800-93f8-4df9-9976-1b6da2e8a1fa"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TAREMP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="768" y="0" width="96" height="20" uuid="f8fb428c-cf92-405a-be14-0fff71f0bf4d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TAREST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="864" y="0" width="96" height="20" uuid="6b5bdeb5-f67c-41d2-892f-5d1791524cc7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARFES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="960" y="0" width="96" height="20" uuid="410f88db-bff2-4e1d-994f-093b4c9ae4ae"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARDES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1056" y="0" width="96" height="20" uuid="e815de85-243f-42d1-81f1-c4f662a99172"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARUBI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1152" y="0" width="96" height="20" uuid="d37e0643-725b-4bec-8197-57925823bd6f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARNLO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="96" height="20" uuid="d7d9c85b-3915-41e6-9015-aeb6039c2239"/>
+				<textFieldExpression><![CDATA[$F{TARFLO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="0" width="96" height="20" uuid="d5c0a467-c636-4c63-87b0-f1b8b56ecce3"/>
+				<textFieldExpression><![CDATA[$F{TARTSU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="0" width="96" height="20" uuid="0876bb05-dbb0-4424-af53-40ed50a2ed08"/>
+				<textFieldExpression><![CDATA[$F{TRAFAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="0" width="96" height="20" uuid="2692fc0e-3a86-49d7-bd45-d8f4cff91a74"/>
+				<textFieldExpression><![CDATA[$F{TARNTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="96" height="20" uuid="464081b8-36f4-4413-a45d-de6ad0000f61"/>
+				<textFieldExpression><![CDATA[$F{TARTAF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="96" height="20" uuid="9b29078e-628d-436f-ba01-226371400138"/>
+				<textFieldExpression><![CDATA[$F{TARDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="576" y="0" width="96" height="20" uuid="f555ad55-d9f8-4aca-8927-69c6f03a7579"/>
+				<textFieldExpression><![CDATA[$F{TARNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="672" y="0" width="96" height="20" uuid="cc204e17-22fc-4c63-9d33-abb17b46cf2c"/>
+				<textFieldExpression><![CDATA[$F{TAREMP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="768" y="0" width="96" height="20" uuid="db627893-82a2-46c4-a898-be6c36eb1342"/>
+				<textFieldExpression><![CDATA[$F{TAREST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="864" y="0" width="96" height="20" uuid="99927c33-7314-420d-a804-9e1bb85047ed"/>
+				<textFieldExpression><![CDATA[$F{TARFES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="960" y="0" width="96" height="20" uuid="974249d4-5988-4dfb-a1aa-c024b408b738"/>
+				<textFieldExpression><![CDATA[$F{TARDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1056" y="0" width="96" height="20" uuid="6fa80115-c8aa-470a-be31-a7fb7e6bed67"/>
+				<textFieldExpression><![CDATA[$F{TARUBI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1152" y="0" width="96" height="20" uuid="a1c76414-b817-4454-94e0-7060c9ca1317"/>
+				<textFieldExpression><![CDATA[$F{TARNLO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

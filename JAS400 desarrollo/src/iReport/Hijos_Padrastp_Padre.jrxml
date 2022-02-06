@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hijos_Padrastp_Padre" language="groovy" pageWidth="1119" pageHeight="2160" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="1079" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66b595e1-09bf-4fe5-8c5e-d53af7d6c5f2">
+	<property name="ireport.zoom" value="2.3579476910000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  t1.* , t2.tradoc , trasrs, tranom, hijnom , ppeliq, pvaliq , pfeliq
+       from
+ ( select tx1.hijdoc , tx1.trasex , Cuenta, tx4.ppeliq, count(*) cuenta_periodo from
+      (select  hijdoc , trasex , count(*) as Cuenta
+        from subsilib.mhijos as t1 , subsilib.mtrabaj as t2
+        where t1.tradoc  = t2.tradoc
+        group by hijdoc , trasex
+        having count(*)>1  )as tx1,
+   subsilib.mhijos  as tx2  , subsilib.mtrabaj as tx3, subsilib.liquipag as tx4
+   where tx1.hijdoc = tx2.hijdoc and tx3.tradoc = tx2.tradoc
+   and tx2.tradoc = tx4.pctliq and tx4.pdbliq = tx2.hijdoc
+   and tx4.pfeliq>=$P{FechaInicial} and tx4.pfeliq<=$P{FechaFinal}
+   group by tx1.hijdoc , tx1.trasex, Cuenta, tx4.ppeliq
+   having count(*)>1
+ ) as t1 , subsilib.mhijos  as t2  , subsilib.mtrabaj as t3, subsilib.liquipag as t4
+where t1.hijdoc = t2.hijdoc and t3.tradoc = t2.tradoc
+and t2.tradoc = pctliq and pdbliq = t2.hijdoc
+and pfeliq>=$P{FechaInicial} and pfeliq<=$P{FechaFinal}
+order by hijdoc]]>
+	</queryString>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="CUENTA" class="java.lang.Integer"/>
+	<field name="CUENTA_PERIODO" class="java.lang.Integer"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRASRS" class="java.math.BigDecimal"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="HIJNOM" class="java.lang.String"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="1079" height="20" uuid="5ac469b9-6235-415d-b0f7-40ceedf945e7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="1079" height="20" uuid="44992a21-cb67-4f67-a495-137c54e717f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="1079" height="20" uuid="e43812e7-df11-4536-9060-ffe9b9ec7159"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS CON PADRES Y PADRASTO]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="2" width="1079" height="20" uuid="fe956bd8-8243-4d7f-9969-8659b0394ce1"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="8" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="dc625ecf-f858-4496-a903-95536cdb80f7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="2" width="100" height="20" uuid="0445fefd-9da4-4d5f-9ed4-f29684ee8144"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="2" width="100" height="20" uuid="4f41c795-6f29-4cc7-800f-649dfa5fb12c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="2" width="100" height="20" uuid="d75fb577-1c64-4f5e-9e59-dbaf61dd3d5e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="2" width="100" height="20" uuid="394918db-d553-435b-94c1-2abd8cc873bd"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Recibe Subsidio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="2" width="122" height="20" uuid="d5349094-4b95-4849-a675-1298c95cd438"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="123" height="20" uuid="bced7533-4f74-4d6f-a1c1-b526c7f0bff3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="745" y="2" width="101" height="20" uuid="7dbe54b7-4061-4cd4-a637-4422de4acf71"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="846" y="2" width="102" height="20" uuid="94f8ad0a-b261-4260-bd69-7a8f326ae6be"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="948" y="2" width="131" height="20" uuid="309055a2-b883-43d8-932f-f321b4bd767c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="100" height="20" uuid="0fbaa3d4-f4e1-49c0-a4bc-571952543561"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="2" width="100" height="20" uuid="488cfccb-dbfb-4b47-a243-02f4eb377ca4"/>
+				<textFieldExpression><![CDATA[$F{TRASEX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="2" width="100" height="20" uuid="f2c8d39f-384a-4798-9838-0f890e481953"/>
+				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="2" width="100" height="20" uuid="6805809d-ab7a-4f1c-8ddf-47ba9f43ad1a"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="645" y="2" width="100" height="20" uuid="cea96b21-cae5-43bf-b35a-ccaa009086af"/>
+				<textFieldExpression><![CDATA[$F{TRASRS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="523" y="2" width="122" height="20" uuid="fe3c4542-1732-4c72-ac06-2af41f01b7a1"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="2" width="123" height="20" uuid="73ef87a0-ed01-4757-81bc-79093600297b"/>
+				<textFieldExpression><![CDATA[$F{HIJNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="745" y="2" width="101" height="20" uuid="e0fd81f4-5f30-49a9-acc2-950daa0ec7e3"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="846" y="2" width="102" height="20" uuid="7909f25d-ea82-4b90-af6b-1dd03f8bd704"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="948" y="2" width="131" height="20" uuid="6d95ee51-26c3-4c17-a593-d7305d411621"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="130">
+			<staticText>
+				<reportElement x="0" y="74" width="1400" height="50" uuid="98074c7c-dd0c-409e-9ee6-6a11ed17c545"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="49" width="1390" height="20" uuid="72e44a53-9898-4e2e-9975-159cf7c7b047"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS CON PADRES Y PADRASTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="29" width="1390" height="20" uuid="e1cc5ee5-3dc8-43a5-9751-355dbb2bf810"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="6" width="1390" height="20" uuid="1e501cfc-ce8e-4d79-a952-c00b5f6a1a77"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

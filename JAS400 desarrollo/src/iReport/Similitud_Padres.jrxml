@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Similitud_Padres" language="groovy" pageWidth="862" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="822" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f99429e9-8439-49e7-a23b-3e3a8e5cd7d9">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select tradoc, t1.* from
+       (	select
+	t1.padap1 , t1.padap2 ,t1.padno1 ,t1.padno2 , t1.padfnc  , count(*)as Cuenta
+          from subsilib.mpadres as t1
+          ,    subsilib.mpadres as t2
+          where t1.paddoc <> t2.paddoc and t1.padap1 =t2.padap2
+          and t1.padap2 = t2.padap2 and t1.padno1 =t2.padno1
+          and t1.padno2 = t2.padno2  and t1.padfnc = t2.padfnc
+          group by t1.padap1 , t1.padap2 ,
+                   t1.padno1 , t1.padno2  , t1.padfnc ,
+                   t2.padap1 , t2.padap2 ,
+                   t2.padno1 , t2.padno2  , t2.padfnc
+           having count(*)>1
+      ) as t1 , subsilib.mpadres as t2
+      where t1.padap1 =t2.padap2
+          and t1.padap2 = t2.padap2 and t1.padno1 =t2.padno1
+          and t1.padno2 = t2.padno2  and t1.padfnc = t2.padfnc]]>
+	</queryString>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="PADAP1" class="java.lang.String"/>
+	<field name="PADAP2" class="java.lang.String"/>
+	<field name="PADNO1" class="java.lang.String"/>
+	<field name="PADNO2" class="java.lang.String"/>
+	<field name="PADFNC" class="java.lang.String"/>
+	<field name="CUENTA" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="822" height="20" uuid="da803095-9b57-43f3-bbf5-6b8903c7ed62"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="822" height="20" uuid="95c77d0c-f7f7-45b8-8cde-a54220ed7a22"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="64" width="822" height="20" uuid="441ec6e5-afc0-4927-9654-71616ae72e8a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRES DOBLES POR SIMILITUD CON FECHA DE NACIMIENTO IGUALES]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="4" width="822" height="20" uuid="9aad124e-f0ff-4d02-9633-54a575975a37"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="106" y="0" width="147" height="20" uuid="93fa1617-7dcd-4ccc-b18d-9ab4acecebb5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Primer Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="0" width="119" height="20" uuid="1374c7a2-900a-4f03-81cc-6d66191983c7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Segundo Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="132" height="20" uuid="89093ed4-c140-4b71-bf6c-e3714120f4b6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Primer Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="0" width="100" height="20" uuid="703d52ce-2647-493b-abb0-9e78d19ef9ee"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Segundo Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="604" y="0" width="100" height="20" uuid="bc9ba14e-bbf9-4d45-894a-532434b305d9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="704" y="0" width="118" height="20" uuid="b9e412c5-f3a2-4a07-a51d-c4748e2d8a6c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="106" height="20" uuid="31a71673-7ace-4d9c-b819-9a776d3f8167"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="0" width="147" height="20" uuid="8eeef1db-eb36-4c48-8d32-20d804c3c26b"/>
+				<textFieldExpression><![CDATA[$F{PADAP1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="0" width="119" height="20" uuid="d220c906-3c1d-46b2-8617-d27015bf25f6"/>
+				<textFieldExpression><![CDATA[$F{PADAP2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="0" width="132" height="20" uuid="b38b8526-0272-4d4e-a2da-9510abbf8764"/>
+				<textFieldExpression><![CDATA[$F{PADNO1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="0" width="100" height="20" uuid="6b6a55bd-eeee-457b-a3e6-b54209b4e884"/>
+				<textFieldExpression><![CDATA[$F{PADNO2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="604" y="0" width="100" height="20" uuid="d81f564f-7157-4b09-bdce-d79df22c84cc"/>
+				<textFieldExpression><![CDATA[$F{PADFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="0" width="118" height="20" uuid="bb7b3509-fe60-447b-827d-078702ecc26d"/>
+				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="106" height="20" uuid="544e59e5-f6e0-46d4-810c-47791733e624"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="143">
+			<staticText>
+				<reportElement x="12" y="44" width="940" height="20" uuid="6849a497-e732-4cc8-a08e-4662f507cb18"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRES DOBLES POR SIMILITUD CON FECHA DE NACIMIENTO IGUALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="24" width="940" height="20" uuid="8cfd44a4-fbd5-4bee-9dd9-3ad053caa55c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="4" width="942" height="20" uuid="7706f30f-fe5e-4b00-87b3-afeb7a892835"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="81" width="942" height="40" uuid="173e2b1b-5a04-44fb-aa73-1ce1bf5de14a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

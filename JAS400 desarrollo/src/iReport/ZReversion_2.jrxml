@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZReversion_2" language="groovy" pageWidth="1449" pageHeight="555" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1449" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="277202c5-b928-4910-9738-3a0fbc8a92de">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Cedula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from SUBSILIB.TARJE006
+where cedrec=$P{Cedula}]]>
+	</queryString>
+	<field name="CONSEC" class="java.math.BigDecimal"/>
+	<field name="CEDREC" class="java.math.BigDecimal"/>
+	<field name="FECREC" class="java.math.BigDecimal"/>
+	<field name="TARREC" class="java.lang.String"/>
+	<field name="VALREC" class="java.math.BigDecimal"/>
+	<field name="DESREC" class="java.lang.String"/>
+	<field name="ESTREC" class="java.lang.String"/>
+	<field name="USUREC" class="java.lang.String"/>
+	<field name="FENREC" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="161" height="20" uuid="916800fb-9e8e-49a6-8893-feda69f8aa0a"/>
+				<text><![CDATA[CONSEC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="0" width="161" height="20" uuid="1461a067-21f1-455d-942a-5f562c9fc896"/>
+				<text><![CDATA[CEDREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="161" height="20" uuid="c96c0faa-3989-43ef-a639-47ef64087d88"/>
+				<text><![CDATA[FECREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="0" width="161" height="20" uuid="a388457b-1c02-4e80-bfd6-33f7143e8e3c"/>
+				<text><![CDATA[TARREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="644" y="0" width="161" height="20" uuid="49315f23-cf69-40f9-a601-8e0c9706955e"/>
+				<text><![CDATA[VALREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="805" y="0" width="161" height="20" uuid="0645e4bc-1f73-462d-afae-fe7ac1aa0576"/>
+				<text><![CDATA[DESREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="966" y="0" width="161" height="20" uuid="ab2389a6-8db5-4869-af23-0d3674818ceb"/>
+				<text><![CDATA[ESTREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1127" y="0" width="161" height="20" uuid="5adbc7d5-d2c7-4164-8d14-47836290c0e9"/>
+				<text><![CDATA[USUREC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1288" y="0" width="161" height="20" uuid="ac4c27c5-2ba7-4d33-8938-b612a44dcd2a"/>
+				<text><![CDATA[FENREC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="161" height="20" uuid="29132e93-953e-4624-a02d-d19f62252696"/>
+				<textFieldExpression><![CDATA[$F{CONSEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="0" width="161" height="20" uuid="78a727fb-0de2-4b48-9cb8-39d3187978e6"/>
+				<textFieldExpression><![CDATA[$F{CEDREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="0" width="161" height="20" uuid="67c92bd7-cbad-4e51-ab1c-6e417e5b1723"/>
+				<textFieldExpression><![CDATA[$F{FECREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="0" width="161" height="20" uuid="e880d8f2-b293-450f-8879-8521608818c1"/>
+				<textFieldExpression><![CDATA[$F{TARREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="161" height="20" uuid="76cd123e-8ce9-4392-8412-55dfabf75aed"/>
+				<textFieldExpression><![CDATA[$F{VALREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="805" y="0" width="161" height="20" uuid="97f8d3ab-760d-45da-a5a9-f7efb1d9209b"/>
+				<textFieldExpression><![CDATA[$F{DESREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="966" y="0" width="161" height="20" uuid="fd9d8526-e805-4d10-8375-4ec2ca295ffb"/>
+				<textFieldExpression><![CDATA[$F{ESTREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1127" y="0" width="161" height="20" uuid="f4fb83c5-58ba-4fe5-a73b-295822457a56"/>
+				<textFieldExpression><![CDATA[$F{USUREC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1288" y="0" width="161" height="20" uuid="06cdc791-372d-49ba-9305-88d2e4c6f77c"/>
+				<textFieldExpression><![CDATA[$F{FENREC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="19" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="0" width="1449" height="50" uuid="40090fc0-222b-4ccc-b244-2f0c1b8f75c3"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

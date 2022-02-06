@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZComprobante_X_Centro_X_Cuenta" language="groovy" pageWidth="2880" pageHeight="3600000" orientation="Landscape" columnWidth="2840" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="763c7143-f623-4390-a6f7-3d610f561527">
+	<property name="ireport.zoom" value="4.177248169415664"/>
+	<property name="ireport.x" value="6094"/>
+	<property name="ireport.y" value="539"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Cuenta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT CTAMOV,NOMCTA, T1.* FROM
+CONDATNIC.MOVIMI AS T1 , CONDATNIC.CUENTA
+WHERE
+CTAMOV=CODCTA AND
+FECMOV >=$P{FechaInicial}    AND FECMOV <=$P{FechaFinal}
+and CTAMOV = $P{Cuenta}
+ORDER BY CENMOV, FECMOV]]>
+	</queryString>
+	<field name="CTAMOV" class="java.lang.String"/>
+	<field name="NOMCTA" class="java.lang.String"/>
+	<field name="CONMOV" class="java.math.BigDecimal"/>
+	<field name="DOCMOV" class="java.lang.String"/>
+	<field name="NUMMOV" class="java.math.BigDecimal"/>
+	<field name="SECMOV" class="java.math.BigDecimal"/>
+	<field name="FECMOV" class="java.math.BigDecimal"/>
+	<field name="FORMOV" class="java.lang.String"/>
+	<field name="CENMOV" class="java.lang.String"/>
+	<field name="TERMOV" class="java.math.BigDecimal"/>
+	<field name="DBAMOV" class="java.lang.String"/>
+	<field name="NBAMOV" class="java.lang.String"/>
+	<field name="VBAMOV" class="java.math.BigDecimal"/>
+	<field name="CREMOV" class="java.math.BigDecimal"/>
+	<field name="DEBMOV" class="java.math.BigDecimal"/>
+	<field name="BIRMOV" class="java.math.BigDecimal"/>
+	<field name="MONMOV" class="java.lang.String"/>
+	<field name="VOMMOV" class="java.math.BigDecimal"/>
+	<field name="NVBMOV" class="java.math.BigDecimal"/>
+	<field name="CBAMOV" class="java.lang.String"/>
+	<field name="PREMOV" class="java.lang.String"/>
+	<field name="TFAMOV" class="java.lang.String"/>
+	<field name="NDOMOV" class="java.math.BigDecimal"/>
+	<variable name="CREMOV_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CREMOV}]]></variableExpression>
+	</variable>
+	<variable name="DEBMOV_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DEBMOV}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="108" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="16" width="2840" height="20" uuid="4100ee54-0232-4803-8dbc-9c3a789e17c0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="37" width="2840" height="20" uuid="db923f22-814b-4553-a3e3-a508cec1f577"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="123" height="20" uuid="97aa0edf-d0ee-4722-be92-cd3678f25d9b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="88" width="123" height="20" uuid="a6614af0-33b4-4e05-8cd4-8140b68dcc88"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="67" width="123" height="20" uuid="31e466af-6e5c-4e2e-8aab-7ef56712e529"/>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="88" width="123" height="20" uuid="0eb2a8a5-f2e2-41a5-86b9-788bf2f17e07"/>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="2" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="123" height="20" uuid="0b4bbead-d03e-4a58-ab3a-c8e9d872e83b"/>
+				<text><![CDATA[CTAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="0" width="123" height="20" uuid="12ddbbca-a764-493b-ae5b-dfbd6bd0687a"/>
+				<text><![CDATA[NOMCTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="0" width="123" height="20" uuid="1801ca2c-9d95-4a4b-a26d-0b26aaf1a925"/>
+				<text><![CDATA[CONMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="123" height="20" uuid="0a07ae28-2fc2-47fb-84df-26e8b5b52812"/>
+				<text><![CDATA[DOCMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="123" height="20" uuid="d814ea42-b7a8-4218-8dcf-193811f84eb0"/>
+				<text><![CDATA[NUMMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="615" y="0" width="123" height="20" uuid="ca2e487f-c56c-436d-bf95-b68a59503f75"/>
+				<text><![CDATA[SECMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="738" y="0" width="123" height="20" uuid="1d3a8125-5b6b-4841-bad5-4629d6e3d103"/>
+				<text><![CDATA[FECMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="861" y="0" width="123" height="20" uuid="bd3b9ff9-56ea-4fd7-8f04-f8a0252587ba"/>
+				<text><![CDATA[FORMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="984" y="0" width="123" height="20" uuid="a87249c2-c99f-43d6-a9be-a595834df702"/>
+				<text><![CDATA[CENMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1107" y="0" width="123" height="20" uuid="07faba29-3569-4e63-b9e5-676ff82b3da5"/>
+				<text><![CDATA[TERMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1230" y="0" width="123" height="20" uuid="48ab22ba-b483-408d-93a0-003d5515c8af"/>
+				<text><![CDATA[DBAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1353" y="0" width="123" height="20" uuid="58f85844-1456-449a-88d5-e95e8987a66d"/>
+				<text><![CDATA[NBAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1476" y="0" width="123" height="20" uuid="d40a221d-7b0a-4270-abb2-a62283337173"/>
+				<text><![CDATA[VBAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1599" y="0" width="123" height="20" uuid="7a55a59e-1d32-42c9-8b13-da427fd3b59a"/>
+				<text><![CDATA[CREMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1722" y="0" width="123" height="20" uuid="650a800d-a11c-41dc-af9b-a9650006b907"/>
+				<text><![CDATA[DEBMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1845" y="0" width="123" height="20" uuid="3f330139-879e-4807-abca-8c94219444f8"/>
+				<text><![CDATA[BIRMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1968" y="0" width="123" height="20" uuid="cd6a5150-2c1d-4bb5-81f3-10376c311ce0"/>
+				<text><![CDATA[MONMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2091" y="0" width="123" height="20" uuid="426b9faa-8c97-465c-a925-164f2c3292f1"/>
+				<text><![CDATA[VOMMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2214" y="0" width="123" height="20" uuid="38ced4a0-8368-4d93-9aef-c7a1e27b3a1e"/>
+				<text><![CDATA[NVBMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2337" y="0" width="123" height="20" uuid="389495a4-3802-4b7c-802f-51bf6fe6ae9a"/>
+				<text><![CDATA[CBAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2460" y="0" width="123" height="20" uuid="45dfc1fe-e442-4481-ac16-53e6daabe00b"/>
+				<text><![CDATA[PREMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2583" y="0" width="123" height="20" uuid="e750fcfa-c51e-40f6-a79e-e8a2db841995"/>
+				<text><![CDATA[TFAMOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2706" y="0" width="123" height="20" uuid="99e44aea-4c0e-464e-8fd2-0526ad4099d6"/>
+				<text><![CDATA[NDOMOV]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="123" height="20" uuid="c76f372f-248d-4281-8a2c-feb12997125a"/>
+				<textFieldExpression><![CDATA[$F{CTAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="0" width="123" height="20" uuid="83e028f1-125f-435b-8597-b94aa7ec05cb"/>
+				<textFieldExpression><![CDATA[$F{NOMCTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="0" width="123" height="20" uuid="74b45749-5c63-45eb-9f27-7cb76c02bc67"/>
+				<textFieldExpression><![CDATA[$F{CONMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="0" width="123" height="20" uuid="b14924b8-2748-4a2f-acac-c96d9db6ef87"/>
+				<textFieldExpression><![CDATA[$F{DOCMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="123" height="20" uuid="48b3f2a7-fa77-4929-ae8b-3bbb3c0cf184"/>
+				<textFieldExpression><![CDATA[$F{NUMMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="615" y="0" width="123" height="20" uuid="40ff78ab-de27-4976-acd3-cbcee53b9155"/>
+				<textFieldExpression><![CDATA[$F{SECMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="738" y="0" width="123" height="20" uuid="6f2c2eb7-c302-4274-bd50-02b72c03395b"/>
+				<textFieldExpression><![CDATA[$F{FECMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="861" y="0" width="123" height="20" uuid="193055c2-50b7-47ad-aec8-cc96fa0859a2"/>
+				<textFieldExpression><![CDATA[$F{FORMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="984" y="0" width="123" height="20" uuid="72b2ac8f-23a3-4a4e-b251-7f1df7d98d74"/>
+				<textFieldExpression><![CDATA[$F{CENMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1107" y="0" width="123" height="20" uuid="58f1db0d-114a-49cf-8085-4491c3a81fd5"/>
+				<textFieldExpression><![CDATA[$F{TERMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1230" y="0" width="123" height="20" uuid="de176cc5-34f1-4589-9a2c-74b5e477363a"/>
+				<textFieldExpression><![CDATA[$F{DBAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1353" y="0" width="123" height="20" uuid="8d6deca9-26e0-4ca7-9416-ed8d4cb1f09f"/>
+				<textFieldExpression><![CDATA[$F{NBAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1476" y="0" width="123" height="20" uuid="845b8acd-aaf9-4fbc-aa54-4351073b6229"/>
+				<textFieldExpression><![CDATA[$F{VBAMOV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="1599" y="0" width="123" height="20" uuid="e29e98d4-9718-4c94-a9c4-7782ccf790e6"/>
+				<textFieldExpression><![CDATA[$F{CREMOV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="1722" y="0" width="123" height="20" uuid="49072078-e724-47a6-a044-586c69a69aab"/>
+				<textFieldExpression><![CDATA[$F{DEBMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1845" y="0" width="123" height="20" uuid="186a59be-69d8-4eb2-81b4-45af8b7ee806"/>
+				<textFieldExpression><![CDATA[$F{BIRMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1968" y="0" width="123" height="20" uuid="b6fff885-c5ea-4e80-b514-9224050e6873"/>
+				<textFieldExpression><![CDATA[$F{MONMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2091" y="0" width="123" height="20" uuid="e906b539-e43c-4b02-9722-3155c66eed63"/>
+				<textFieldExpression><![CDATA[$F{VOMMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2214" y="0" width="123" height="20" uuid="abb35e13-0594-4bfa-bb19-7d790da03f0f"/>
+				<textFieldExpression><![CDATA[$F{NVBMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2337" y="0" width="123" height="20" uuid="af0a4444-59dd-4aaf-8509-90d31c43fa6e"/>
+				<textFieldExpression><![CDATA[$F{CBAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2460" y="0" width="123" height="20" uuid="363d2de6-a85b-4120-a2b5-1045fbe8156d"/>
+				<textFieldExpression><![CDATA[$F{PREMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2583" y="0" width="123" height="20" uuid="c969a0d7-1cd0-43b6-881d-080ca3eb11d8"/>
+				<textFieldExpression><![CDATA[$F{TFAMOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2706" y="0" width="123" height="20" uuid="8d87853f-89fa-423a-bd7f-df2a3e5380fc"/>
+				<textFieldExpression><![CDATA[$F{NDOMOV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="23" splitType="Stretch">
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="1599" y="1" width="123" height="20" uuid="5b782dac-43bc-46d9-a04c-4631c817f544"/>
+				<textFieldExpression><![CDATA[$V{CREMOV_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="1722" y="1" width="123" height="20" uuid="54637f85-026f-41f3-9b4c-8b093c791f81"/>
+				<textFieldExpression><![CDATA[$V{DEBMOV_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+	<noData>
+		<band height="20"/>
+	</noData>
+</jasperReport>

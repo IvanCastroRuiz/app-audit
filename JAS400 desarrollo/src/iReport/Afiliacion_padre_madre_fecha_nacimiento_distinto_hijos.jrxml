@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Afiliacion_padre_madre_fecha_nacimiento_distinto_hijos" language="groovy" pageWidth="1152" pageHeight="1800" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1152" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b0de6944-124f-4291-b83e-35e7cdcbb194">
+	<property name="ireport.zoom" value="2.8531167061100104"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select distinct t1.tradoc, t2.tradoc as tra , t1.hijdoc ,  t1.hijfnc , t2.hijfnc nac2 ,
+       t1.hijno1 , t1.hijap1 , t1.hijap2 ,
+       t2.hijno1 no1_2, t2.hijap1 ap1_2 , t2.hijap2 ap2_2
+from subsilib.mhijos as t1 , subsilib.mhijos as t2
+where t1.hijdoc = t2.hijdoc and t1.hijfnc <> t2.hijfnc
+and t1.hijap1 = t2.hijap1 and t1.hijap2 = t2.hijap2]]>
+	</queryString>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRA" class="java.math.BigDecimal"/>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="HIJFNC" class="java.lang.String"/>
+	<field name="NAC2" class="java.lang.String"/>
+	<field name="HIJNO1" class="java.lang.String"/>
+	<field name="HIJAP1" class="java.lang.String"/>
+	<field name="HIJAP2" class="java.lang.String"/>
+	<field name="NO1_2" class="java.lang.String"/>
+	<field name="AP1_2" class="java.lang.String"/>
+	<field name="AP2_2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="42" width="1111" height="20" uuid="2d958c29-63eb-4a8d-80ee-7836d46133a1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="68" width="1111" height="20" uuid="a6a70050-bd31-4616-8561-7cd7f36af14b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE HIJOS AFILIADOS POR PADRE Y MADRE CON FECHA NACIMIENTO DISTINTAS]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="7" y="22" width="1111" height="20" uuid="79830b25-ff8b-454d-99c1-181bc17e2c94"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="9" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="1" width="98" height="20" uuid="fc818338-b2a5-42de-b67e-80c2bdc1ca84"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TRADOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="1" width="100" height="20" uuid="acf29ab7-9548-44bf-9e65-c809f8af1dea"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIJDOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="1" width="100" height="20" uuid="dcccb1a4-4fd1-49a9-92bc-df36e2819d8e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIJFNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="1" width="100" height="20" uuid="9bef9f56-f4b7-4914-9a72-4cff7392620e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIJNO1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="1" width="100" height="20" uuid="a5f69650-c9ca-4550-944c-c0afd734d0be"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIJAP1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="1" width="100" height="20" uuid="2c226095-fcdb-4ae4-b18e-e1e3d74b4215"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIJAP2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="605" y="1" width="111" height="20" uuid="0958e1d9-1a0f-461a-a7bf-ef9c49801b91"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="716" y="1" width="101" height="20" uuid="e67f1aa5-5a1d-495f-8b77-8fc574247a43"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NAC2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="817" y="1" width="100" height="20" uuid="be6c47b1-5639-4dd7-87d9-0dcf0da5e40b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NO1_2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="917" y="1" width="101" height="20" uuid="786a960d-42bd-483d-8644-5a6a3a395274"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[AP1_2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1018" y="1" width="100" height="20" uuid="5300605a-24d7-4758-8031-1770712dbba6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[AP2_2]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="1" width="98" height="20" uuid="36956cf0-da3c-477b-b873-f6a4a05a3b50"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="1" width="100" height="20" uuid="1b27c968-108e-461b-aff1-5fa36cfa78c0"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="1" width="100" height="20" uuid="d6efc2d0-e13f-4767-8919-a9c5df7339f5"/>
+				<textFieldExpression><![CDATA[$F{HIJFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="1" width="100" height="20" uuid="aaddf12b-d42d-4867-9752-f3e4ac609f2c"/>
+				<textFieldExpression><![CDATA[$F{HIJNO1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="1" width="100" height="20" uuid="69856b34-dc34-4db0-a678-9f3c18eb9ac2"/>
+				<textFieldExpression><![CDATA[$F{HIJAP1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="505" y="1" width="100" height="20" uuid="f6b9c166-dacc-40fb-814c-533d0b8c19db"/>
+				<textFieldExpression><![CDATA[$F{HIJAP2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="605" y="1" width="111" height="20" uuid="ce327f5d-9068-4327-a7ff-b86b8a8624d3"/>
+				<textFieldExpression><![CDATA[$F{TRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="716" y="1" width="101" height="20" uuid="d64f916d-7fa9-4cd7-9c32-08a073904f50"/>
+				<textFieldExpression><![CDATA[$F{NAC2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="817" y="1" width="100" height="20" uuid="13205344-1883-4a56-8198-05cd3da984ca"/>
+				<textFieldExpression><![CDATA[$F{NO1_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="917" y="1" width="101" height="20" uuid="4ea390f8-751a-416b-9245-3407b3c4bfe7"/>
+				<textFieldExpression><![CDATA[$F{AP1_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1018" y="1" width="100" height="20" uuid="84eaa58b-f9b1-4c84-972c-fdbb9174cbbf"/>
+				<textFieldExpression><![CDATA[$F{AP2_2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50"/>
+	</lastPageFooter>
+	<summary>
+		<band height="50"/>
+	</summary>
+	<noData>
+		<band height="50"/>
+	</noData>
+</jasperReport>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZSaldo_Detallado" language="groovy" pageWidth="1296" pageHeight="72000" orientation="Landscape" columnWidth="1256" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39f23c3a-5a2e-4552-9ad3-b74afc622168">
+	<property name="ireport.zoom" value="3.1384283767210044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="284"/>
+	<parameter name="FechaInicia" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select *
+from selinlib.JDETALLSAL as t1, selinlib.JCCENTROS as t2
+where t1.CODIGO=t2.CODIGO and
+t1.fecha>=$P{FechaInicia} and t1.fecha<=$P{FechaFinal}]]>
+	</queryString>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="FECHA" class="java.math.BigDecimal"/>
+	<field name="INGRESO" class="java.math.BigDecimal"/>
+	<field name="TRANSF_MOV" class="java.math.BigDecimal"/>
+	<field name="INGRES_MOV" class="java.math.BigDecimal"/>
+	<field name="REC_CAJA" class="java.math.BigDecimal"/>
+	<field name="CCHEQU_MOV" class="java.math.BigDecimal"/>
+	<field name="SUBPAGAD" class="java.math.BigDecimal"/>
+	<field name="SALDOANT" class="java.math.BigDecimal"/>
+	<field name="SALDOACT" class="java.math.BigDecimal"/>
+	<field name="SALDOACT2" class="java.math.BigDecimal"/>
+	<field name="RCAJA_PROP" class="java.math.BigDecimal"/>
+	<field name="RCAJA_OTRO" class="java.math.BigDecimal"/>
+	<field name="CAC" class="java.math.BigDecimal"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="CODCONT" class="java.math.BigDecimal"/>
+	<field name="CODTARJ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="1256" height="27" uuid="d85bf629-2f04-4efe-8bbe-3e6a385725da"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="27" width="1256" height="20" uuid="ca85aaaf-4c36-4822-ba07-493dab29b9f8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="1256" height="20" uuid="79337b81-9d2d-456a-a0a7-8ea3c1e02774"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DETALLADO DE SALDOS DE LOS CENTROS ATENCIONES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="104" height="20" uuid="906c9fc1-d3dc-4140-bef2-10f68a00283d"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="104" y="0" width="104" height="20" uuid="33d725e0-d9c7-48b6-8602-ad385f9577e9"/>
+				<text><![CDATA[DESCRIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="0" width="104" height="20" uuid="4071c7de-7817-48bc-8297-81136534eca9"/>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="104" height="20" uuid="d0d54eab-097a-456a-87ad-9ede7b01afab"/>
+				<text><![CDATA[INGRESO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="0" width="104" height="20" uuid="abbec4f0-6271-416b-9ad4-5c75607e8024"/>
+				<text><![CDATA[TRANSF_MOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="0" width="104" height="20" uuid="81d1dcd4-5af4-4d0d-b269-3cac9d85a057"/>
+				<text><![CDATA[INGRES_MOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="624" y="0" width="104" height="20" uuid="41462b29-2bef-49d1-a7bd-6a6ea9381695"/>
+				<text><![CDATA[CCHEQU_MOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="0" width="104" height="20" uuid="320812a8-79b3-49ad-89a8-abb05a1372aa"/>
+				<text><![CDATA[SUBPAGAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1034" y="0" width="105" height="20" uuid="b17ec045-21ae-4eaf-ab63-955c2dc313e5"/>
+				<text><![CDATA[SALDOANT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1139" y="0" width="117" height="20" uuid="db2da128-97ae-426e-8e77-9e3ac611697a"/>
+				<text><![CDATA[SALDOACT2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="833" y="0" width="100" height="20" uuid="dd24d5f0-3dfe-4c19-af68-cbc5bf51f306"/>
+				<text><![CDATA[REC. CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="934" y="0" width="100" height="20" uuid="2a401276-395c-495e-8417-9b409df0cb32"/>
+				<text><![CDATA[REC. CAJA OTROS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="104" height="20" uuid="ec79911e-b922-45bd-955b-9d501293eff3"/>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="0" width="104" height="20" uuid="34640035-54bb-4013-b446-8c457ddc3025"/>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="104" height="20" uuid="58d34e73-4a2a-4f8f-9224-937c8d84fb68"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="104" height="20" uuid="a3a69926-1449-4c7f-b62b-df162433077b"/>
+				<textFieldExpression><![CDATA[$F{INGRESO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="0" width="104" height="20" uuid="8e5f87d7-c572-4efe-8a49-99f4ee5a79b9"/>
+				<textFieldExpression><![CDATA[$F{TRANSF_MOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="0" width="104" height="20" uuid="960cdadb-11f0-4c14-af22-c03111875b63"/>
+				<textFieldExpression><![CDATA[$F{INGRES_MOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="624" y="0" width="104" height="20" uuid="3598fb97-0f2a-44a5-b3c1-7031e630c87a"/>
+				<textFieldExpression><![CDATA[$F{CCHEQU_MOV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="728" y="0" width="104" height="20" uuid="bc3512d3-3c65-4200-98d2-00d474db902b"/>
+				<textFieldExpression><![CDATA[$F{SUBPAGAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1034" y="0" width="105" height="20" uuid="ea16284d-d075-4c4c-a436-f7c6a34d0102"/>
+				<textFieldExpression><![CDATA[$F{SALDOANT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1139" y="0" width="117" height="20" uuid="9d81dc97-366b-4a04-bc7b-606ed8e85284"/>
+				<textFieldExpression><![CDATA[$F{SALDOACT2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="833" y="0" width="100" height="20" uuid="d2df27c1-7664-4580-a3c9-c0288ca73fe3"/>
+				<textFieldExpression><![CDATA[$F{RCAJA_PROP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="934" y="0" width="100" height="20" uuid="26ef6156-d630-4a8c-a904-8375e6268174"/>
+				<textFieldExpression><![CDATA[$F{RCAJA_OTRO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="0" width="1040" height="32" uuid="1b42257a-3223-4ce7-a4a9-21f71122c1a6"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

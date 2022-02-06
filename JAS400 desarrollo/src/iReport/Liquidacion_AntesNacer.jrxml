@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Liquidacion_AntesNacer" language="groovy" pageWidth="995" pageHeight="2836" whenNoDataType="NoDataSection" columnWidth="955" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9bce95fb-07ae-4077-b82b-2c962e82280e">
+	<property name="ireport.zoom" value="2.357947691000002"/>
+	<property name="ireport.x" value="250"/>
+	<property name="ireport.y" value="227"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select ppeliq , hijfnc, t1.*
+from subsilib.liquipag as t1 , subsilib.mhijos  as t2
+where ppeliq < substr(hijfnc , 1 ,6)
+and pfeliq >= $P{FechaInicial} and pfeliq <= $P{FechaFinal} and pdbliq = hijdoc  and pctliq = tradoc]]>
+	</queryString>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="HIJFNC" class="java.lang.String"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<field name="PCELIQ" class="java.math.BigDecimal"/>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PCCLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="PCRLIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PDELIQ" class="java.lang.String"/>
+	<field name="PULLIQ" class="java.lang.String"/>
+	<field name="PUCLIQ" class="java.lang.String"/>
+	<field name="PFCLIQ" class="java.lang.String"/>
+	<field name="PCHLIQ" class="java.math.BigDecimal"/>
+	<field name="PTCHLI" class="java.math.BigDecimal"/>
+	<field name="PSELIQ" class="java.math.BigDecimal"/>
+	<field name="PNBLIQ" class="java.lang.String"/>
+	<field name="PESEMP" class="java.math.BigDecimal"/>
+	<field name="PDILIQ" class="java.math.BigDecimal"/>
+	<field name="PAGLIQ" class="java.math.BigDecimal"/>
+	<field name="PSALIQ" class="java.math.BigDecimal"/>
+	<field name="PCALIQ" class="java.lang.String"/>
+	<field name="PRELIQ" class="java.math.BigDecimal"/>
+	<field name="PMPLIQ" class="java.math.BigDecimal"/>
+	<field name="PBCLIQ" class="java.math.BigDecimal"/>
+	<field name="PCNLIQ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="27" width="954" height="20" uuid="fcb230a5-d16a-4ed7-bccf-9a25999964bf"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="955" height="20" uuid="0698cbe5-09f9-448f-9bd6-d18dc5f62cd6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="72" width="954" height="20" uuid="96fea8ae-8c01-4531-b97d-9cea28aa35b4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[LIQUIDACIONES PREVIA A LA FECHA DE NACIMIENTO DEL BENEFICIARIO]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="1" y="7" width="954" height="20" uuid="3512c0a3-49e3-49ec-a2cc-011b1a594c5c"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="2" width="99" height="20" uuid="a9c17273-c469-4be2-a480-476d6bfe3a04"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="119" height="20" uuid="1584d2c2-f54a-4df3-a0fa-0cf7289854e3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento Hij.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="2" width="100" height="20" uuid="ab0eb580-04e1-4bf1-9ae6-f51dfb304ab7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="2" width="100" height="20" uuid="f17f23a7-2d21-48c9-a72b-5263ee65f338"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="2" width="100" height="20" uuid="7900a3e2-512a-475c-a425-da187fd36b59"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Conyge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="519" y="2" width="100" height="20" uuid="0828d8fb-9371-4b9a-b94b-11506942fd94"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Beneficiario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="619" y="2" width="100" height="20" uuid="cb8eea01-411a-435d-b1b0-0773bc5ffe5b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="719" y="2" width="236" height="20" uuid="105bbd61-4b48-480d-8f92-5026aa2768d5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="18" uuid="b264914b-f4c3-4489-98c8-d9e6112948a4"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="119" height="18" uuid="cbe17601-7f56-470b-880e-760a760bb793"/>
+				<textFieldExpression><![CDATA[$F{HIJFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="100" height="18" uuid="a24036f3-5ebc-47c4-9a99-9a87742b7bd7"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="0" width="100" height="18" uuid="4cf8edb5-576f-4097-8536-708a2d379462"/>
+				<textFieldExpression><![CDATA[$F{PCTLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="0" width="100" height="18" uuid="7863c83e-e386-4c75-99ac-a6dcdb7b237c"/>
+				<textFieldExpression><![CDATA[$F{PCCLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="519" y="0" width="100" height="18" uuid="b651a12e-d6ea-4dc5-9207-356b3247289d"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="619" y="0" width="100" height="18" uuid="08e35ff5-9231-44c1-872d-24007d149dda"/>
+				<textFieldExpression><![CDATA[$F{PCOLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="719" y="0" width="236" height="18" uuid="8bfd4dd1-0c1b-451e-845c-0a84a08e4fef"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="140">
+			<staticText>
+				<reportElement x="1" y="85" width="955" height="40" uuid="d73b8720-253b-4b71-9b7d-36e33c079aa2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="29" width="955" height="20" uuid="31537f37-fe7a-48dc-a518-caa8b8040065"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="8" width="954" height="20" uuid="8ce9049a-961e-4429-b8a0-8a75bdb4fb2d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="53" width="954" height="20" uuid="c9ae4c67-af8d-4ec4-93c6-1097fe06d662"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[LIQUIDACIONES PREVIA A LA FECHA DE NACIMIENTO DEL BENEFICIARIO]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hijos_mayores18" language="groovy" pageWidth="841" pageHeight="72000" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="801" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f109d08-ca45-4f26-887a-d29bbcd21649">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="276"/>
+	<property name="ireport.y" value="3"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  ( ppeliq - int (substr( hijfnc , 1 , 6) ) )/100   Edad
+       , ppeliq
+       , hijfnc  , tradoc , hijdoc , pcoliq , pvaliq
+        from subsilib.liquipag as t1 , subsilib.mhijos as t2
+where t1.pdbliq = hijdoc and pctliq = tradoc
+and pfeliq >=$P{FechaInicial} and pfeliq <= $P{FechaFinal}
+and pcoliq=1
+and hijsdc<>1
+and (( ppeliq - int (substr( hijfnc , 1 , 6) ) )/100 )>= 19
+order by hijfnc]]>
+	</queryString>
+	<field name="EDAD" class="java.math.BigDecimal"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="HIJFNC" class="java.lang.String"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="HIJDOC" class="java.math.BigDecimal"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="29" width="801" height="20" uuid="c25ffd53-9657-49e1-8774-5c75200aede2"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="801" height="20" uuid="956d1a80-16f9-48e6-aa16-405a427ad46d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="71" width="801" height="20" uuid="0f15430d-3bf4-4ad0-a1a2-001dd08999e3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS MAYORES DE 18 QUE RECIBEN CUOTA MONETARIA]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="9" width="801" height="20" uuid="c64bfc13-20f1-4092-9133-21ebb7c54434"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="196" height="20" uuid="30ada85f-806c-46c6-accf-a92d549d0737"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="1" width="100" height="20" uuid="f3581391-55f7-42dc-a1fc-ab6f5e4323f9"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="1" width="100" height="20" uuid="ede8d79c-81b0-482e-91ee-1a4b9f666180"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="1" width="100" height="20" uuid="9bb629d1-a98b-43bc-baf1-b98c64c32c16"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Hijo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="1" width="100" height="20" uuid="ce7b3224-7a55-4817-b3ef-d6700983e796"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="596" y="1" width="100" height="20" uuid="6f96aa0e-1e81-47f4-b0eb-74c4645fb135"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concepto Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="696" y="1" width="105" height="20" uuid="7206baaa-23b5-4819-be05-cc3bb8045d72"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="196" height="20" uuid="58ab40bf-7199-4bd6-b526-b254cf188d31"/>
+				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="4" width="100" height="20" uuid="1450fb76-4b4a-4f3f-b0be-751a5d6c2a32"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="4" width="100" height="20" uuid="d1ec565b-c94e-4f77-98ac-6b7702487c42"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="4" width="100" height="20" uuid="be878c4d-f012-4baa-aa19-5436919ed690"/>
+				<textFieldExpression><![CDATA[$F{HIJDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="4" width="100" height="20" uuid="73afc007-05f0-47e6-87e1-1345a93ff064"/>
+				<textFieldExpression><![CDATA[$F{HIJFNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="596" y="4" width="100" height="20" uuid="567d712f-3de9-4801-a6d7-76ce6bd32f25"/>
+				<textFieldExpression><![CDATA[$F{PCOLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="696" y="4" width="105" height="20" uuid="3946dbce-823d-4af4-a5ac-0a42d4454e1a"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="18" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="158">
+			<staticText>
+				<reportElement x="0" y="28" width="801" height="20" uuid="f4e34f7b-2aaf-4402-8b8e-559adcf6bfb0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="53" width="801" height="20" uuid="ff58c218-ba0d-4852-9553-f5566d0136e0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIJOS MAYORES DE 18 QUE RECIBEN CUOTA MONETARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="8" width="801" height="20" uuid="b4801923-f78c-4e57-b9dc-0fb954ec5bd8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="89" width="801" height="32" uuid="cb5bdb1d-8660-4acc-836e-7ec47425aa58"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

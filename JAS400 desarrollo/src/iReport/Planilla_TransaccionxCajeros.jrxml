@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Planilla_TransaccionxCajeros" language="groovy" pageWidth="720" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="680" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9b9e08e-25e1-44d4-9969-c8f21f858878">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="129"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="FECHA" class="java.lang.String"/>
+	<parameter name="JUSUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM SELINLIB.JPLANILLA
+WHERE USUAR_JAS=$P{JUSUARIO}]]>
+	</queryString>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="NOMTRA" class="java.lang.String"/>
+	<field name="CODCA2" class="java.math.BigDecimal"/>
+	<field name="USUARI" class="java.lang.String"/>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="FECPAGO" class="java.math.BigDecimal"/>
+	<field name="CANTIDAD" class="java.math.BigDecimal"/>
+	<field name="VLRUNI" class="java.math.BigDecimal"/>
+	<field name="VLRTOTAL" class="java.math.BigDecimal"/>
+	<field name="ESTADO" class="java.lang.String"/>
+	<field name="USUAR_JAS" class="java.lang.String"/>
+	<variable name="VLRTOTAL_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{VLRTOTAL}]]></variableExpression>
+	</variable>
+	<variable name="VLRTOTAL_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{VLRTOTAL}]]></variableExpression>
+	</variable>
+	<variable name="VLRTOTAL_3" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{VLRTOTAL}]]></variableExpression>
+	</variable>
+	<variable name="VLRTOTAL_4" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{VLRTOTAL}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="680" height="20" uuid="61150875-dfe5-4013-83ee-3dc74d35bd93"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="25" width="678" height="20" uuid="a881daff-a71c-4cd1-b8c9-1b5d2418d0af"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="45" width="678" height="20" uuid="313accb7-39a1-4871-a6a1-cbd08964fa05"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PLANILLA RESUMEN DE MOVIMIENTO DE CAJERO EN EL SISTEMA POS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="35" y="11" width="54" height="20" uuid="5ef5f7d3-ffc9-4acb-b99c-1a74b6da853f"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="36" width="66" height="20" uuid="7655bdce-1fe0-44f7-b871-1ed8626c50fb"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="11" width="100" height="20" uuid="590c1cd0-2fa9-42fb-8083-9c23da85292d"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="507" y="16" width="54" height="20" uuid="3a230290-0bfc-4836-9f41-e02234549da6"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="561" y="16" width="100" height="20" uuid="7d8a982f-4891-4462-9be7-3c3aebadcc45"/>
+				<textFieldExpression><![CDATA[$P{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="37" width="168" height="20" uuid="56e3435d-0073-4dad-b18c-4c0144ccf1b9"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="25" y="7" width="646" height="1" uuid="3a5f153c-6d57-4330-865f-3fceb1d4566b"/>
+			</line>
+			<line>
+				<reportElement x="25" y="8" width="1" height="65" uuid="dcf1ed06-654f-4a94-94f2-bca13e115f5c"/>
+			</line>
+			<line>
+				<reportElement x="671" y="7" width="1" height="67" uuid="c0732e47-fc02-475c-af89-87a5a3ee2af1"/>
+			</line>
+			<line>
+				<reportElement x="25" y="74" width="647" height="1" uuid="1f008ed6-ec8d-430f-8087-71cbef85e790"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="315" y="10" width="100" height="20" uuid="c101f0af-156e-4f1e-8456-9a7c6ab2d080"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nro Transacciones]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="458" y="11" width="160" height="20" uuid="6382881a-541c-4087-a3fe-d4b3389c9268"/>
+				<textFieldExpression><![CDATA[$F{VLRTOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="11" width="100" height="20" uuid="ad8625b1-bc19-4761-a6fd-f5d5d5cd4d7a"/>
+				<textFieldExpression><![CDATA[$F{NOMTRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="11" width="100" height="20" uuid="65f8cab0-c2c3-4d53-8dd1-b8f78d330e5e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="459" y="5" width="160" height="20" uuid="ca6b72ef-0f79-4c9d-af06-6d5061ed085d"/>
+				<textFieldExpression><![CDATA[$V{VLRTOTAL_4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+	<noData>
+		<band height="185">
+			<staticText>
+				<reportElement x="1" y="117" width="679" height="40" uuid="ea7ae3a4-02b2-4654-b2f0-fa386e869cc4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO POR MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="38" width="661" height="20" uuid="6d5e2820-f638-4aa9-9b5a-460a72618696"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="18" width="663" height="20" uuid="ba1eff71-03bc-4276-b11b-2bcefe2300e6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="58" width="661" height="20" uuid="9399a5be-6d6c-40ce-9de9-bcfcfb9f2ff8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PLANILLA RESUMEN DE MOVIMIENTO DE CAJERO EN EL SISTEMA POS]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

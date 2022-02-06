@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZSaldo_Centros_Detallado" language="groovy" pageWidth="1800" pageHeight="72000" orientation="Landscape" columnWidth="1760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfc2af4a-da9b-48e2-974a-7aba92a9f8e1">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="522"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  t1.codigocac , t2.descrip , fecha , de ,t3.descrip,  de,t3.descrip as descr_de , para ,t4.descrip as descr_para , observa ,valor
+from selinlib.jsaldos as t1 , selinlib.jccentros as t2
+, selinlib.jccentros as t3 , selinlib.jccentros as t4
+where t2.codigo =t1.codigocac and de=t3.codigo
+and para=t4.codigo and fecha>=$P{FechaInicial}  and fecha<=$P{FechaFinal}
+order by 1 , fecha]]>
+	</queryString>
+	<field name="CODIGOCAC" class="java.math.BigDecimal"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="FECHA" class="java.math.BigDecimal"/>
+	<field name="DE" class="java.math.BigDecimal"/>
+	<field name="DESCR_DE" class="java.lang.String"/>
+	<field name="PARA" class="java.math.BigDecimal"/>
+	<field name="DESCR_PARA" class="java.lang.String"/>
+	<field name="OBSERVA" class="java.lang.String"/>
+	<field name="VALOR" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="1757" height="20" uuid="8cfcda34-3d8d-4cca-a566-03d3045d92c3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="22" width="1756" height="20" uuid="c5e317ff-bfef-4095-8854-cc350318916f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="44" width="1756" height="20" uuid="d3e15b4f-d0c0-435e-924f-2967ef766e54"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOVIMIENTO DE SALDO POR CENTRO DETALLADO POR DIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="195" height="20" uuid="faf582ef-6739-4470-be24-bddc5b749376"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Centro de Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="0" width="195" height="20" uuid="f91fa66c-e70e-47a9-9b4e-19f81ba7de86"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Centro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="195" height="20" uuid="4307f4dd-d7a9-415a-b2da-85c5762cb481"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Movimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="585" y="0" width="195" height="20" uuid="8b353c01-01ac-4f56-9c3e-2f4e74c40b3b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[De]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="780" y="0" width="195" height="20" uuid="cb114fc2-999f-4a1c-87a3-ff8c3a78fa9c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre De]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="975" y="0" width="195" height="20" uuid="b1f39d68-62c6-4c5b-a240-25b83f6ce304"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Para]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1170" y="0" width="195" height="20" uuid="f4cc4c93-831b-47b5-b7af-799565685fcb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre para]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1365" y="0" width="195" height="20" uuid="ba3b59ba-50e3-497a-a79a-dde15d51b45f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1560" y="0" width="197" height="20" uuid="1033c946-0295-429f-9320-cfeafc5084a4"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="5" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="195" height="20" uuid="5ae324e4-68a1-4b78-a2c7-57024a6abe2f"/>
+				<textFieldExpression><![CDATA[$F{CODIGOCAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="195" height="20" uuid="19a75f56-46ab-46ca-996c-fde314826d6a"/>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="195" height="20" uuid="405f7240-76d6-4770-8ad7-c06dd35bd57d"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="585" y="0" width="195" height="20" uuid="5f95321c-379d-4bc7-b30c-6f7ad8a59066"/>
+				<textFieldExpression><![CDATA[$F{DE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="780" y="0" width="195" height="20" uuid="25d7f3d4-0270-43a7-88f9-0030499a6c66"/>
+				<textFieldExpression><![CDATA[$F{DESCR_DE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="975" y="0" width="195" height="20" uuid="8028d16a-f111-4387-919d-8de6a902747b"/>
+				<textFieldExpression><![CDATA[$F{PARA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1170" y="0" width="195" height="20" uuid="1521719a-8596-4d90-9dc7-a5accb565437"/>
+				<textFieldExpression><![CDATA[$F{DESCR_PARA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1365" y="0" width="195" height="20" uuid="6d847bb1-f95f-42d2-bee7-33028f2e480d"/>
+				<textFieldExpression><![CDATA[$F{OBSERVA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="1560" y="0" width="197" height="20" uuid="73e2ccff-74dd-4a9a-8a52-eed6733d15af"/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

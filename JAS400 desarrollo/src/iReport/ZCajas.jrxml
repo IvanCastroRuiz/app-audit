@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZCajas" language="groovy" pageWidth="1944" pageHeight="72000" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1944" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cc3cbe31-8c1e-48bb-9228-786fce36da0a">
+	<property name="ireport.zoom" value="2.143588810000002"/>
+	<property name="ireport.x" value="2636"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CCosto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Medio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select TRCFEC, t1.TRCNUM, TRCNIT,TRCDTE, TRCTOT , TBACVE , TRCEST , CODCCO, TRDDES, TRPVAL
+From sgdatos.TRCJC as t1 , sgdatos.TRCJP as t2, sgdatos.TRCJD as t3
+where t1.TRCNUM=t2.TRCNUM and t1.TRCEST<>'B'
+and t1.TRCNUM=t3.TRCNUM
+and t1.TRCFEC>=$P{FechaInicial} and t1.TRCFEC<=$P{FechaFinal}
+and T1.CODCCO =$P{CCosto}
+and T2.TBACVE = $P{Medio}]]>
+	</queryString>
+	<field name="TRCFEC" class="java.math.BigDecimal"/>
+	<field name="TRCNUM" class="java.math.BigDecimal"/>
+	<field name="TRCNIT" class="java.math.BigDecimal"/>
+	<field name="TRCDTE" class="java.lang.String"/>
+	<field name="TRCTOT" class="java.math.BigDecimal"/>
+	<field name="TBACVE" class="java.math.BigDecimal"/>
+	<field name="TRCEST" class="java.lang.String"/>
+	<field name="CODCCO" class="java.math.BigDecimal"/>
+	<field name="TRDDES" class="java.lang.String"/>
+	<field name="TRPVAL" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="156" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="27" width="1944" height="20" uuid="bc568b0e-46d6-4ec9-ba70-1f84fe9c5a97"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="1944" height="20" uuid="9de626e1-bd8f-4813-bf38-be5e84c044a5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE RECIBO DE CAJAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="1944" height="20" uuid="26aa997c-8c1c-4104-9411-a4d9088b2105"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="1346" y="7" width="598" height="20" uuid="1e0cf790-fc62-443a-9fe5-f15fb3f6c308"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="113" height="20" uuid="d28e6790-2460-47ec-910b-2a3b3b14319f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="110" width="113" height="20" uuid="4bcdfff4-4028-4fd5-8463-158245569236"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="113" y="90" width="114" height="20" uuid="65de49c8-0123-4d2d-9c04-3ce1409724f8"/>
+				<textFieldExpression><![CDATA[$P{FechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="110" width="114" height="20" uuid="39a5d2a6-d11b-4481-8d9a-cd7015fae0ca"/>
+				<textFieldExpression><![CDATA[$P{FechaFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="113" height="20" uuid="13c705fb-d576-451b-92e0-2d88d123b994"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="0" width="114" height="20" uuid="cbc1d75a-d605-43fb-9620-76480fdde28e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="115" height="20" uuid="c27b24b3-26eb-46e2-bd01-d4a6b0367296"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="759" y="0" width="114" height="20" uuid="94b8deb2-f655-46f8-a274-392eb990c73c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="873" y="0" width="114" height="20" uuid="0d1d39aa-8c64-43cb-9212-efa0c32b45b6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Medio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1086" y="0" width="115" height="20" uuid="70cd764f-3488-40f2-a9a9-403f2d634b34"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1201" y="0" width="145" height="20" uuid="948cac4a-b3fa-43ec-96d2-943022898d5b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Centro de Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="0" width="417" height="20" uuid="4358cfb7-c20b-42bb-a7b9-4b83743b7c5f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Tercero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1346" y="0" width="414" height="20" uuid="5b4814d7-3b4a-4a95-933d-ab6909e25614"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="986" y="0" width="100" height="20" uuid="e62ae859-91bc-4202-ac48-144dd6bc5ab6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Medio de Pago]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="113" height="20" uuid="3a6e1524-a605-4415-89e9-3f5d0a8a36b5"/>
+				<textFieldExpression><![CDATA[$F{TRCFEC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="113" y="0" width="114" height="20" uuid="67a49557-471c-40bb-a126-6e0b7e5d45a0"/>
+				<textFieldExpression><![CDATA[$F{TRCNUM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="227" y="0" width="115" height="20" uuid="3b799b1c-aed0-420f-9571-f3abd9222d92"/>
+				<textFieldExpression><![CDATA[$F{TRCNIT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="759" y="0" width="114" height="20" uuid="3f09cd41-575e-46aa-8089-504fd9e840b3"/>
+				<textFieldExpression><![CDATA[$F{TRCTOT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="873" y="0" width="114" height="20" uuid="7514843f-4840-4513-9f5e-c1be058c8f96"/>
+				<textFieldExpression><![CDATA[$F{TBACVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1086" y="0" width="115" height="20" uuid="ad4aef8b-3ccb-4d88-a2a8-4156975889af"/>
+				<textFieldExpression><![CDATA[$F{TRCEST}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1201" y="0" width="145" height="20" uuid="e11948f9-ae5a-4689-bd1f-87d545ca0887"/>
+				<textFieldExpression><![CDATA[$F{CODCCO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="417" height="20" uuid="2e4739a6-6b79-42e5-aa62-3aaf8c6231fc"/>
+				<textFieldExpression><![CDATA[$F{TRCDTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1346" y="0" width="414" height="20" uuid="f9eecef4-8c2d-455b-8e34-ff735722bb4b"/>
+				<textFieldExpression><![CDATA[$F{TRDDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="986" y="0" width="100" height="20" uuid="6c17480e-4697-49db-8300-9afd262879ab"/>
+				<textFieldExpression><![CDATA[$F{TRPVAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="16" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="119">
+			<staticText>
+				<reportElement x="1" y="70" width="1090" height="38" uuid="93df2919-ae23-4246-989d-2de76220e14b"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY REGISTRO PARA MOSTRAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="25" width="1102" height="20" uuid="2367c382-97b1-4c30-858a-4533d80719e7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="46" width="1102" height="20" uuid="d583dc9d-be4b-45c3-8cdd-769bd6ee4826"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE RECIBO DE CAJAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="4" width="1102" height="20" uuid="ae110ea8-ebae-49ba-9dab-697ad3999da1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLANTICO]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

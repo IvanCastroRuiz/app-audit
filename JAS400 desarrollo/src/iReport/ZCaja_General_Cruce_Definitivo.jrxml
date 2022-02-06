@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZCaja_General_Cruce_Definitivo" language="groovy" pageWidth="1080" pageHeight="72000" orientation="Landscape" columnWidth="1080" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5c76b50f-e969-47b9-a9c6-92a54f4daf81">
+	<property name="ireport.zoom" value="5.559917313492243"/>
+	<property name="ireport.x" value="1708"/>
+	<property name="ireport.y" value="50"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  USUCOD,
+T01.CENCOD,T02.CENNOM,T01.PLAEST,T01.PLCOSU , T01.PLAFEI ,  PLEFSU
+FROM RECAUDOS.LAPORT1 as T01 ,
+RECAUDOS.CENTRO as T02
+WHERE T01.CENCOD = T02.CENCOD  AND T02.CENCOD = 8
+AND T01.PLAFEI >=$P{FechaInicial}  AND  T01.PLAFEI <= $P{FechaFinal}
+ORDER BY T01.CENCOD ASC]]>
+	</queryString>
+	<field name="USUCOD" class="java.lang.String"/>
+	<field name="CENCOD" class="java.math.BigDecimal"/>
+	<field name="CENNOM" class="java.lang.String"/>
+	<field name="PLAEST" class="java.math.BigDecimal"/>
+	<field name="PLCOSU" class="java.math.BigDecimal"/>
+	<field name="PLAFEI" class="java.lang.String"/>
+	<field name="PLEFSU" class="java.math.BigDecimal"/>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="114" height="20" uuid="4a1ac28c-ef75-4f19-92cb-e0dd06a6f21a"/>
+				<text><![CDATA[USUCOD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="0" width="114" height="20" uuid="a172a04f-0a0a-4e7b-872c-55e6ee526209"/>
+				<text><![CDATA[CENCOD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="390" height="20" uuid="59bdd76a-2714-4c06-80a3-6ed639bcd337"/>
+				<text><![CDATA[CENNOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="620" y="0" width="114" height="20" uuid="d96c0d2c-3cab-4fb3-b8d2-40d58ae3c67a"/>
+				<text><![CDATA[PLAEST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="734" y="0" width="114" height="20" uuid="c7d89778-bb4f-4512-96d4-4ab26f87849d"/>
+				<text><![CDATA[PLCOSU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="848" y="0" width="114" height="20" uuid="dbe1adfb-b484-45d5-8e3f-62cbe5e01da8"/>
+				<text><![CDATA[PLAFEI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="962" y="0" width="114" height="20" uuid="37436655-fbf3-4166-8244-1787cabe743e"/>
+				<text><![CDATA[PLEFSU]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="114" height="20" uuid="20761d07-fb77-4c12-b062-0380dafff1d3"/>
+				<textFieldExpression><![CDATA[$F{USUCOD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="114" height="20" uuid="efc40a75-d388-4cc0-bb91-1a66048d8394"/>
+				<textFieldExpression><![CDATA[$F{CENCOD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="390" height="20" uuid="9bc96a6d-1c6c-4bad-a54c-d36bb1b61e51"/>
+				<textFieldExpression><![CDATA[$F{CENNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="0" width="114" height="20" uuid="c4609250-a5e9-4b65-98c7-677ef4a50791"/>
+				<textFieldExpression><![CDATA[$F{PLAEST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="734" y="0" width="114" height="20" uuid="84461c76-dcb8-4116-a5fd-26dc601e5ec2"/>
+				<textFieldExpression><![CDATA[$F{PLCOSU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="848" y="0" width="114" height="20" uuid="cdb900d6-a0ee-46c8-a48c-739250cac20f"/>
+				<textFieldExpression><![CDATA[$F{PLAFEI}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="962" y="0" width="114" height="20" uuid="3fe05dc1-2977-4071-b9df-0bdb0ce9a436"/>
+				<textFieldExpression><![CDATA[$F{PLEFSU}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="14" y="0" width="752" height="40" uuid="c8b6b5e0-368a-40df-a660-d320c64dc0bb"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY INFORMACION PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

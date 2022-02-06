@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZPasadias_Sistema_Boletas" language="groovy" pageWidth="842" pageHeight="72000" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd5d35a7-19f9-41dd-a974-567abf6c9430">
+	<property name="ireport.zoom" value="2.143588810000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="375"/>
+	<parameter name="FechaInicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT PASEST, T03.CENNOM, T04.CENNOM AS CRECREACION
+       , T01.PASUCR , TPDDES , SUM(T01.PASVAL) VALOR
+FROM RECAUDOS.MPASDIA AS T01, RECAUDOS.MTIPAS AS T02
+, RECAUDOS.CENTRO AS T03  , RECAUDOS.CENTRO AS T04
+WHERE T01.TPDCOD=T02.TPDCOD AND T01.COCEVP=T03.CENCOD
+AND T01.PASEST <>'A' AND T01.PASFCR>=$P{FechaInicial} AND T01.PASFCR<=$P{FechaFinal}
+AND T04.CENCOD= T01.COCEPD
+GROUP BY PASEST, T03.CENNOM,T04.CENNOM ,T01.PASUCR , TPDDES
+ORDER BY T01.PASUCR]]>
+	</queryString>
+	<field name="PASEST" class="java.lang.String"/>
+	<field name="CENNOM" class="java.lang.String"/>
+	<field name="CRECREACION" class="java.lang.String"/>
+	<field name="PASUCR" class="java.lang.String"/>
+	<field name="TPDDES" class="java.lang.String"/>
+	<field name="VALOR" class="java.math.BigDecimal"/>
+	<variable name="VALOR_1" class="java.math.BigDecimal" resetType="Group" resetGroup="GROUP BY USER" calculation="Sum">
+		<variableExpression><![CDATA[$F{VALOR}]]></variableExpression>
+	</variable>
+	<group name="GROUP BY USER">
+		<groupExpression><![CDATA[$F{PASEST}]]></groupExpression>
+		<groupFooter>
+			<band height="21">
+				<textField pattern="#,##0">
+					<reportElement x="665" y="0" width="133" height="20" uuid="595e97d4-ead1-4409-9d2b-255776f86b37"/>
+					<textFieldExpression><![CDATA[$V{VALOR_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField pattern="yyyy.MMMMM.dd GGG hh:mm aaa">
+				<reportElement x="665" y="0" width="133" height="20" uuid="d81e03f2-cccc-4368-85a1-2fb759c5638d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="798" height="20" uuid="d0558011-cffe-4aac-a0f4-92fb884320ad"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="798" height="20" uuid="dc979aa3-541e-4d0e-9f9d-1029c183f98e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE VENTAS DE PASADIAS DEL SISTEMA WEB]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="133" height="20" uuid="95a3f551-6558-46c6-bdb5-40539ee41dcc"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="0" width="133" height="20" uuid="0ba79ae8-118b-4d81-bc54-7465a5b00740"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Centro de Atencion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="133" height="20" uuid="3cc3d8ba-e8ac-49aa-a976-351212d00833"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sede Recreacional]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="0" width="133" height="20" uuid="2ffa88e2-dc5d-4791-a927-0498f93680ff"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="532" y="0" width="133" height="20" uuid="54a279cc-0a1b-40a9-b8eb-ec5ba124973f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Pasadia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="0" width="133" height="20" uuid="c13fa9ad-c395-4e6f-8489-ed5eb495e07c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="133" height="20" uuid="609f5472-b51c-41e2-b89f-1dc9da9cdbea"/>
+				<textFieldExpression><![CDATA[$F{PASEST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="0" width="133" height="20" uuid="3303e3fc-78f8-4d59-99bb-05b4ee187da0"/>
+				<textFieldExpression><![CDATA[$F{CENNOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="133" height="20" uuid="00142412-5342-4f91-b664-78edf4289e5c"/>
+				<textFieldExpression><![CDATA[$F{CRECREACION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="133" height="20" uuid="312d115c-7550-4ac4-8db0-bab86865a97a"/>
+				<textFieldExpression><![CDATA[$F{PASUCR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="0" width="133" height="20" uuid="54fc0c06-1be4-4231-afdf-428f9fa69af0"/>
+				<textFieldExpression><![CDATA[$F{TPDDES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="665" y="0" width="133" height="20" uuid="0a6c97bb-684a-4720-b2dd-47882a6d12b7"/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="14" width="798" height="20" uuid="265654ab-9f99-4383-9b8b-6f4eb238ee34"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY INFORMACION PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="temporal" language="groovy" pageWidth="1656" pageHeight="595" orientation="Landscape" columnWidth="1616" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea663d5e-4b46-4843-8877-e32d525718f3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="858"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select EMPNCO , TRASSA , T1.* ,T2.*, T3.*
+         from subsilib.MEMPVAL as t1, subsilib.mtrabaj as t2
+, subsilib.liquipag as t3
+where ( char(EMPNCO) like '4%' or
+ char(EMPNCO) like '5%' or char(EMPNCO) like '6%'
+or  char(EMPNCO) like '7%' or char(EMPNCO) like '8%'
+or char(EMPNCO) like '9%' )
+and t1.empcod = t2.empcod   and TRASSA  = 1
+and t2.tradoc = pctliq
+and pfeliq >= 20160101 and pfeliq <= 20170131
+and pcoliq<> 99
+                                                                 ]]>
+	</queryString>
+	<field name="EMPNCO" class="java.math.BigDecimal"/>
+	<field name="TRASSA" class="java.math.BigDecimal"/>
+	<field name="EMPCOD" class="java.math.BigDecimal"/>
+	<field name="EMPRAZ" class="java.lang.String"/>
+	<field name="EMPPRI" class="java.math.BigDecimal"/>
+	<field name="EMPNIT" class="java.math.BigDecimal"/>
+	<field name="EMPDIR" class="java.lang.String"/>
+	<field name="CIUEMP" class="java.math.BigDecimal"/>
+	<field name="BAREMP" class="java.math.BigDecimal"/>
+	<field name="EMPTE1" class="java.math.BigDecimal"/>
+	<field name="EMPTE2" class="java.math.BigDecimal"/>
+	<field name="EMPFAX" class="java.math.BigDecimal"/>
+	<field name="EMPMAI" class="java.lang.String"/>
+	<field name="EMPAPT" class="java.math.BigDecimal"/>
+	<field name="EMPNOM" class="java.math.BigDecimal"/>
+	<field name="EMPTIP" class="java.math.BigDecimal"/>
+	<field name="TSECOD" class="java.math.BigDecimal"/>
+	<field name="TAECOD" class="java.math.BigDecimal"/>
+	<field name="EMPTEM" class="java.math.BigDecimal"/>
+	<field name="EMPAFI" class="java.lang.String"/>
+	<field name="TPOCSG" class="java.math.BigDecimal"/>
+	<field name="EMPCAL" class="java.math.BigDecimal"/>
+	<field name="EMPDEN" class="java.math.BigDecimal"/>
+	<field name="TEECOD" class="java.math.BigDecimal"/>
+	<field name="EMPFUE" class="java.lang.String"/>
+	<field name="NROACT" class="java.math.BigDecimal"/>
+	<field name="EMPDES" class="java.math.BigDecimal"/>
+	<field name="EMPCHE" class="java.math.BigDecimal"/>
+	<field name="EMPFAC" class="java.lang.String"/>
+	<field name="EMPFUA" class="java.lang.String"/>
+	<field name="EMPPUA" class="java.math.BigDecimal"/>
+	<field name="EMPVUA" class="java.math.BigDecimal"/>
+	<field name="EMPFPA" class="java.lang.String"/>
+	<field name="EMPFP1" class="java.lang.String"/>
+	<field name="EMPFP2" class="java.lang.String"/>
+	<field name="EMPVUS" class="java.math.BigDecimal"/>
+	<field name="EMPPUS" class="java.math.BigDecimal"/>
+	<field name="EMPFUS" class="java.lang.String"/>
+	<field name="EMPFSE" class="java.lang.String"/>
+	<field name="EMPVSE" class="java.math.BigDecimal"/>
+	<field name="EMPFBE" class="java.lang.String"/>
+	<field name="EMPVBE" class="java.math.BigDecimal"/>
+	<field name="EMPFBC" class="java.lang.String"/>
+	<field name="EMPVBC" class="java.math.BigDecimal"/>
+	<field name="TDACOD" class="java.math.BigDecimal"/>
+	<field name="EMPNHA" class="java.math.BigDecimal"/>
+	<field name="EMPNHB" class="java.math.BigDecimal"/>
+	<field name="EMPNPA" class="java.math.BigDecimal"/>
+	<field name="EMPNPB" class="java.math.BigDecimal"/>
+	<field name="EMPNCA" class="java.math.BigDecimal"/>
+	<field name="EMPNHI" class="java.math.BigDecimal"/>
+	<field name="EMPNPI" class="java.math.BigDecimal"/>
+	<field name="EMPNCB" class="java.math.BigDecimal"/>
+	<field name="EMPCRL" class="java.math.BigDecimal"/>
+	<field name="EMPNRL" class="java.lang.String"/>
+	<field name="PROCOD" class="java.math.BigDecimal"/>
+	<field name="EMPDIP" class="java.lang.String"/>
+	<field name="EMPFCO" class="java.lang.String"/>
+	<field name="EMPESC" class="java.math.BigDecimal"/>
+	<field name="EMPNOT" class="java.math.BigDecimal"/>
+	<field name="EMPVAL" class="java.math.BigDecimal"/>
+	<field name="EMPISS" class="java.math.BigDecimal"/>
+	<field name="EMPSEN" class="java.math.BigDecimal"/>
+	<field name="EMPTAF" class="java.math.BigDecimal"/>
+	<field name="EMPMA2" class="java.lang.String"/>
+	<field name="TRADOC" class="java.math.BigDecimal"/>
+	<field name="TRATDC" class="java.math.BigDecimal"/>
+	<field name="TRAFAC" class="java.lang.String"/>
+	<field name="TRANOM" class="java.lang.String"/>
+	<field name="TRASEX" class="java.math.BigDecimal"/>
+	<field name="TRAFNC" class="java.lang.String"/>
+	<field name="TRADIR" class="java.lang.String"/>
+	<field name="TRATLR" class="java.math.BigDecimal"/>
+	<field name="CIUTRA" class="java.math.BigDecimal"/>
+	<field name="BARTRA" class="java.math.BigDecimal"/>
+	<field name="TRAECV" class="java.math.BigDecimal"/>
+	<field name="TRAFIE" class="java.lang.String"/>
+	<field name="TRACCO" class="java.math.BigDecimal"/>
+	<field name="TRACAR" class="java.math.BigDecimal"/>
+	<field name="TRAVSB" class="java.math.BigDecimal"/>
+	<field name="TRAFSB" class="java.lang.String"/>
+	<field name="TRANSB" class="java.math.BigDecimal"/>
+	<field name="TRAHTM" class="java.math.BigDecimal"/>
+	<field name="TRASRT" class="java.math.BigDecimal"/>
+	<field name="TRAFES" class="java.lang.String"/>
+	<field name="TRASEM" class="java.math.BigDecimal"/>
+	<field name="TRASRS" class="java.math.BigDecimal"/>
+	<field name="TRAFCN" class="java.lang.String"/>
+	<field name="TRAFUS" class="java.lang.String"/>
+	<field name="TRANCC" class="java.math.BigDecimal"/>
+	<field name="TRASCN" class="java.math.BigDecimal"/>
+	<field name="TRAVCC" class="java.math.BigDecimal"/>
+	<field name="TRAMCF" class="java.math.BigDecimal"/>
+	<field name="TRASGD" class="java.math.BigDecimal"/>
+	<field name="TRACTA" class="java.math.BigDecimal"/>
+	<field name="BANCOD" class="java.math.BigDecimal"/>
+	<field name="TRATEM" class="java.math.BigDecimal"/>
+	<field name="TRAAP1" class="java.lang.String"/>
+	<field name="TRAAP2" class="java.lang.String"/>
+	<field name="TRANO1" class="java.lang.String"/>
+	<field name="TRANO2" class="java.lang.String"/>
+	<field name="TRATAF" class="java.math.BigDecimal"/>
+	<field name="TRACEL" class="java.math.BigDecimal"/>
+	<field name="TRANED" class="java.math.BigDecimal"/>
+	<field name="TRAMAI" class="java.lang.String"/>
+	<field name="TRANTA" class="java.lang.String"/>
+	<field name="TRAFTA" class="java.lang.String"/>
+	<field name="PFELIQ" class="java.lang.String"/>
+	<field name="PPELIQ" class="java.math.BigDecimal"/>
+	<field name="PCELIQ" class="java.math.BigDecimal"/>
+	<field name="PCTLIQ" class="java.math.BigDecimal"/>
+	<field name="PCCLIQ" class="java.math.BigDecimal"/>
+	<field name="PDBLIQ" class="java.math.BigDecimal"/>
+	<field name="PCOLIQ" class="java.math.BigDecimal"/>
+	<field name="PCRLIQ" class="java.math.BigDecimal"/>
+	<field name="PVALIQ" class="java.math.BigDecimal"/>
+	<field name="PDELIQ" class="java.lang.String"/>
+	<field name="PULLIQ" class="java.lang.String"/>
+	<field name="PUCLIQ" class="java.lang.String"/>
+	<field name="PFCLIQ" class="java.lang.String"/>
+	<field name="PCHLIQ" class="java.math.BigDecimal"/>
+	<field name="PTCHLI" class="java.math.BigDecimal"/>
+	<field name="PSELIQ" class="java.math.BigDecimal"/>
+	<field name="PNBLIQ" class="java.lang.String"/>
+	<field name="PESEMP" class="java.math.BigDecimal"/>
+	<field name="PDILIQ" class="java.math.BigDecimal"/>
+	<field name="PAGLIQ" class="java.math.BigDecimal"/>
+	<field name="PSALIQ" class="java.math.BigDecimal"/>
+	<field name="PCALIQ" class="java.lang.String"/>
+	<field name="PRELIQ" class="java.math.BigDecimal"/>
+	<field name="PMPLIQ" class="java.math.BigDecimal"/>
+	<field name="PBCLIQ" class="java.math.BigDecimal"/>
+	<field name="PCNLIQ" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="2" width="100" height="20" uuid="5f260174-9f89-4015-b7fa-4e64a7b4c493"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Codigo CIU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="2" width="100" height="20" uuid="26471610-5b58-45e0-971e-23b2f9288912"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Señal Sector Agro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="2" width="100" height="20" uuid="8156fe45-3c8a-43ac-a60c-e2f29ad9d7d1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Codigo Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="2" width="100" height="20" uuid="26ce22cb-be09-4008-9d3c-274fa4ebd881"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nit Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="2" width="100" height="20" uuid="d980fce2-be12-451c-9700-ef6f561abff8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Razon Social]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="593" y="2" width="100" height="20" uuid="2591e8dc-b98e-47fd-8a0f-f6b3a5720810"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dooc. Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="716" y="2" width="100" height="20" uuid="72a1ec4d-7e42-4866-aaeb-e08eb81b8d37"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="832" y="2" width="100" height="20" uuid="22b1a9c0-3bfd-4958-a505-6abc115638c0"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Afiliacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="947" y="2" width="100" height="20" uuid="789bb383-f125-4011-811f-1e16216d2fe6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Liquidacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1060" y="2" width="100" height="20" uuid="553ed1a9-b86c-4862-b928-95d9123d6d8e"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Periodo de Liqu.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1169" y="2" width="100" height="20" uuid="b57e10a6-9905-4903-a1ed-89e721049860"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiario Liq]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1288" y="3" width="100" height="20" uuid="9b979158-3b12-437f-b6f5-5ea0cf6fa912"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concepto Liq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1400" y="2" width="100" height="20" uuid="95c466d0-db03-435a-80f6-22708089f4a4"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Valor Liq.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="1" width="100" height="20" uuid="329f300b-185c-46a7-9639-5f9239dd4b44"/>
+				<textFieldExpression><![CDATA[$F{EMPNCO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="1" width="100" height="20" uuid="8359acd0-716c-46d5-b03f-2fa114b65164"/>
+				<textFieldExpression><![CDATA[$F{TRASSA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="3" width="100" height="20" uuid="a7baf0fd-b623-4f9d-8064-e55d86140794"/>
+				<textFieldExpression><![CDATA[$F{EMPCOD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="5" width="100" height="20" uuid="2a171600-46f5-47d8-8599-8827764e6cf3"/>
+				<textFieldExpression><![CDATA[$F{EMPNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="5" width="100" height="20" uuid="10d10ae1-de75-489e-be46-54701d67f258"/>
+				<textFieldExpression><![CDATA[$F{EMPRAZ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="593" y="3" width="100" height="20" uuid="c34afff5-d1ee-4346-96d3-9be0f1649e51"/>
+				<textFieldExpression><![CDATA[$F{TRADOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="716" y="4" width="100" height="20" uuid="1f23e89b-1e9a-4f60-ab64-708a6d554e17"/>
+				<textFieldExpression><![CDATA[$F{TRANOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="832" y="7" width="100" height="20" uuid="57cc3462-37d0-44a3-9b5a-14d4585ebea8"/>
+				<textFieldExpression><![CDATA[$F{TRAFAC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="947" y="5" width="100" height="20" uuid="d4c6da2e-9414-4ad5-84c1-565c14d73a39"/>
+				<textFieldExpression><![CDATA[$F{PFELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1060" y="6" width="100" height="20" uuid="6a16b729-3b35-4473-b2d9-977dcf16a7f7"/>
+				<textFieldExpression><![CDATA[$F{PPELIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1169" y="3" width="100" height="20" uuid="6ecf3458-bce0-45f2-8f16-2dfdf6749df5"/>
+				<textFieldExpression><![CDATA[$F{PDBLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1288" y="3" width="100" height="20" uuid="e7172dfd-e189-4548-aaff-717a3d5fb4e1"/>
+				<textFieldExpression><![CDATA[$F{PCOLIQ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1400" y="4" width="100" height="20" uuid="b0bf99f5-d90f-4b99-a939-7474bde5b68e"/>
+				<textFieldExpression><![CDATA[$F{PVALIQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

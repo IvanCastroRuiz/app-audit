@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Dif_Aporte_Diferente_Cuatro_Sin_Ley_1429_580" language="groovy" pageWidth="1800" pageHeight="1080" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="1760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b6187b96-e46f-43d6-8702-3dd09a7bbb59">
+	<property name="ireport.zoom" value="1.6105100000000045"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="FechaIni" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT SALPLA , IBCD,DIAS  , PERAPO , CEDPLA , NOMPLA , CODIGO,  NOMAPO ,INGRES,
+  RETIRO , VPS , VTS , STC , ITC , LMT , VACA , ITA , NROPLA , PORCA  , EMPISS
+FROM SUBSILIB.CERPLA AS T1 , SUBSILIB.CERPLAD AS T2 , SUBSILIB.MEMPVAL
+WHERE NROPLA = PLANIL AND PERDET = PERAPO
+AND FECCER >=$P{FechaIni} AND FECCER <=$P{FechaFin}
+AND CODIGO = EMPCOD AND EMPISS NOT IN ( 35 ,36 , 37 ,38 , 72) AND PORCA <> '0.04']]>
+	</queryString>
+	<field name="SALPLA" class="java.math.BigDecimal"/>
+	<field name="IBCD" class="java.math.BigDecimal"/>
+	<field name="DIAS" class="java.math.BigDecimal"/>
+	<field name="PERAPO" class="java.math.BigDecimal"/>
+	<field name="CEDPLA" class="java.math.BigDecimal"/>
+	<field name="NOMPLA" class="java.lang.String"/>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="NOMAPO" class="java.lang.String"/>
+	<field name="INGRES" class="java.lang.String"/>
+	<field name="RETIRO" class="java.lang.String"/>
+	<field name="VPS" class="java.lang.String"/>
+	<field name="VTS" class="java.lang.String"/>
+	<field name="STC" class="java.lang.String"/>
+	<field name="ITC" class="java.lang.String"/>
+	<field name="LMT" class="java.lang.String"/>
+	<field name="VACA" class="java.lang.String"/>
+	<field name="ITA" class="java.lang.String"/>
+	<field name="NROPLA" class="java.lang.String"/>
+	<field name="PORCA" class="java.lang.String"/>
+	<field name="EMPISS" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="37" width="1759" height="22" uuid="6c5b0362-ac79-40ae-95de-907bca79841d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMFAMILIAR ATLÀNTICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="61" width="1759" height="20" uuid="2707ef1a-ee51-4117-aa05-b5c607313260"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUDITORIA INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="1760" height="20" uuid="68061754-6ce5-4f35-bd85-7ac09dcd4f18"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE EMPRESAS QUE APORTAN MENOS DEL 4% Y NO ESTAN BENEFICIADAS DE LA LEY 1429 Y 580]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="1" y="16" width="1759" height="20" uuid="28b34197-77ad-49e2-8d5f-ca9f7f73356b"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="100" height="20" uuid="6ee1eff9-5565-4400-8d9c-137778c567c1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SALPLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="1" width="100" height="20" uuid="d87951ec-bac6-4a71-b93a-5331d3b1c2cd"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[IBCD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="1" width="100" height="20" uuid="e4b67c03-d8ac-4f2b-9935-1de102fc55a1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PERAPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="1" width="100" height="20" uuid="01ef2d64-2491-450d-b807-c5b04868eac6"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CEDPLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="1" width="100" height="20" uuid="6eb15e09-43ff-442d-9a58-95ea34a09e5a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMPLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="1" width="99" height="20" uuid="ca2e41bc-6bbb-40e5-851e-7dc4308bf96b"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[INGRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="1" width="100" height="20" uuid="8adc5b78-f667-4857-ad41-daaa051d5ae5"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RETIRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="1" width="100" height="20" uuid="01e5deac-11dd-40bf-9e6b-c8109219d8a7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VPS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="800" y="1" width="100" height="20" uuid="b7a08414-cc8e-4155-b301-79f31830e15a"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="1" width="100" height="20" uuid="09c69b80-b677-49bc-bdaf-cac1e76292d1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[STC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1000" y="1" width="100" height="20" uuid="d0523752-c29a-4e28-93b9-3152c261d498"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ITC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1100" y="1" width="100" height="20" uuid="36f4abf9-f9b8-4d20-b2a2-f4f2fcfaafb4"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[LMT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1200" y="1" width="100" height="20" uuid="b9f4c1ee-0896-4d13-8030-74e104390766"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1300" y="1" width="100" height="20" uuid="c5281e0c-9925-4725-8e0a-9f3ab8015970"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ITA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1400" y="1" width="100" height="20" uuid="42e68432-5dd1-4404-bd08-d950086a3a0d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NROPLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1500" y="1" width="100" height="20" uuid="c7e73d04-86b4-4eb0-b25e-f48f23dc7310"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PORCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1600" y="1" width="160" height="20" uuid="d8dceec5-9097-4876-b4f8-9ecc5ffd7e49"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[EMPISS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" uuid="7dee1a0b-06ae-44c1-97a2-caac3387f271"/>
+				<textFieldExpression><![CDATA[$F{SALPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="100" height="20" uuid="c45ae3bc-e7c2-4620-9146-4680400119a8"/>
+				<textFieldExpression><![CDATA[$F{IBCD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="100" height="20" uuid="64331ddc-a6a5-4325-91eb-e4f10eef15f8"/>
+				<textFieldExpression><![CDATA[$F{PERAPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="0" width="100" height="20" uuid="00b3bb72-0fa1-4934-9c16-83ede1ee2362"/>
+				<textFieldExpression><![CDATA[$F{CEDPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="100" height="20" uuid="ada1f597-c081-486b-8c09-3d2f9323e232"/>
+				<textFieldExpression><![CDATA[$F{NOMPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="0" width="99" height="20" uuid="90679e99-0578-4994-99d8-5681f0f58512"/>
+				<textFieldExpression><![CDATA[$F{INGRES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="100" height="20" uuid="b9d8d55c-b3f8-4d7f-8546-2e96c6c2fa6b"/>
+				<textFieldExpression><![CDATA[$F{RETIRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="20" uuid="795dc2cb-8d06-48ce-adc6-a146ddf84ffb"/>
+				<textFieldExpression><![CDATA[$F{VPS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="800" y="0" width="100" height="20" uuid="e3db904b-1e5d-4da5-8ce5-38432fadd9ea"/>
+				<textFieldExpression><![CDATA[$F{VTS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="900" y="0" width="100" height="20" uuid="2c2c8f4f-8df6-41e6-9706-5ff20e2fa74c"/>
+				<textFieldExpression><![CDATA[$F{STC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1000" y="0" width="100" height="20" uuid="79f3ffe2-9f71-45f0-8989-cb1067b85df5"/>
+				<textFieldExpression><![CDATA[$F{ITC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1100" y="0" width="100" height="20" uuid="ae81b36a-68b7-4b49-8f90-8dc8e5b4d5b7"/>
+				<textFieldExpression><![CDATA[$F{LMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1200" y="0" width="100" height="20" uuid="70c87c80-213a-4e62-b253-962a6d871721"/>
+				<textFieldExpression><![CDATA[$F{VACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1300" y="0" width="100" height="20" uuid="fc0be08f-ba7a-4fc2-bc88-75ef938b76d0"/>
+				<textFieldExpression><![CDATA[$F{ITA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1400" y="0" width="100" height="20" uuid="686358ef-aac8-4943-854a-294d8603df18"/>
+				<textFieldExpression><![CDATA[$F{NROPLA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1500" y="0" width="100" height="20" uuid="e975abc1-83e9-4105-9d8b-b304d595b66d"/>
+				<textFieldExpression><![CDATA[$F{PORCA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1600" y="0" width="160" height="20" uuid="b4239026-3aea-451a-874b-421d9440590f"/>
+				<textFieldExpression><![CDATA[$F{EMPISS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="1" y="12" width="1759" height="20" uuid="29ccee7e-8e3a-4d49-9d24-70f15b4b1174"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO HAY INFORMACION PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>
