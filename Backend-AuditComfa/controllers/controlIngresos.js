@@ -1,7 +1,19 @@
+import { Jingreso } from '../model/Jingreso.js';
 
+const diarios = async (req, res) => { //req - lo que enviamos : res - lo que express nos respode
+    const { fecha } = req.body;
+    try {
+        const ingresosDiarios = await Jingreso.findAll({ where :{ fecha: fecha }});
+        //const ingresosDiarios = await Jingreso.findAll();
+        // Devolver una respuesta al frontend
+        return res.status(200).send({
+            status: 'success',
+            ingresosDiarios
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
-const diarios = (req, res) => { //req - lo que enviamos : res - lo que express nos respode
-    res.send("Ingresos Diarios");       
 };
 
 const planillas = (req, res) => { //req - lo que enviamos : res - lo que express nos respode

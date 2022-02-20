@@ -41,6 +41,9 @@ export const Jingreso = db.define('jingreso', {
     SALACTUAL: {
         type: Sequelize.NUMBER
     },
+    SALANTCANJ: {
+        type: Sequelize.NUMBER
+    },
     CVLRRETENI: {
         type: Sequelize.STRING
     },
